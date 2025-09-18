@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research Agenda — Alejandro Reynoso</title>
-  <meta name="description" content="Research agenda on AI for Finance: Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
+  <meta name="description" content="AI for Finance: Quantum‑Inspired Finance, Auditable AI, and Engineered Intelligence." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Research Agenda — Alejandro Reynoso" />
-  <meta property="og:description" content="Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
+  <meta property="og:description" content="Quantum‑Inspired Finance, Auditable AI, and Engineered Intelligence." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
@@ -16,103 +16,211 @@
 
   <link rel="icon" href="/favicon.ico" />
   <style>
+    /* ===================== THEME ===================== */
     :root {
-      --bg: #0b0c10;
-      --bg2:#0f1117;
-      --text: #eaeef7;
-      --muted: #9aa4b2;
-      --brand: #7c5cff;
-      --card: #12151f;
-      --border: #1e2230;
-      --ring: rgba(124,92,255,.35);
+      --bg: #07080c;
+      --bg-2: #0b0f19;
+      --text: #eaf0ff;
+      --muted: #a6b0c3;
+      --brand: #8b5cf6; /* violet */
+      --brand-2:#22d3ee; /* cyan */
+      --card: rgba(14,18,30,.65);
+      --border: rgba(255,255,255,.08);
+      --ring: rgba(139,92,246,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
     }
+    [data-theme="light"]{
+      --bg: #f7f9ff;
+      --bg-2: #ffffff;
+      --text: #0b1020;
+      --muted: #475065;
+      --card: rgba(255,255,255,.75);
+      --border: rgba(10,16,30,.10);
+      --ring: rgba(34,211,238,.35);
+      --shadow: 0 14px 38px rgba(10,16,30,.12);
+    }
+
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
       margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
       Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,.12), transparent 40%),
-                  radial-gradient(800px 600px at -10% 60%, rgba(0, 200, 255, .10), transparent 45%),
-                  var(--bg);
       color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.14), transparent 40%),
+                  radial-gradient(900px 600px at 0% 70%, rgba(34,211,238,.12), transparent 45%), var(--bg);
+      overflow-x: hidden;
     }
+
+    /* Animated aurora background */
+    .bg-aurora::before,
+    .bg-aurora::after {
+      content: ""; position: fixed; inset: -20vmax; z-index: -1; filter: blur(60px); opacity: .55;
+      background: conic-gradient(from 90deg,
+        rgba(139,92,246,.15), rgba(34,211,238,.15), rgba(59,130,246,.12), rgba(139,92,246,.15));
+      animation: spin 40s linear infinite;
+    }
+    .bg-aurora::after { animation-duration: 65s; mix-blend-mode: screen; opacity: .35; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 28px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px; }
 
-    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .logo { font-weight: 700; letter-spacing: .3px; }
-    .nav { display: flex; gap: 14px; }
+    /* Header */
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; backdrop-filter: saturate(1.2) blur(8px); padding: 14px 0; z-index: 3; }
+    .logo { font-weight: 800; letter-spacing: .3px; display: inline-flex; align-items:center; gap:8px; }
+    .logo .dot { width: 10px; height: 10px; border-radius: 999px; background: linear-gradient(45deg,var(--brand),var(--brand-2)); box-shadow: 0 0 0 4px rgba(139,92,246,.18); }
+    .nav { display: flex; gap: 10px; align-items:center; }
     .nav a { color: var(--muted); border: 1px solid transparent; padding: 8px 12px; border-radius: 12px; }
-    .nav a:hover { border-color: var(--border); background: #10131c; }
+    .nav a:hover { border-color: var(--border); background: rgba(255,255,255,.04); }
+    .toggle { border: 1px solid var(--border); padding: 8px 12px; border-radius: 12px; cursor: pointer; color: var(--muted); }
 
-    .hero { padding: 56px 0 24px; }
-    .title { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; margin: 0 0 20px; }
-    .subtitle { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); margin: 0 0 20px; }
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; padding: 64px 0 28px; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+    .eyebrow { display:inline-block; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color: var(--muted); margin-bottom: 10px; }
+    .title { font-size: clamp(38px, 6.6vw, 64px); line-height: 1.04; margin: 0 0 16px; font-weight: 900; }
+    .title .grad { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); margin: 0 0 24px; }
 
-    .section { padding: 32px 0 10px; }
-    .section h2 { font-size: 22px; margin: 0 0 14px; font-weight: 700; letter-spacing: .2px; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow: var(--shadow); transition: box-shadow .2s ease, transform .05s ease; }
+    .btn.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: rgba(255,255,255,.08); color: #0b1020; font-weight: 700; }
+    .btn:hover { box-shadow: 0 0 0 8px var(--ring); transform: translateY(-1px); }
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    /* Sections */
+    .section { padding: 36px 0 12px; position: relative; }
+    .section h2 { font-size: 22px; margin: 0 0 16px; font-weight: 800; letter-spacing: .2px; }
+    .section .lead { color: var(--muted); margin: 0 0 18px; }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 980px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 660px) { .cards { grid-template-columns: 1fr; } }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .card::after { content:""; position:absolute; inset: -20%; background: radial-gradient(400px 200px at 10% 0%, rgba(139,92,246,.18), transparent 40%); transform: translateZ(0); }
     .card h3 { margin: 0; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .chips { display:flex; gap:8px; flex-wrap:wrap; }
+    .chip { padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.04); font-size: 12px; color: var(--muted); }
 
-    footer { margin: 30px 0 10px; padding: 16px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    /* Ribbon */
+    .ribbon { display:flex; gap:14px; overflow:auto; padding: 10px 4px; }
+    .pill { border:1px solid var(--border); border-radius:999px; padding:10px 14px; white-space:nowrap; background: rgba(255,255,255,.04); font-size:13px; }
+
+    /* Footer */
+    footer { margin: 38px 0 14px; padding: 16px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
   </style>
 </head>
 <body>
+  <div class="bg-aurora"></div>
   <div class="wrap">
     <header>
-      <div class="logo">Alejandro Reynoso</div>
+      <div class="logo"><span class="dot"></span> Alejandro Reynoso</div>
       <nav class="nav">
-        <a href="#agenda">Research Agenda</a>
+        <a href="#agenda">Agenda</a>
         <a href="#pillars">Pillars</a>
         <a href="#links">Links</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle theme">☼/☾</button>
       </nav>
     </header>
 
     <section class="hero" id="agenda">
-      <h1 class="title">Advancing AI for Finance</h1>
-      <p class="subtitle">I build and operationalize advanced AI for the financial industry — trustworthy, auditable, and quantum-enhanced reasoning systems to navigate the complexities of modern markets and regulatory environments.</p>
+      <div>
+        <span class="eyebrow">Research Agenda</span>
+        <h1 class="title">Auditable, <span class="grad">Quantum‑Inspired</span> AI for Finance</h1>
+        <p class="subtitle">I operationalize advanced AI for institutional finance: trustworthy, transparent, and regulation‑aware reasoning systems designed for the realities of modern markets.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/alexdibol" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn" href="#pillars">Explore Pillars</a>
+          <a class="btn" href="#links">Read the Work</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height:100%; display:flex; gap:14px;">
+          <h3>Focus</h3>
+          <p>Building <strong>auditable AI</strong> with <strong>structural reasoning</strong>, <strong>human‑in‑the‑loop</strong> governance, and <strong>quantum‑inspired</strong> algorithms for risk and portfolio optimization.</p>
+          <div class="chips">
+            <span class="chip">Hamiltonian mappings</span>
+            <span class="chip">Topological risk</span>
+            <span class="chip">Compliance by design</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="pillars">
       <h2>Research Pillars</h2>
-
-      <div class="card">
-        <h3>Quantum-Inspired Finance</h3>
-        <p>I develop classical algorithms inspired by quantum computing, topology, and geometry to build more robust models for portfolio optimization and risk management. My work on Hamiltonian mappings and topological risk landscapes pioneers a new approach to financial modeling.</p>
+      <p class="lead">Three interconnected streams drive the agenda—bridging rigorous theory with operational reality.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Quantum‑Inspired Finance</h3>
+          <p>I design classical algorithms inspired by quantum computing, topology, and geometry to produce robust models for <strong>portfolio optimization</strong> and <strong>risk management</strong>. Work includes Hamiltonian mappings and topological risk landscapes.</p>
+          <div class="chips"><span class="chip">QAOA‑style methods</span><span class="chip">Graph models</span><span class="chip">Geometry</span></div>
+        </div>
+        <div class="card">
+          <h3>Engineering Auditable AI</h3>
+          <p>Architectures that prioritize <strong>transparency</strong> and <strong>governance</strong>: structural reasoning frameworks, controls for human accountability, and integration playbooks for compliant workflows.</p>
+          <div class="chips"><span class="chip">Model cards</span><span class="chip">TRACE packages</span><span class="chip">HITL</span></div>
+        </div>
+        <div class="card">
+          <h3>The Science of Engineered Intelligence</h3>
+          <p>Studying the theoretical basis of <strong>emergence</strong> via geometry and topology—toward <em>designing</em> new capabilities rather than discovering them by accident.</p>
+          <div class="chips"><span class="chip">Spectral gaps</span><span class="chip">Manifolds</span><span class="chip">Geodesics</span></div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Engineering Auditable AI</h3>
-        <p>I specialize in designing AI architectures that prioritize transparency and governance. My work on structural reasoning frameworks and human-in-the-loop controls provides blueprints for secure and compliant AI integration into institutional workflows, ensuring accountability remains with the human team.</p>
-      </div>
-
-      <div class="card">
-        <h3>The Science of Engineered Intelligence</h3>
-        <p>I investigate the theoretical basis of "emergence" in AI. By applying principles from geometry and topology, I propose methods to engineer new AI capabilities by design rather than treating them as accidental outcomes.</p>
+    <section class="section" id="highlights">
+      <h2>Highlights</h2>
+      <div class="ribbon" aria-label="quick highlights">
+        <div class="pill">Open‑source, minimal‑budget research</div>
+        <div class="pill">Institution‑grade governance</div>
+        <div class="pill">Reproducible pipelines</div>
+        <div class="pill">Topology‑driven risk</div>
+        <div class="pill">Quantum‑inspired optimization</div>
       </div>
     </section>
 
     <section class="section" id="links">
       <h2>Explore My Work</h2>
-      <div class="card">
-        <p>All my research is open source and developed with minimal resources, reflecting my commitment to accessibility and collaboration. I invite fellow researchers and practitioners to connect and explore.</p>
-        <p>
-          <a href="https://github.com/alexdibol/books/tree/main" target="_blank">📖 Long-Form Research</a><br>
-          <a href="https://github.com/alexdibol/papers" target="_blank">📄 Research Papers</a>
-        </p>
+      <div class="cards">
+        <a class="card" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener">
+          <h3>📖 Long‑Form Research</h3>
+          <p>Books and chapter‑length explorations that develop full frameworks and case studies.</p>
+        </a>
+        <a class="card" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener">
+          <h3>📄 Research Papers</h3>
+          <p>Peer‑style manuscripts on Hamiltonian spaces, structural reasoning, and governance.</p>
+        </a>
+        <a class="card" href="mailto:you@example.com">
+          <h3>🤝 Collaborate</h3>
+          <p>Open to research collaborations and institutional pilots. Get in touch.</p>
+        </a>
       </div>
     </section>
 
     <footer>
       <div>© <span id="y"></span> Alejandro Reynoso</div>
-      <div><a href="mailto:you@example.com">Email</a> · <a href="https://github.com/alexdibol" target="_blank">GitHub</a></div>
+      <div><a href="https://github.com/alexdibol" target="_blank">GitHub</a> · <a href="#agenda">Top</a></div>
     </footer>
   </div>
 
   <script>
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle with persistence
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const key = 'theme-pref-v1';
+    const saved = localStorage.getItem(key);
+    if (saved) root.setAttribute('data-theme', saved);
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? '' : 'light';
+      if (next) root.setAttribute('data-theme', next); else root.removeAttribute('data-theme');
+      localStorage.setItem(key, next);
+    });
   </script>
 </body>
 </html>
