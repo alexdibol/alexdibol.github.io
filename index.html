@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research Agenda — Alejandro Reynoso</title>
-  <meta name="description" content="AI for Finance: Quantum‑Inspired Finance, Auditable AI, and Engineered Intelligence." />
+  <meta name="description" content="Research agenda on AI for Finance: Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Research Agenda — Alejandro Reynoso" />
-  <meta property="og:description" content="Quantum‑Inspired Finance, Auditable AI, and Engineered Intelligence." />
+  <meta property="og:description" content="Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
@@ -16,210 +16,572 @@
 
   <link rel="icon" href="/favicon.ico" />
   <style>
-    /* ===================== THEME ===================== */
     :root {
-      --bg: #07080c;
-      --bg-2: #0b0f19;
-      --text: #eaf0ff;
-      --muted: #a6b0c3;
-      --brand: #8b5cf6; /* violet */
-      --brand-2:#22d3ee; /* cyan */
-      --card: rgba(14,18,30,.65);
-      --border: rgba(255,255,255,.08);
-      --ring: rgba(139,92,246,.35);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    [data-theme="light"]{
-      --bg: #f7f9ff;
-      --bg-2: #ffffff;
-      --text: #0b1020;
-      --muted: #475065;
-      --card: rgba(255,255,255,.75);
-      --border: rgba(10,16,30,.10);
-      --ring: rgba(34,211,238,.35);
-      --shadow: 0 14px 38px rgba(10,16,30,.12);
+      --bg: #030008;
+      --bg2: #0a0513;
+      --text: #ffffff;
+      --muted: #b8c5d6;
+      --brand: #7c5cff;
+      --accent: #00d4ff;
+      --card: rgba(18, 21, 31, 0.8);
+      --border: #2a2d3f;
+      --glow: rgba(124, 92, 255, 0.4);
+      --accent-glow: rgba(0, 212, 255, 0.3);
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
-      Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.14), transparent 40%),
-                  radial-gradient(900px 600px at 0% 70%, rgba(34,211,238,.12), transparent 45%), var(--bg);
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body { 
+      height: 100%; 
       overflow-x: hidden;
     }
 
-    /* Animated aurora background */
-    .bg-aurora::before,
-    .bg-aurora::after {
-      content: ""; position: fixed; inset: -20vmax; z-index: -1; filter: blur(60px); opacity: .55;
-      background: conic-gradient(from 90deg,
-        rgba(139,92,246,.15), rgba(34,211,238,.15), rgba(59,130,246,.12), rgba(139,92,246,.15));
-      animation: spin 40s linear infinite;
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      position: relative;
     }
-    .bg-aurora::after { animation-duration: 65s; mix-blend-mode: screen; opacity: .35; }
-    @keyframes spin { to { transform: rotate(1turn); } }
 
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px; }
+    /* Animated Background */
+    .bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      opacity: 0.6;
+    }
 
-    /* Header */
-    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; backdrop-filter: saturate(1.2) blur(8px); padding: 14px 0; z-index: 3; }
-    .logo { font-weight: 800; letter-spacing: .3px; display: inline-flex; align-items:center; gap:8px; }
-    .logo .dot { width: 10px; height: 10px; border-radius: 999px; background: linear-gradient(45deg,var(--brand),var(--brand-2)); box-shadow: 0 0 0 4px rgba(139,92,246,.18); }
-    .nav { display: flex; gap: 10px; align-items:center; }
-    .nav a { color: var(--muted); border: 1px solid transparent; padding: 8px 12px; border-radius: 12px; }
-    .nav a:hover { border-color: var(--border); background: rgba(255,255,255,.04); }
-    .toggle { border: 1px solid var(--border); padding: 8px 12px; border-radius: 12px; cursor: pointer; color: var(--muted); }
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 100, 200, 0.05) 0%, transparent 50%),
+        var(--bg);
+    }
 
-    /* Hero */
-    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; padding: 64px 0 28px; }
-    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
-    .eyebrow { display:inline-block; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color: var(--muted); margin-bottom: 10px; }
-    .title { font-size: clamp(38px, 6.6vw, 64px); line-height: 1.04; margin: 0 0 16px; font-weight: 900; }
-    .title .grad { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .subtitle { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); margin: 0 0 24px; }
+    a { 
+      color: inherit; 
+      text-decoration: none; 
+      transition: all 0.3s ease;
+    }
 
-    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow: var(--shadow); transition: box-shadow .2s ease, transform .05s ease; }
-    .btn.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: rgba(255,255,255,.08); color: #0b1020; font-weight: 700; }
-    .btn:hover { box-shadow: 0 0 0 8px var(--ring); transform: translateY(-1px); }
+    .wrap { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
 
-    /* Sections */
-    .section { padding: 36px 0 12px; position: relative; }
-    .section h2 { font-size: 22px; margin: 0 0 16px; font-weight: 800; letter-spacing: .2px; }
-    .section .lead { color: var(--muted); margin: 0 0 18px; }
+    /* Header with glass morphism */
+    header { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 24px 0;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 40px;
+    }
 
-    /* Cards */
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 980px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 660px) { .cards { grid-template-columns: 1fr; } }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-    .card::after { content:""; position:absolute; inset: -20%; background: radial-gradient(400px 200px at 10% 0%, rgba(139,92,246,.18), transparent 40%); transform: translateZ(0); }
-    .card h3 { margin: 0; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-    .chips { display:flex; gap:8px; flex-wrap:wrap; }
-    .chip { padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.04); font-size: 12px; color: var(--muted); }
+    .logo { 
+      font-weight: 800; 
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-    /* Ribbon */
-    .ribbon { display:flex; gap:14px; overflow:auto; padding: 10px 4px; }
-    .pill { border:1px solid var(--border); border-radius:999px; padding:10px 14px; white-space:nowrap; background: rgba(255,255,255,.04); font-size:13px; }
+    .nav { 
+      display: flex; 
+      gap: 8px; 
+    }
+
+    .nav a { 
+      color: var(--muted); 
+      padding: 12px 20px; 
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      border: 1px solid transparent;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav a:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav a:hover {
+      border-color: var(--brand);
+      color: white;
+      box-shadow: 0 0 20px var(--glow);
+      transform: translateY(-2px);
+    }
+
+    .nav a:hover:before {
+      left: 100%;
+    }
+
+    /* Hero Section */
+    .hero { 
+      padding: 80px 0 120px;
+      text-align: center;
+      position: relative;
+    }
+
+    .title { 
+      font-size: clamp(48px, 8vw, 80px); 
+      line-height: 0.9; 
+      margin: 0 0 24px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--brand) 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(124, 92, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 40px rgba(124, 92, 255, 0.6)); }
+    }
+
+    .subtitle { 
+      font-size: clamp(18px, 2.5vw, 24px); 
+      color: var(--muted); 
+      margin: 0 0 40px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(124, 92, 255, 0.4);
+    }
+
+    .cta-button:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-button:hover:before {
+      left: 100%;
+    }
+
+    /* Floating particles */
+
+    /* Section styling */
+    .section { 
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .section h2 { 
+      font-size: 36px; 
+      margin: 0 0 48px; 
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, white, var(--muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Card grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card { 
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    .card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brand), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--brand);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(124, 92, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .card:hover:before {
+      opacity: 1;
+    }
+
+    .card h3 { 
+      margin: 0 0 16px; 
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .card p { 
+      margin: 0; 
+      color: var(--muted); 
+      font-size: 16px; 
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .card.highlight {
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(0, 212, 255, 0.05));
+      border-color: var(--brand);
+    }
+
+    .card.highlight h3 {
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Links section */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .link-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+    }
+
+    .link-card a {
+      display: block;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
 
     /* Footer */
-    footer { margin: 38px 0 14px; padding: 16px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    footer { 
+      margin: 80px 0 40px; 
+      padding: 32px 0; 
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted); 
+      font-size: 14px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      flex-wrap: wrap; 
+      gap: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    footer a:hover {
+      color: var(--brand);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .wrap { padding: 0 20px; }
+      .nav { flex-direction: column; gap: 8px; }
+      .nav a { text-align: center; }
+      .hero { padding: 60px 0 80px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 20px; text-align: center; }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
   </style>
 </head>
 <body>
-  <div class="bg-aurora"></div>
+  <!-- Animated background -->
+  <canvas class="bg-canvas" id="bgCanvas"></canvas>
+  <div class="bg-gradient"></div>
+
   <div class="wrap">
-    <header>
-      <div class="logo"><span class="dot"></span> Alejandro Reynoso</div>
+    <header class="fade-in">
+      <div class="logo">Alejandro Reynoso</div>
       <nav class="nav">
-        <a href="#agenda">Agenda</a>
+        <a href="#agenda">Research Agenda</a>
         <a href="#pillars">Pillars</a>
         <a href="#links">Links</a>
-        <button class="toggle" id="themeToggle" aria-label="Toggle theme">☼/☾</button>
       </nav>
     </header>
 
     <section class="hero" id="agenda">
-      <div>
-        <span class="eyebrow">Research Agenda</span>
-        <h1 class="title">Auditable, <span class="grad">Quantum‑Inspired</span> AI for Finance</h1>
-        <p class="subtitle">I operationalize advanced AI for institutional finance: trustworthy, transparent, and regulation‑aware reasoning systems designed for the realities of modern markets.</p>
-        <div class="cta">
-          <a class="btn primary" href="https://github.com/alexdibol" target="_blank" rel="noopener">View GitHub</a>
-          <a class="btn" href="#pillars">Explore Pillars</a>
-          <a class="btn" href="#links">Read the Work</a>
-        </div>
-      </div>
-      <div>
-        <div class="card" style="height:100%; display:flex; gap:14px;">
-          <h3>Focus</h3>
-          <p>Building <strong>auditable AI</strong> with <strong>structural reasoning</strong>, <strong>human‑in‑the‑loop</strong> governance, and <strong>quantum‑inspired</strong> algorithms for risk and portfolio optimization.</p>
-          <div class="chips">
-            <span class="chip">Hamiltonian mappings</span>
-            <span class="chip">Topological risk</span>
-            <span class="chip">Compliance by design</span>
-          </div>
-        </div>
-      </div>
+      <h1 class="title fade-in delay-1">Advancing AI for Finance</h1>
+      <p class="subtitle fade-in delay-2">Building the next generation of trustworthy, auditable, and quantum-enhanced AI systems that navigate the complexities of modern markets and regulatory environments.</p>
+      <a href="#pillars" class="cta-button fade-in delay-3">Explore Research</a>
     </section>
 
     <section class="section" id="pillars">
-      <h2>Research Pillars</h2>
-      <p class="lead">Three interconnected streams drive the agenda—bridging rigorous theory with operational reality.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Quantum‑Inspired Finance</h3>
-          <p>I design classical algorithms inspired by quantum computing, topology, and geometry to produce robust models for <strong>portfolio optimization</strong> and <strong>risk management</strong>. Work includes Hamiltonian mappings and topological risk landscapes.</p>
-          <div class="chips"><span class="chip">QAOA‑style methods</span><span class="chip">Graph models</span><span class="chip">Geometry</span></div>
-        </div>
-        <div class="card">
-          <h3>Engineering Auditable AI</h3>
-          <p>Architectures that prioritize <strong>transparency</strong> and <strong>governance</strong>: structural reasoning frameworks, controls for human accountability, and integration playbooks for compliant workflows.</p>
-          <div class="chips"><span class="chip">Model cards</span><span class="chip">TRACE packages</span><span class="chip">HITL</span></div>
-        </div>
-        <div class="card">
-          <h3>The Science of Engineered Intelligence</h3>
-          <p>Studying the theoretical basis of <strong>emergence</strong> via geometry and topology—toward <em>designing</em> new capabilities rather than discovering them by accident.</p>
-          <div class="chips"><span class="chip">Spectral gaps</span><span class="chip">Manifolds</span><span class="chip">Geodesics</span></div>
-        </div>
-      </div>
-    </section>
+      <h2 class="fade-in">Research Pillars</h2>
 
-    <section class="section" id="highlights">
-      <h2>Highlights</h2>
-      <div class="ribbon" aria-label="quick highlights">
-        <div class="pill">Open‑source, minimal‑budget research</div>
-        <div class="pill">Institution‑grade governance</div>
-        <div class="pill">Reproducible pipelines</div>
-        <div class="pill">Topology‑driven risk</div>
-        <div class="pill">Quantum‑inspired optimization</div>
+      <div class="cards-grid">
+        <div class="card highlight fade-in delay-1">
+          <h3>Quantum-Inspired Finance</h3>
+          <p>Developing classical algorithms inspired by quantum computing, topology, and geometry to build more robust models for portfolio optimization and risk management. My work on Hamiltonian mappings and topological risk landscapes pioneers a revolutionary approach to financial modeling.</p>
+        </div>
+
+        <div class="card fade-in delay-2">
+          <h3>Engineering Auditable AI</h3>
+          <p>Specializing in AI architectures that prioritize transparency and governance. My work on structural reasoning frameworks and human-in-the-loop controls provides blueprints for secure and compliant AI integration into institutional workflows, ensuring accountability remains with the human team.</p>
+        </div>
+
+        <div class="card fade-in delay-3">
+          <h3>The Science of Engineered Intelligence</h3>
+          <p>Investigating the theoretical basis of "emergence" in AI systems. By applying principles from geometry and topology, I propose methods to engineer new AI capabilities by design rather than treating them as accidental outcomes.</p>
+        </div>
       </div>
     </section>
 
     <section class="section" id="links">
-      <h2>Explore My Work</h2>
-      <div class="cards">
-        <a class="card" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener">
-          <h3>📖 Long‑Form Research</h3>
-          <p>Books and chapter‑length explorations that develop full frameworks and case studies.</p>
-        </a>
-        <a class="card" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener">
-          <h3>📄 Research Papers</h3>
-          <p>Peer‑style manuscripts on Hamiltonian spaces, structural reasoning, and governance.</p>
-        </a>
-        <a class="card" href="mailto:you@example.com">
-          <h3>🤝 Collaborate</h3>
-          <p>Open to research collaborations and institutional pilots. Get in touch.</p>
-        </a>
+      <h2 class="fade-in">Explore My Work</h2>
+      
+      <div class="card fade-in delay-1" style="text-align: center; margin-bottom: 40px;">
+        <h3>Open Source Research</h3>
+        <p>All my research is open source and developed with minimal resources, reflecting my commitment to accessibility and collaboration. I invite fellow researchers and practitioners to connect and explore cutting-edge AI for finance.</p>
+      </div>
+
+      <div class="links-grid">
+        <div class="link-card fade-in delay-2">
+          <a href="https://github.com/alexdibol/books/tree/main" target="_blank">Long-Form Research</a>
+          <p>In-depth theoretical foundations and comprehensive studies on quantum-inspired algorithms and AI governance frameworks.</p>
+        </div>
+        <div class="link-card fade-in delay-3">
+          <a href="https://github.com/alexdibol/papers" target="_blank">Research Papers</a>
+          <p>Peer-reviewed publications and working papers on engineered intelligence and financial AI applications.</p>
+        </div>
       </div>
     </section>
 
-    <footer>
+    <footer class="fade-in">
       <div>© <span id="y"></span> Alejandro Reynoso</div>
-      <div><a href="https://github.com/alexdibol" target="_blank">GitHub</a> · <a href="#agenda">Top</a></div>
+      <div>
+        <a href="mailto:you@example.com">Email</a> · 
+        <a href="https://github.com/alexdibol" target="_blank">GitHub</a>
+      </div>
     </footer>
   </div>
 
   <script>
-    // Year
+    // Set current year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Theme toggle with persistence
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const key = 'theme-pref-v1';
-    const saved = localStorage.getItem(key);
-    if (saved) root.setAttribute('data-theme', saved);
-    toggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'light' ? '' : 'light';
-      if (next) root.setAttribute('data-theme', next); else root.removeAttribute('data-theme');
-      localStorage.setItem(key, next);
+    // Animated background canvas
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Neural network animation
+    const nodes = [];
+    const connections = [];
+    
+    class Node {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 2 + 1;
+        this.opacity = Math.random() * 0.5 + 0.3;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(124, 92, 255, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+    
+    // Create nodes
+    for (let i = 0; i < 50; i++) {
+      nodes.push(new Node(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height
+      ));
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw nodes
+      nodes.forEach(node => {
+        node.update();
+        node.draw();
+      });
+      
+      // Draw connections
+      nodes.forEach((node, i) => {
+        nodes.slice(i + 1).forEach(otherNode => {
+          const dx = node.x - otherNode.x;
+          const dy = node.y - otherNode.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(otherNode.x, otherNode.y);
+            const opacity = (150 - distance) / 150 * 0.1;
+            ctx.strokeStyle = `rgba(124, 92, 255, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        });
+      });
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
     });
   </script>
 </body>
