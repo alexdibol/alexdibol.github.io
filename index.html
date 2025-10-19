@@ -5,196 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research Agenda — Alejandro Reynoso</title>
   <meta name="description" content="Research agenda on AI for Finance: Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
-
-  
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Research Agenda — Alejandro Reynoso" />
   <meta property="og:description" content="Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <link rel="icon" href="/favicon.ico" />
 
   <style>
     :root {
       --bg: #030008;
       --bg2: #0a0513;
-      --text: #ffffff;
+      --text: #fff;
       --muted: #b8c5d6;
       --brand: #7c5cff;
       --accent: #00d4ff;
       --card: rgba(18, 21, 31, 0.8);
       --border: #2a2d3f;
       --glow: rgba(124, 92, 255, 0.4);
-      --accent-glow: rgba(0, 212, 255, 0.3);
+      --accent-glow: rgba(0,212,255,0.3);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow-x: hidden; }
-    body {
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      position: relative;
-    }
-
-    /* Animated Background */
-    .bg-canvas {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: -2; opacity: 0.6;
-    }
-
-    .bg-gradient {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(255, 100, 200, 0.05) 0%, transparent 50%),
-        var(--bg);
-    }
-
-    a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
-
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 24px 0; backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 40px;
-    }
-
-    .logo { font-weight: 800; font-size: 28px; letter-spacing: -0.5px;
-      color: #ffffff; text-shadow: 0 0 15px rgba(124, 92, 255, 0.4);
-    }
-
-    .nav { display: flex; gap: 8px; }
-
-    .nav a {
-      color: var(--muted); padding: 12px 20px; border-radius: 20px;
-      font-weight: 500; font-size: 14px; letter-spacing: 0.3px;
-      border: 1px solid transparent; backdrop-filter: blur(10px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative; overflow: hidden;
-    }
-
-    .nav a:before {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.5s;
-    }
-
-    .nav a:hover {
-      border-color: var(--brand); color: white;
-      box-shadow: 0 0 20px var(--glow); transform: translateY(-2px);
-    }
-
-    .nav a:hover:before { left: 100%; }
-
-    /* Hero Section */
-    .hero { padding: 80px 0 120px; text-align: center; position: relative; }
-    .title {
-      font-size: clamp(48px, 8vw, 80px); line-height: 0.9;
-      margin: 0 0 24px; font-weight: 900; letter-spacing: -2px;
-      color: #ffffff; text-shadow: 0 0 30px rgba(124, 92, 255, 0.5);
-      animation: titleGlow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes titleGlow {
-      0% { text-shadow: 0 0 20px rgba(124, 92, 255, 0.3); }
-      100% { text-shadow: 0 0 40px rgba(124, 92, 255, 0.6); }
-    }
-
-    .subtitle {
-      font-size: clamp(18px, 2.5vw, 24px); color: var(--muted);
-      margin: 0 0 40px; line-height: 1.6; max-width: 800px;
-      margin-left: auto; margin-right: auto; font-weight: 400;
-    }
-
-    .cta-button {
-      display: inline-block; padding: 16px 32px;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      border-radius: 50px; font-weight: 600; font-size: 16px; color: white;
-      border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 1px;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px); box-shadow: 0 15px 35px rgba(124, 92, 255, 0.4);
-    }
-
-    .cta-button:before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .cta-button:hover:before { left: 100%; }
-
-    .section { padding: 60px 0; position: relative; }
-    .section h2 {
-      font-size: 36px; margin: 0 0 48px; font-weight: 800; text-align: center;
-      letter-spacing: -1px; color: #ffffff; text-shadow: 0 0 20px rgba(124, 92, 255, 0.3);
-    }
-
-    .cards-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 24px; margin-bottom: 40px;
-    }
-
-    .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 24px;
-      padding: 32px; position: relative; backdrop-filter: blur(10px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;
-    }
-
-    .card:hover { transform: translateY(-8px); border-color: var(--brand);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3),
-                  0 0 0 1px rgba(124, 92, 255, 0.1),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    .card h3 { margin: 0 0 16px; font-size: 24px; font-weight: 700; color: white; letter-spacing: -0.5px; }
-    .card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; font-weight: 400; }
-    .card.highlight { background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(0, 212, 255, 0.05)); border-color: var(--brand); }
-    .card.highlight h3 { color: var(--brand); text-shadow: 0 0 10px rgba(124, 92, 255, 0.3); }
-
-    footer {
-      margin: 80px 0 40px; padding: 32px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1); color: var(--muted);
-      font-size: 14px; display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 16px; backdrop-filter: blur(10px);
-    }
-    footer a:hover { color: var(--brand); }
-
-    @media (max-width: 768px) {
-      .wrap { padding: 0 20px; }
-      .nav { flex-direction: column; gap: 8px; }
-      .nav a { text-align: center; }
-      .hero { padding: 60px 0 80px; }
-      .cards-grid { grid-template-columns: 1fr; }
-      header { flex-direction: column; gap: 20px; text-align: center; }
-    }
-
-    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);}
+    a{color:inherit;text-decoration:none;transition:.3s;}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:24px 0;margin-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);}
+    .logo{font-weight:800;font-size:28px;color:#fff;text-shadow:0 0 15px var(--glow);}
+    .nav{display:flex;gap:8px;}
+    .nav a{color:var(--muted);padding:10px 18px;border-radius:20px;font-weight:500;}
+    .nav a:hover{color:#fff;box-shadow:0 0 10px var(--glow);}
+    .hero{text-align:center;padding:80px 0 120px;}
+    .title{font-size:clamp(48px,8vw,80px);font-weight:900;margin-bottom:24px;color:#fff;text-shadow:0 0 30px var(--glow);}
+    .subtitle{font-size:20px;color:var(--muted);max-width:700px;margin:0 auto 40px;line-height:1.6;}
+    .cta-button{display:inline-block;padding:16px 32px;border-radius:40px;background:linear-gradient(135deg,var(--brand),var(--accent));color:white;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+    .cta-button:hover{transform:translateY(-3px);box-shadow:0 0 25px var(--glow);}
+    .section{padding:60px 0;position:relative;}
+    .section h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:48px;color:#fff;text-shadow:0 0 20px var(--glow);}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;backdrop-filter:blur(10px);transition:.4s;}
+    .card:hover{transform:translateY(-6px);border-color:var(--brand);box-shadow:0 15px 40px rgba(124,92,255,.2);}
+    .card h3{color:#fff;font-size:22px;margin-bottom:12px;}
+    .card p{color:var(--muted);font-size:16px;line-height:1.6;}
+    footer{margin:80px 0 40px;padding:32px 0;border-top:1px solid rgba(255,255,255,.1);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+    footer a:hover{color:var(--brand);}
+    @media(max-width:768px){.wrap{padding:0 20px;}.cards-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 
 <body>
-  <canvas class="bg-canvas" id="bgCanvas"></canvas>
-  <div class="bg-gradient"></div>
-
   <div class="wrap">
-    <header class="fade-in">
+    <header>
       <div class="logo">Alejandro Reynoso</div>
       <nav class="nav">
         <a href="#agenda">Research Agenda</a>
@@ -205,124 +67,89 @@
     </header>
 
     <section class="hero" id="agenda">
-      <h1 class="title fade-in delay-1">Advancing AI for Finance</h1>
-      <p class="subtitle fade-in delay-2">Building the next generation of trustworthy, auditable, and quantum-enhanced AI systems that navigate the complexities of modern markets and regulatory environments.</p>
-      <a href="#pillars" class="cta-button fade-in delay-3">Explore Research</a>
+      <h1 class="title">Advancing AI for Finance</h1>
+      <p class="subtitle">Building the next generation of trustworthy, auditable, and quantum-enhanced AI systems that navigate the complexities of modern markets and regulatory environments.</p>
+      <a href="#pillars" class="cta-button">Explore Research</a>
     </section>
 
+    <!-- Research Pillars -->
     <section class="section" id="pillars">
-      <h2 class="fade-in">Research Pillars</h2>
+      <h2>Research Pillars</h2>
       <div class="cards-grid">
-        <div class="card highlight fade-in delay-1">
-          <h3>Quantum-Inspired Finance</h3>
-          <p>Developing classical algorithms inspired by quantum computing, topology, and geometry to build more robust models for portfolio optimization and risk management.</p>
-        </div>
-        <div class="card fade-in delay-2">
-          <h3>Engineering Auditable AI</h3>
-          <p>Creating AI architectures that prioritize transparency and governance for institutional finance.</p>
-        </div>
-        <div class="card fade-in delay-3">
-          <h3>The Science of Engineered Intelligence</h3>
-          <p>Investigating the theoretical basis of emergence in AI systems and designing intelligence by construction.</p>
-        </div>
+        <div class="card"><h3>Quantum-Inspired Finance</h3><p>Developing classical algorithms inspired by quantum computing, topology, and geometry for portfolio optimization and risk management.</p></div>
+        <div class="card"><h3>Engineering Auditable AI</h3><p>Designing transparent, governable architectures ensuring accountability within institutional AI systems.</p></div>
+        <div class="card"><h3>The Science of Engineered Intelligence</h3><p>Exploring emergence in AI through geometric and topological reasoning to engineer cognition by design.</p></div>
       </div>
     </section>
 
-    <!-- COURSES & EDUCATION SECTION -->
+    <!-- Courses & Education -->
     <section class="section" id="courses">
-      <h2 class="fade-in">Courses & Education</h2>
+      <h2>Courses & Education</h2>
+      <div class="cards-grid" style="margin-bottom:40px;">
+        <div class="card" style="grid-column:1/-1;text-align:center;">
+          <h3><a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-size:24px;">AI for Financial Practitioners — Trilogy</a></h3>
+          <p>A three-volume educational program combining finance, intelligence, and quantum-inspired reasoning. Each volume features interactive Google Colab notebooks turning theory into simulation.</p>
+        </div>
+      </div>
       <div class="cards-grid">
-        <div class="card highlight fade-in delay-1">
-          <h3>AI for Financial Practitioners — Trilogy</h3>
-          <p>A three-volume curriculum uniting finance, intelligence, and quantum-inspired reasoning.  
-          Each book transforms learning into experimentation through interactive Google Colab notebooks.</p>
-          <p style="margin-top:16px;">
-            <a href="https://github.com/alexdibol/courses_education" target="_blank" style="color: var(--accent); font-weight:600;">→ View the Trilogy on GitHub</a>
-          </p>
-        </div>
-
-        <div class="card fade-in delay-2">
+        <div class="card">
           <h3>Volume I — Foundations of Financial Machine Learning</h3>
-          <p>Explores the architecture of intelligence — from neurons to networks,  
-          introducing the principles of AI as applied to finance.</p>
-          <p style="margin-top:16px;">
-            <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" style="color: var(--accent); font-weight:600;">→ Download Volume I</a>
-          </p>
+          <p>From neurons to deep networks: constructing the financial brain through learning architectures and adaptive forecasting.</p>
+          <p style="margin-top:12px;"><a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume I</a></p>
         </div>
-
-        <div class="card fade-in delay-3">
+        <div class="card">
           <h3>Volume II — Agentic Systems in Finance</h3>
-          <p>Introduces multi-agent reinforcement learning and negotiation in financial ecosystems,  
-          where autonomous systems learn, trade, and adapt.</p>
-          <p style="margin-top:16px;">
-            <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank" style="color: var(--accent); font-weight:600;">→ Download Volume II</a>
-          </p>
+          <p>Multi-agent reinforcement learning, cooperation, and negotiation architectures bringing market behavior to life.</p>
+          <p style="margin-top:12px;"><a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume II</a></p>
         </div>
-
-        <div class="card fade-in delay-4">
-          <h3>Volume III — Structural Intelligence and Quantum Reasoning</h3>
-          <p>Explores Hamiltonian portfolios, reasoning molecules, and the geometry of emergent financial intelligence.</p>
-          <p style="margin-top:16px;">
-            <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank" style="color: var(--accent); font-weight:600;">→ Download Volume III</a>
-          </p>
+        <div class="card">
+          <h3>Volume III — Structural Intelligence & Quantum Reasoning</h3>
+          <p>Exploring Hamiltonian portfolios, reasoning molecules, and the geometry of financial intelligence emerging from quantum logic.</p>
+          <p style="margin-top:12px;"><a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume III</a></p>
         </div>
       </div>
     </section>
 
+    <!-- Explore My Work -->
     <section class="section" id="links">
-      <h2 class="fade-in">Explore My Work</h2>
-      <div class="links-grid">
-        <div class="card fade-in delay-2">
-          <a href="https://github.com/alexdibol/books/tree/main" target="_blank">Long-Form Research</a>
-          <p>Comprehensive monographs on quantum-inspired algorithms and reasoning architectures.</p>
+      <h2>Explore My Work</h2>
+
+      <!-- Centered intro block -->
+      <div class="card" style="text-align:center;margin-bottom:40px;">
+        <h3>Open Source Research & Collaboration</h3>
+        <p>All my research is developed using open-source tools, ensuring transparency and accessibility.  
+        This is an invitation for collaboration: join me in shaping the next era of financial AI.</p>
+        <p><strong>Interested in collaborating? Let’s connect and build the future of financial AI together.</strong></p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <a href="https://github.com/alexdibol/books/tree/main" target="_blank" style="color:var(--accent);font-weight:600;">Long-Form Research</a>
+          <p>Comprehensive monographs on quantum-inspired algorithms, reasoning systems, and AI governance frameworks.</p>
         </div>
-        <div class="card fade-in delay-3">
-          <a href="https://github.com/alexdibol/papers" target="_blank">Research Papers</a>
-          <p>Ongoing research and working papers on engineered intelligence and AI governance.</p>
+        <div class="card">
+          <a href="https://github.com/alexdibol/papers" target="_blank" style="color:var(--accent);font-weight:600;">Research Papers</a>
+          <p>Working papers and applied studies on engineered intelligence, structural reasoning, and quantum-financial models.</p>
         </div>
-        <div class="card fade-in delay-4">
-          <a href="mailto:areynoso@yahoo.com">Contact & Collaboration</a>
-          <p>Collaborate on the next frontier of financial intelligence and quantum reasoning.</p>
+        <div class="card">
+          <a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-weight:600;">Educational Material</a>
+          <p>The AI for Financial Practitioners Trilogy — a living curriculum for finance and intelligence education through interactive experimentation.</p>
+        </div>
+        <div class="card">
+          <a href="mailto:areynoso@yahoo.com" style="color:var(--accent);font-weight:600;">Contact & Collaboration</a>
+          <p>Reach out for research partnerships, academic initiatives, or cross-disciplinary projects in AI and finance.</p>
         </div>
       </div>
     </section>
 
-    <footer class="fade-in">
+    <footer>
       <div>© <span id="y"></span> Alejandro Reynoso</div>
       <div><a href="mailto:areynoso@yahoo.com">areynoso@yahoo.com</a> · <a href="https://github.com/alexdibol" target="_blank">GitHub</a></div>
     </footer>
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const canvas = document.getElementById('bgCanvas');
-    const ctx = canvas.getContext('2d');
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
-    const nodes = []; class Node {
-      constructor(x,y){this.x=x;this.y=y;this.vx=(Math.random()-.5)*.5;this.vy=(Math.random()-.5)*.5;this.radius=Math.random()*2+1;this.opacity=Math.random()*.5+.3;}
-      update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
-      draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.fillStyle=`rgba(124,92,255,${this.opacity})`;ctx.fill();}
-    }
-    for(let i=0;i<50;i++){nodes.push(new Node(Math.random()*canvas.width,Math.random()*canvas.height));}
-    function animate(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      nodes.forEach(n=>{n.update();n.draw();});
-      nodes.forEach((n,i)=>{nodes.slice(i+1).forEach(o=>{
-        const dx=n.x-o.x,dy=n.y-o.y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<150){ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(o.x,o.y);
-        ctx.strokeStyle=`rgba(124,92,255,${(150-d)/150*0.1})`;ctx.lineWidth=0.5;ctx.stroke();}
-      });});
-      requestAnimationFrame(animate);
-    }
-    animate();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        e.preventDefault();
-        const t=document.querySelector(a.getAttribute('href'));
-        if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}
-      });
-    });
+    document.getElementById("y").textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
