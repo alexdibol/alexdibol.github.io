@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research Agenda — Alejandro Reynoso</title>
-  <meta name="description" content="Research agenda on AI for Finance: Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
+  <meta name="description" content="Research agenda on AI for Finance: Quantum-Inspired Finance, Auditable AI, Minimalist Training of Reasoning Models (NEW Volume IV), and the Science of Engineered Intelligence." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Research Agenda — Alejandro Reynoso" />
-  <meta property="og:description" content="Quantum-Inspired Finance, Auditable AI, and the Science of Engineered Intelligence." />
+  <meta property="og:description" content="Quantum-Inspired Finance, Auditable AI, Minimalist Training (Vol. IV), and the Science of Engineered Intelligence." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
@@ -28,6 +28,8 @@
       --border: #2a2d3f;
       --glow: rgba(124, 92, 255, 0.4);
       --accent-glow: rgba(0, 212, 255, 0.3);
+      --new: #18ffa3;
+      --new-glow: rgba(24, 255, 163, 0.25);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,7 +72,7 @@
     .nav a:hover { color: white; box-shadow: 0 0 10px var(--glow); }
 
     .hero {
-      padding: 80px 0 120px;
+      padding: 80px 0 20px;
       text-align: center;
     }
     .title {
@@ -84,7 +86,7 @@
       font-size: clamp(18px, 2.5vw, 22px);
       color: var(--muted);
       max-width: 800px;
-      margin: 0 auto 40px;
+      margin: 0 auto 24px;
       line-height: 1.6;
     }
     .cta-button {
@@ -98,6 +100,34 @@
       letter-spacing: 1px;
     }
     .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--glow); }
+
+    .announce {
+      margin: 28px auto 0;
+      max-width: 860px;
+      background: linear-gradient(135deg, rgba(24,255,163,0.08), rgba(0,212,255,0.06));
+      border: 1px solid rgba(24,255,163,0.35);
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: #eafff7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px var(--new-glow);
+    }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #00150c;
+      background: var(--new);
+      box-shadow: 0 0 0 4px rgba(24,255,163,0.15);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .announce a { color: #00ffd0; text-decoration: underline; }
 
     .section { padding: 60px 0; }
     .section h2 {
@@ -132,6 +162,18 @@
     .card h3 { font-size: 22px; color: white; margin-bottom: 12px; }
     .card p { color: var(--muted); font-size: 16px; line-height: 1.7; }
 
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #0a1120;
+      background: #bfc8ff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
     footer {
       margin: 80px 0 40px;
       padding: 32px 0;
@@ -149,6 +191,7 @@
       .wrap { padding: 0 20px; }
       .cards-grid { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 16px; text-align: center; }
+      .announce { padding: 12px 14px; }
     }
   </style>
 </head>
@@ -172,7 +215,18 @@
       <p class="subtitle">
         Building the next generation of trustworthy, auditable, and quantum-enhanced AI systems that navigate the complexities of modern markets and regulatory environments.
       </p>
-      <a href="#pillars" class="cta-button">Explore Research</a>
+      <a href="#courses" class="cta-button">Explore Volumes</a>
+
+      <!-- NEW Volume IV announcement -->
+      <div class="announce">
+        <span class="badge">New</span>
+        <div>
+          <strong>Volume IV — Minimalist Training of Reasoning Models</strong> is now available.
+          <a href="https://github.com/alexdibol/courses_education/releases/download/course-volume4-v01/VOLUME_4.AI.REVISED.pdf" target="_blank" rel="noopener">Read the PDF</a>
+          ·
+          <a href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener">Browse the curriculum</a>
+        </div>
+      </div>
     </section>
 
     <!-- Research Pillars -->
@@ -202,12 +256,12 @@
         <div class="card" style="grid-column:1/-1;text-align:center;">
           <h3>
             <a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-size:24px;">
-              AI for Financial Practitioners — Trilogy
+              AI for Financial Practitioners — Tetralogy
             </a>
           </h3>
           <p>
-            A three-volume educational journey linking finance, intelligence, and quantum reasoning.  
-            Every concept can be explored through Colab notebooks, turning ideas into interactive experiments.
+            A four-volume educational journey linking finance, intelligence, quantum reasoning, and minimalist training.  
+            Every concept can be explored through Colab notebooks, turning ideas into interactive experiments and auditable practice.
           </p>
         </div>
       </div>
@@ -219,20 +273,40 @@
           <p style="margin-top:12px;">
             <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume I</a>
           </p>
+          <span class="tag">Tag: course-volume1-v01</span>
         </div>
+
         <div class="card">
           <h3>Volume II — Agentic Systems in Finance</h3>
           <p>Multi-agent reinforcement learning, cooperation, and negotiation architectures that bring market behavior to life.</p>
           <p style="margin-top:12px;">
             <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume II</a>
           </p>
+          <span class="tag">Tag: course-volume2-v01</span>
         </div>
+
         <div class="card">
           <h3>Volume III — Structural Intelligence & Quantum Reasoning</h3>
           <p>Exploring Hamiltonian portfolios, reasoning molecules, and the geometry of financial intelligence emerging from quantum logic.</p>
           <p style="margin-top:12px;">
             <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume III</a>
           </p>
+          <span class="tag">Tag: course-volume3-v01</span>
+        </div>
+
+        <!-- NEW Volume IV card -->
+        <div class="card" style="position:relative;">
+          <div class="badge" style="position:absolute; top:18px; right:18px;">New</div>
+          <h3>Volume IV — Minimalist Training of Reasoning Models</h3>
+          <p>
+            A two-part blueprint for building small, auditable, governance-native systems.  
+            Part I codifies gradient fields, structural convergence, folding, and counterfactual supervision.  
+            Part II delivers ten Colab notebooks that implement these principles with transparent, dependency-light code.
+          </p>
+          <p style="margin-top:12px;">
+            <a href="https://github.com/alexdibol/courses_education/releases/download/course-volume4-v01/VOLUME_4.AI.REVISED.pdf" target="_blank" style="color:var(--accent);font-weight:600;">→ Download Volume IV (PDF)</a>
+          </p>
+          <span class="tag">Tag: course-volume4-v01</span>
         </div>
       </div>
     </section>
@@ -259,7 +333,7 @@
         </div>
         <div class="card">
           <a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-weight:600;">Educational Material</a>
-          <p>The AI for Financial Practitioners Trilogy — a living curriculum for finance and intelligence education through interactive experimentation.</p>
+          <p>The AI for Financial Practitioners Tetralogy — a living curriculum with executable notebooks and governance-native, minimalist training.</p>
         </div>
       </div>
     </section>
