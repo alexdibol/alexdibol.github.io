@@ -145,6 +145,16 @@
       gap: 24px;
     }
 
+    /* Strict 2×2 grid for the four volumes; single column on mobile */
+    .volumes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .volumes-grid { grid-template-columns: 1fr; }
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -152,6 +162,8 @@
       padding: 32px;
       backdrop-filter: blur(10px);
       transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
       transform: translateY(-6px);
@@ -172,6 +184,7 @@
       border-radius: 999px;
       font-weight: 700;
       letter-spacing: 0.4px;
+      align-self: flex-start;
     }
 
     footer {
@@ -266,7 +279,8 @@
         </div>
       </div>
 
-      <div class="cards-grid">
+      <!-- STRICT 2×2 GRID -->
+      <div class="volumes-grid">
         <div class="card">
           <h3>Volume I — Foundations of Financial Machine Learning</h3>
           <p>From neurons to deep networks: constructing the financial brain through learning architectures and adaptive forecasting systems.</p>
@@ -294,7 +308,6 @@
           <span class="tag">Tag: course-volume3-v01</span>
         </div>
 
-        <!-- NEW Volume IV card -->
         <div class="card" style="position:relative;">
           <div class="badge" style="position:absolute; top:18px; right:18px;">New</div>
           <h3>Volume IV — Minimalist Training of Reasoning Models</h3>
@@ -309,6 +322,7 @@
           <span class="tag">Tag: course-volume4-v01</span>
         </div>
       </div>
+      <!-- /STRICT 2×2 GRID -->
     </section>
 
     <!-- Explore My Work -->
