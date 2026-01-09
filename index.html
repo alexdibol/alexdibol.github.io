@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Research Agenda — Alejandro Reynoso</title>
-  <meta name="description" content="Research agenda on AI for Finance: Quantum-Inspired Finance, Auditable AI, Minimalist Training of Reasoning Models (Vol. IV), GRPO-First Reasoning Systems (Vol. V), and the Science of Engineered Intelligence — plus curated Special Projects with dedicated landing pages." />
+  <title>Research & Teaching — Alejandro Reynoso</title>
+  <meta name="description" content="AI for Finance: course volumes, curated special projects, and an open research library (books + papers). Governance-first, auditable, research-grade systems." />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Research Agenda — Alejandro Reynoso" />
-  <meta property="og:description" content="Quantum-Inspired Finance, Auditable AI, Minimalist Training (Vol. IV), GRPO-First Reasoning (Vol. V), and curated Special Projects." />
+  <meta property="og:title" content="Research & Teaching — Alejandro Reynoso" />
+  <meta property="og:description" content="Course (Volumes I–V), Special Projects (Algo Trading + AI Law), and Research Library (books + papers)." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
@@ -19,17 +19,17 @@
   <style>
     :root {
       --bg: #030008;
-      --bg2: #0a0513;
       --text: #ffffff;
       --muted: #b8c5d6;
       --brand: #7c5cff;
       --accent: #00d4ff;
-      --card: rgba(18, 21, 31, 0.8);
+
+      --card: rgba(18, 21, 31, 0.78);
       --border: #2a2d3f;
-      --glow: rgba(124, 92, 255, 0.4);
-      --accent-glow: rgba(0, 212, 255, 0.3);
-      --new: #18ffa3;
-      --new-glow: rgba(24, 255, 163, 0.25);
+
+      --glow: rgba(124, 92, 255, 0.40);
+      --accent-glow: rgba(0, 212, 255, 0.25);
+
       --warn: #ffd36a;
       --warn-glow: rgba(255, 211, 106, 0.18);
     }
@@ -38,15 +38,15 @@
 
     body {
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: radial-gradient(1200px 700px at 30% -10%, rgba(124,92,255,0.14), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(0,212,255,0.10), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 700px at 30% -10%, rgba(124,92,255,0.14), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(0,212,255,0.10), transparent 55%),
+        var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
-
+    a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
     header {
@@ -54,122 +54,41 @@
       align-items: center;
       justify-content: space-between;
       padding: 24px 0;
-      margin-bottom: 40px;
+      margin-bottom: 34px;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       font-size: 28px;
-      color: #ffffff;
-      text-shadow: 0 0 15px var(--glow);
       letter-spacing: 0.2px;
+      text-shadow: 0 0 15px var(--glow);
+      white-space: nowrap;
     }
 
     .nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .nav a {
       color: var(--muted);
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
       border: 1px solid transparent;
     }
     .nav a:hover {
-      color: white;
-      border-color: rgba(124,92,255,0.25);
-      box-shadow: 0 0 10px var(--glow);
-    }
-
-    .hero {
-      padding: 80px 0 22px;
-      text-align: center;
-    }
-    .title {
-      font-size: clamp(46px, 7.6vw, 80px);
-      font-weight: 900;
       color: #fff;
-      text-shadow: 0 0 30px var(--glow);
-      margin-bottom: 18px;
-      letter-spacing: 0.4px;
+      border-color: rgba(124,92,255,0.25);
+      box-shadow: 0 0 10px rgba(124,92,255,0.25);
     }
-    .subtitle {
-      font-size: clamp(18px, 2.5vw, 22px);
-      color: var(--muted);
-      max-width: 880px;
-      margin: 0 auto 26px;
-      line-height: 1.65;
-    }
-
-    .cta-row {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 16px 32px;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      border-radius: 50px;
-      font-weight: 700;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: 0;
-    }
-    .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--glow); }
-
-    .cta-secondary {
-      display: inline-block;
-      padding: 16px 26px;
-      border-radius: 50px;
-      font-weight: 700;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(18,21,31,0.55);
-      backdrop-filter: blur(10px);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .cta-secondary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,212,255,0.12); border-color: rgba(0,212,255,0.35); }
-
-    .announce {
-      margin: 28px auto 0;
-      max-width: 980px;
-      background: linear-gradient(135deg, rgba(255,211,106,0.10), rgba(124,92,255,0.06));
-      border: 1px solid rgba(255,211,106,0.35);
-      border-radius: 14px;
-      padding: 14px 18px;
-      color: #fff3d1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-shadow: 0 10px 30px var(--warn-glow);
-    }
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-      color: #1a1200;
-      background: var(--warn);
-      box-shadow: 0 0 0 4px rgba(255,211,106,0.15);
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .announce a { color: #ffffff; text-decoration: underline; text-underline-offset: 3px; }
 
     .section { padding: 60px 0; }
     .section h2 {
       text-align: center;
       font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 48px;
-      color: #fff;
+      font-weight: 900;
+      margin-bottom: 40px;
       text-shadow: 0 0 20px var(--glow);
       letter-spacing: 0.2px;
     }
@@ -180,7 +99,6 @@
       gap: 24px;
     }
 
-    /* Grid for volumes; responsive to accommodate five cards */
     .volumes-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -196,7 +114,7 @@
       border-radius: 20px;
       padding: 32px;
       backdrop-filter: blur(10px);
-      transition: all 0.4s ease;
+      transition: all 0.35s ease;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -204,34 +122,34 @@
     }
     .card:hover {
       transform: translateY(-6px);
-      border-color: rgba(124, 92, 255, 0.7);
-      box-shadow: 0 15px 40px rgba(124, 92, 255, 0.18);
+      border-color: rgba(124,92,255,0.70);
+      box-shadow: 0 15px 40px rgba(124,92,255,0.18);
     }
 
-    .card h3 { font-size: 22px; color: white; margin-bottom: 12px; line-height: 1.25; }
+    .card h3 { font-size: 22px; margin-bottom: 12px; line-height: 1.25; }
     .card p { color: var(--muted); font-size: 16px; line-height: 1.7; }
 
     .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
     .tag {
       display: inline-block;
       font-size: 12px;
-      color: #0a1120;
-      background: #bfc8ff;
       padding: 4px 10px;
       border-radius: 999px;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      align-self: flex-start;
+      font-weight: 900;
+      letter-spacing: 0.35px;
+      background: rgba(124,92,255,0.16);
+      border: 1px solid rgba(124,92,255,0.28);
+      color: #ebe8ff;
     }
     .tag.alt {
-      background: rgba(0, 212, 255, 0.18);
+      background: rgba(0,212,255,0.12);
+      border: 1px solid rgba(0,212,255,0.25);
       color: #d9fbff;
-      border: 1px solid rgba(0, 212, 255, 0.28);
     }
     .tag.gold {
-      background: rgba(255, 211, 106, 0.14);
+      background: rgba(255,211,106,0.12);
+      border: 1px solid rgba(255,211,106,0.25);
       color: #fff3d1;
-      border: 1px solid rgba(255, 211, 106, 0.28);
     }
 
     .card-actions {
@@ -249,7 +167,7 @@
       gap: 8px;
       padding: 10px 14px;
       border-radius: 12px;
-      font-weight: 700;
+      font-weight: 800;
       border: 1px solid rgba(255,255,255,0.15);
       background: rgba(10, 8, 18, 0.35);
       color: #fff;
@@ -259,29 +177,183 @@
       box-shadow: 0 10px 25px rgba(0,212,255,0.10);
       transform: translateY(-2px);
     }
-
     .btn.primary {
       background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(0,212,255,0.85));
       border: 0;
     }
     .btn.primary:hover { box-shadow: 0 15px 35px rgba(124,92,255,0.25); }
 
-    .wide-card {
-      grid-column: 1 / -1;
+    /* HERO (restructured) */
+    .hero {
+      padding: 72px 0 10px;
       text-align: center;
     }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-      margin: 26px 0 0;
+    .title {
+      font-size: clamp(44px, 7.2vw, 78px);
+      font-weight: 950;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 30px var(--glow);
+      margin-bottom: 14px;
     }
+    .subtitle {
+      font-size: clamp(17px, 2.2vw, 20px);
+      color: var(--muted);
+      max-width: 920px;
+      margin: 0 auto 22px;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(18,21,31,0.55);
+      backdrop-filter: blur(10px);
+    }
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,212,255,0.35);
+      box-shadow: 0 15px 35px rgba(0,212,255,0.10);
+    }
+    .hero-btn.primary {
+      border: 0;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+    }
+    .hero-btn.primary:hover { box-shadow: 0 15px 35px rgba(124,92,255,0.25); }
+
+    .hero-quick {
+      margin: 28px auto 0;
+      max-width: 1100px;
+    }
+    .hero-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 980px) {
+      .hero-quick-grid { grid-template-columns: 1fr; }
+    }
+    .quick-card {
+      background: rgba(18, 21, 31, 0.62);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 18px 18px;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .quick-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(124,92,255,0.55);
+      box-shadow: 0 14px 36px rgba(124,92,255,0.14);
+    }
+    .quick-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .quick-title {
+      font-weight: 950;
+      letter-spacing: 0.2px;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #fff;
+      opacity: 0.95;
+    }
+    .pill {
+      font-size: 11px;
+      font-weight: 950;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #fff;
+      background: rgba(0,0,0,0.18);
+      white-space: nowrap;
+    }
+    .pill.gold { border-color: rgba(255,211,106,0.28); background: rgba(255,211,106,0.10); color: #fff3d1; }
+    .pill.alt  { border-color: rgba(0,212,255,0.26); background: rgba(0,212,255,0.10); color: #d9fbff; }
+
+    .quick-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .quick-actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .quick-actions a {
+      font-weight: 900;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(10, 8, 18, 0.25);
+    }
+    .quick-actions a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,212,255,0.30);
+      box-shadow: 0 12px 26px rgba(0,212,255,0.08);
+    }
+    .quick-actions a.primary {
+      border: 0;
+      background: linear-gradient(135deg, rgba(124,92,255,0.92), rgba(0,212,255,0.78));
+    }
+
+    .announce {
+      margin: 18px auto 0;
+      max-width: 980px;
+      background: linear-gradient(135deg, rgba(255,211,106,0.10), rgba(124,92,255,0.06));
+      border: 1px solid rgba(255,211,106,0.35);
+      border-radius: 14px;
+      padding: 12px 16px;
+      color: #fff3d1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px var(--warn-glow);
+      text-align: center;
+    }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 950;
+      color: #1a1200;
+      background: var(--warn);
+      box-shadow: 0 0 0 4px rgba(255,211,106,0.15);
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .announce a { color: #ffffff; text-decoration: underline; text-underline-offset: 3px; }
 
     footer {
       margin: 80px 0 40px;
       padding: 32px 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.10);
       color: var(--muted);
       font-size: 14px;
       display: flex;
@@ -294,10 +366,8 @@
 
     @media (max-width: 768px) {
       .wrap { padding: 0 20px; }
-      .cards-grid { grid-template-columns: 1fr; }
-      header { flex-direction: column; gap: 16px; text-align: center; }
-      .announce { padding: 12px 14px; }
-      .hero { padding: 64px 0 14px; }
+      header { flex-direction: column; text-align: center; }
+      .hero { padding: 58px 0 10px; }
     }
   </style>
 </head>
@@ -307,35 +377,86 @@
     <header>
       <div class="logo">Alejandro Reynoso</div>
       <nav class="nav">
-        <a href="#agenda">Research Agenda</a>
-        <a href="#pillars">Pillars</a>
-        <a href="#courses">Volumes</a>
+        <a href="#course">Course</a>
         <a href="#projects">Special Projects</a>
-        <a href="#links">Work</a>
+        <a href="#research">Research Library</a>
+        <a href="#pillars">Pillars</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="hero" id="agenda">
-      <h1 class="title">Advancing AI for Finance</h1>
+    <!-- HERO: three obvious destinations -->
+    <section class="hero" id="top">
+      <h1 class="title">AI for Finance — Built to Run</h1>
       <p class="subtitle">
-        Building trustworthy, auditable, and research-grade AI systems for modern markets — from quantum-inspired methods and governance-native reasoning,
-        to executable teaching artifacts (PDFs + Colab notebooks) and curated Special Projects with dedicated landing pages.
+        Three entry points, one philosophy: governance-first, auditable systems.
+        Start with the <strong>Course</strong> (Volumes I–V), jump into <strong>Special Projects</strong> (Algo Trading + AI Law),
+        or browse the <strong>Research Library</strong> (books + papers).
       </p>
 
-      <div class="cta-row">
-        <a href="#projects" class="cta-button">Explore Special Projects</a>
-        <a href="#courses" class="cta-secondary">Explore Volumes I–V</a>
+      <div class="hero-cta">
+        <a class="hero-btn primary" href="#course">Enter the Course</a>
+        <a class="hero-btn" href="#projects">Open Special Projects</a>
+        <a class="hero-btn" href="#research">Browse Research Library</a>
       </div>
 
-      <div class="announce">
-        <span class="badge">New</span>
-        <div>
-          Curated Special Projects now featured here:
-          <a href="#projects">Foundations of Modern Algorithmic Trading</a>
-          and
-          <a href="#projects">AI Law (Practical Legal Applications of Generative AI)</a>.
+      <!-- Quick route cards (reinforces the same structure) -->
+      <div class="hero-quick">
+        <div class="hero-quick-grid">
+          <div class="quick-card">
+            <div class="quick-top">
+              <div class="quick-title">AI for Financial Practitioners</div>
+              <div class="pill alt">Volumes I–V</div>
+            </div>
+            <p>
+              A structured curriculum with releases and executable notebooks — designed to move from concepts to auditable practice.
+            </p>
+            <div class="quick-actions">
+              <a class="primary" href="#course">Explore Volumes</a>
+              <a href="https://github.com/alexdibol/courses_education" target="_blank">Open Repo</a>
+            </div>
+          </div>
+
+          <div class="quick-card">
+            <div class="quick-top">
+              <div class="quick-title">Special Projects</div>
+              <div class="pill gold">Curated</div>
+            </div>
+            <p>
+              Focused “complete stacks” with dedicated landing pages and a clear execution path.
+              Featured: Foundations of Modern Algorithmic Trading and AI Law.
+            </p>
+            <div class="quick-actions">
+              <a class="primary" href="#projects">View Projects</a>
+              <a href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank">Algo Trading</a>
+              <a href="https://alexdibol.github.io/ai-law/" target="_blank">AI Law</a>
+            </div>
+          </div>
+
+          <div class="quick-card">
+            <div class="quick-top">
+              <div class="quick-title">Research Library</div>
+              <div class="pill">Books + Papers</div>
+            </div>
+            <p>
+              Long-form research: monographs, working papers, and applied studies — written to be reusable and verifiable.
+            </p>
+            <div class="quick-actions">
+              <a class="primary" href="#research">Browse Library</a>
+              <a href="https://github.com/alexdibol/books/tree/main" target="_blank">Books</a>
+              <a href="https://github.com/alexdibol/papers" target="_blank">Papers</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="announce">
+          <span class="badge">Featured</span>
+          <div>
+            Special Projects:
+            <a href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank">Foundations of Modern Algorithmic Trading</a>
+            and
+            <a href="https://alexdibol.github.io/ai-law/" target="_blank">AI Law</a>.
+          </div>
         </div>
       </div>
     </section>
@@ -346,7 +467,7 @@
       <div class="cards-grid">
         <div class="card">
           <h3>Quantum-Inspired Finance</h3>
-          <p>Developing classical algorithms inspired by quantum computing, topology, and geometry for portfolio optimization, regime analysis, and risk management.</p>
+          <p>Classical algorithms inspired by quantum computing, topology, and geometry for portfolio optimization, regime analysis, and risk management.</p>
           <div class="tag-row">
             <span class="tag">Geometry</span>
             <span class="tag alt">Hamiltonians</span>
@@ -355,7 +476,7 @@
         </div>
         <div class="card">
           <h3>Engineering Auditable AI</h3>
-          <p>Building transparent, governable AI architectures with explicit artifacts, logs, roles, and sign-off gates suitable for institutional settings.</p>
+          <p>Governable architectures with explicit artifacts, logs, roles, and sign-off gates suitable for institutional settings.</p>
           <div class="tag-row">
             <span class="tag">Governance-first</span>
             <span class="tag alt">Artifacts</span>
@@ -364,7 +485,7 @@
         </div>
         <div class="card">
           <h3>The Science of Engineered Intelligence</h3>
-          <p>Studying emergence and reasoning as an engineered phenomenon — using geometric and topological perspectives to design cognition by construction.</p>
+          <p>Emergence and reasoning treated as engineered phenomena — using geometric and topological views to design cognition by construction.</p>
           <div class="tag-row">
             <span class="tag">Emergence</span>
             <span class="tag alt">Topology</span>
@@ -374,29 +495,29 @@
       </div>
     </section>
 
-    <!-- Courses & Education -->
-    <section class="section" id="courses">
-      <h2>Courses & Education</h2>
+    <!-- COURSE (Volumes I–V) -->
+    <section class="section" id="course">
+      <h2>Course — AI for Financial Practitioners (Volumes I–V)</h2>
 
       <div class="cards-grid" style="margin-bottom:40px;">
-        <div class="card wide-card">
+        <div class="card" style="grid-column:1/-1;text-align:center;">
           <h3>
-            <a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-size:24px;">
-              AI for Financial Practitioners — Volumes I–V
+            <a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-size:24px;font-weight:950;">
+              Open Course Repository
             </a>
           </h3>
           <p>
-            A five-volume educational journey connecting finance, intelligence, governance, and reasoning systems.
-            The collection is designed as an executable curriculum: concepts + artifacts + Colab notebooks, so readers can move directly from theory to auditable practice.
+            A five-volume educational journey connecting finance, intelligence, governance, and reasoning systems —
+            designed as an executable curriculum: releases + artifacts + Colab notebooks.
           </p>
           <div class="card-actions" style="justify-content:center;">
             <a class="btn primary" href="https://github.com/alexdibol/courses_education" target="_blank">Open Repository</a>
-            <a class="btn" href="#projects">Jump to Special Projects</a>
+            <a class="btn" href="#projects">View Special Projects</a>
+            <a class="btn" href="#research">Browse Research Library</a>
           </div>
         </div>
       </div>
 
-      <!-- VOLUMES GRID -->
       <div class="volumes-grid">
         <div class="card">
           <h3>Volume I — Foundations of Financial Machine Learning</h3>
@@ -404,9 +525,7 @@
           <div class="card-actions">
             <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank">Download Volume I</a>
           </div>
-          <div class="tag-row">
-            <span class="tag">Tag: course-volume1-v01</span>
-          </div>
+          <div class="tag-row"><span class="tag">Tag: course-volume1-v01</span></div>
         </div>
 
         <div class="card">
@@ -415,9 +534,7 @@
           <div class="card-actions">
             <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank">Download Volume II</a>
           </div>
-          <div class="tag-row">
-            <span class="tag">Tag: course-volume2-v01</span>
-          </div>
+          <div class="tag-row"><span class="tag">Tag: course-volume2-v01</span></div>
         </div>
 
         <div class="card">
@@ -426,23 +543,19 @@
           <div class="card-actions">
             <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank">Download Volume III</a>
           </div>
-          <div class="tag-row">
-            <span class="tag">Tag: course-volume3-v01</span>
-          </div>
+          <div class="tag-row"><span class="tag">Tag: course-volume3-v01</span></div>
         </div>
 
         <div class="card">
           <h3>Volume IV — Minimalist Training of Reasoning Models</h3>
           <p>
             A blueprint for building small, auditable, governance-native systems:
-            gradient fields, structural convergence, folding, and counterfactual supervision — plus executable notebooks that implement the ideas with dependency-light code.
+            gradient fields, structural convergence, folding, and counterfactual supervision — plus executable notebooks.
           </p>
           <div class="card-actions">
             <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume4-v01/VOLUME_4.AI.REVISED.pdf" target="_blank">Download Volume IV (PDF)</a>
           </div>
-          <div class="tag-row">
-            <span class="tag">Tag: course-volume4-v01</span>
-          </div>
+          <div class="tag-row"><span class="tag">Tag: course-volume4-v01</span></div>
         </div>
 
         <div class="card">
@@ -454,56 +567,49 @@
           <div class="card-actions">
             <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume5-v01/VOLUME_5_REVISED_VERSION.pdf" target="_blank">Download Volume V (PDF)</a>
           </div>
-          <div class="tag-row">
-            <span class="tag">Tag: course-volume5-v01</span>
-          </div>
+          <div class="tag-row"><span class="tag">Tag: course-volume5-v01</span></div>
         </div>
       </div>
-      <!-- /VOLUMES GRID -->
     </section>
 
-    <!-- Special Projects -->
+    <!-- SPECIAL PROJECTS -->
     <section class="section" id="projects">
       <h2>Special Projects</h2>
 
       <div class="cards-grid" style="margin-bottom:24px;">
-        <div class="card wide-card">
+        <div class="card" style="grid-column:1/-1;text-align:center;">
           <h3>Curated, Executable Collections</h3>
           <p>
-            These are focused “complete stacks” — each with its own landing page, clear structure, and an execution path.
-            They are designed for practitioners: governance-first framing, clean navigation, and a direct bridge from reading to running.
+            Special Projects are focused “complete stacks” — each with a dedicated landing page, clear structure, and an execution path.
+            Built for practitioners: governance-first framing and clean navigation from reading to running.
           </p>
           <div class="tag-row" style="justify-content:center;">
             <span class="tag gold">Dedicated landing pages</span>
             <span class="tag alt">PDF + Colab</span>
-            <span class="tag">Governance-first</span>
+            <span class="tag">Practitioner-ready</span>
           </div>
         </div>
       </div>
 
       <div class="cards-grid">
-        <!-- Special Project 1 -->
         <div class="card">
           <h3>Foundations of Modern Algorithmic Trading</h3>
           <p>
             A three-volume, governance-first collection with a dedicated user manual and twenty-five executable Colab notebooks.
-            Covers the end-to-end engineering system: data logic, causality, honest backtesting, strategy families, machine learning,
+            Covers the end-to-end engineering system: data logic, causality, honest backtesting, strategy families, ML,
             portfolio construction, execution realism, and auditable artifacts.
           </p>
-
           <div class="tag-row">
             <span class="tag">Volumes I–III</span>
             <span class="tag alt">User Manual</span>
             <span class="tag gold">25 Colabs</span>
           </div>
-
           <div class="card-actions">
             <a class="btn primary" href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank">Open Landing Page</a>
             <a class="btn" href="https://github.com/alexdibol/ai-algo-trading-notebooks" target="_blank">Open Repository</a>
           </div>
         </div>
 
-        <!-- Special Project 2 -->
         <div class="card">
           <h3>Practical Legal Applications of Generative AI (AI Law)</h3>
           <p>
@@ -511,77 +617,65 @@
             Introduces a five-level maturity ladder and shows how controls must scale with capability: verification discipline,
             “no invented authority,” structured uncertainty, and audit artifacts.
           </p>
-
           <div class="tag-row">
             <span class="tag">U.S. legal practice</span>
             <span class="tag alt">Governance-first</span>
             <span class="tag gold">PDF + Colabs</span>
           </div>
-
           <div class="card-actions">
             <a class="btn primary" href="https://alexdibol.github.io/ai-law/" target="_blank">Open Landing Page</a>
             <a class="btn" href="https://github.com/alexdibol/ai-law" target="_blank">Open Repository</a>
           </div>
         </div>
       </div>
-
-      <div class="divider"></div>
-
-      <div class="cards-grid" style="margin-top:26px;">
-        <div class="card wide-card">
-          <h3>Special Projects Policy</h3>
-          <p>
-            A Special Project is included here when it is “complete enough to run”: it has stable navigation, a clear execution path,
-            and a reader can reproduce results (or at least reproduce the workflow) without guesswork.
-          </p>
-        </div>
-      </div>
     </section>
 
-    <!-- Explore My Work -->
-    <section class="section" id="links">
-      <h2>Explore My Work</h2>
+    <!-- RESEARCH LIBRARY -->
+    <section class="section" id="research">
+      <h2>Research Library</h2>
 
-      <div class="card wide-card" style="margin-bottom:40px;">
-        <h3>Open Source Research & Collaboration</h3>
+      <div class="card" style="text-align:center;margin-bottom:40px;">
+        <h3>Long-Form Research & Working Papers</h3>
         <p>
-          All my work is built in public using open-source tools to maximize transparency, reproducibility, and practical usefulness.
-          If you want to collaborate on research, teaching, or applied work, I’m always open to serious, execution-oriented partnerships.
+          This is the long-form layer: monographs and papers that develop ideas deeply and reuseably.
+          Everything is built in public with open-source tooling to maximize transparency and reproducibility.
         </p>
         <div class="card-actions" style="justify-content:center;">
-          <a class="btn primary" href="https://github.com/alexdibol" target="_blank">GitHub Profile</a>
-          <a class="btn" href="#contact">Contact</a>
+          <a class="btn primary" href="https://github.com/alexdibol/books/tree/main" target="_blank">Browse Books</a>
+          <a class="btn" href="https://github.com/alexdibol/papers" target="_blank">Browse Papers</a>
+          <a class="btn" href="#projects">Special Projects</a>
         </div>
       </div>
 
       <div class="cards-grid">
         <div class="card">
-          <h3><a href="https://github.com/alexdibol/books/tree/main" target="_blank" style="color:var(--accent);font-weight:800;">Long-Form Research</a></h3>
-          <p>Comprehensive monographs on quantum-inspired algorithms, reasoning systems, and AI governance frameworks.</p>
+          <h3><a href="https://github.com/alexdibol/books/tree/main" target="_blank" style="color:var(--accent);font-weight:950;">Books (Monographs)</a></h3>
+          <p>Comprehensive write-ups on quantum-inspired methods, reasoning systems, and AI governance frameworks.</p>
           <div class="card-actions">
-            <a class="btn" href="https://github.com/alexdibol/books/tree/main" target="_blank">Browse</a>
+            <a class="btn" href="https://github.com/alexdibol/books/tree/main" target="_blank">Open</a>
           </div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/alexdibol/papers" target="_blank" style="color:var(--accent);font-weight:800;">Research Papers</a></h3>
-          <p>Working papers and applied studies on engineered intelligence, structural reasoning, and quantum-financial models.</p>
+          <h3><a href="https://github.com/alexdibol/papers" target="_blank" style="color:var(--accent);font-weight:950;">Papers (Working & Applied)</a></h3>
+          <p>Working papers and applied studies on engineered intelligence, structural reasoning, and financial modeling.</p>
           <div class="card-actions">
-            <a class="btn" href="https://github.com/alexdibol/papers" target="_blank">Browse</a>
+            <a class="btn" href="https://github.com/alexdibol/papers" target="_blank">Open</a>
           </div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/alexdibol/courses_education" target="_blank" style="color:var(--accent);font-weight:800;">Educational Material</a></h3>
-          <p>The AI for Financial Practitioners series — a living curriculum with executable notebooks and governance-native, minimalist training.</p>
+          <h3><a href="https://github.com/alexdibol" target="_blank" style="color:var(--accent);font-weight:950;">Open Collaboration</a></h3>
+          <p>All repositories are public and reproducible by design. If you want to collaborate, start here.</p>
           <div class="card-actions">
-            <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank">Browse</a>
+            <a class="btn" href="https://github.com/alexdibol" target="_blank">GitHub Profile</a>
+            <a class="btn" href="#contact">Contact</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact & Collaboration -->
+    <!-- Contact -->
     <section class="section" id="contact">
-      <h2>Contact & Collaboration</h2>
+      <h2>Contact</h2>
       <div class="card" style="max-width:800px;margin:0 auto;text-align:center;">
         <p>
           Interested in collaborating on research, teaching, or implementation work in AI and finance (or governance-first applied AI more broadly)?
@@ -596,22 +690,22 @@
 
         <p style="margin-top:22px;">
           <strong>Email:</strong>
-          <a href="mailto:areynoso@yahoo.com" style="color:var(--accent);font-weight:800;">areynoso@yahoo.com</a>
+          <a href="mailto:areynoso@yahoo.com" style="color:var(--accent);font-weight:950;">areynoso@yahoo.com</a>
         </p>
         <p style="margin-top:10px;">
           <strong>GitHub:</strong>
-          <a href="https://github.com/alexdibol" target="_blank" style="color:var(--accent);font-weight:800;">github.com/alexdibol</a>
+          <a href="https://github.com/alexdibol" target="_blank" style="color:var(--accent);font-weight:950;">github.com/alexdibol</a>
         </p>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div>© <span id="y"></span> Alejandro Reynoso</div>
       <div>
-        <a href="mailto:areynoso@yahoo.com">areynoso@yahoo.com</a> ·
-        <a href="https://github.com/alexdibol" target="_blank">GitHub</a> ·
-        <a href="#projects">Special Projects</a>
+        <a href="#course">Course</a> ·
+        <a href="#projects">Special Projects</a> ·
+        <a href="#research">Research</a> ·
+        <a href="mailto:areynoso@yahoo.com">areynoso@yahoo.com</a>
       </div>
     </footer>
   </div>
