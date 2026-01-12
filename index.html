@@ -9,7 +9,7 @@
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="AI Driven Finance and Quantum Inspired Finance — Alejandro Reynoso" />
-  <meta property="og:description" content="Three avenues: (1) Course-books + Colab notebooks, (2) Long-format books & research, (3) Academic papers. Governance-first, auditable systems." />
+  <meta property="og:description" content="Three avenues: (1) Courses (books + Colab), (2) Long-format books & research, (3) Academic papers. Governance-first, auditable systems." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
@@ -98,15 +98,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
-    }
-
-    .volumes-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-    @media (max-width: 900px) {
-      .volumes-grid { grid-template-columns: 1fr; }
     }
 
     .card {
@@ -402,7 +393,6 @@
         <a class="hero-btn" href="#avenue-3">Avenue 3: Papers</a>
       </div>
 
-      <!-- Quick route cards (reinforces the same structure) -->
       <div class="hero-quick">
         <div class="hero-quick-grid">
           <div class="quick-card">
@@ -416,7 +406,7 @@
             </p>
             <div class="quick-actions">
               <a class="primary" href="#avenue-1">Open Courses</a>
-              <a href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener">AI for Finance</a>
+              <a href="/aifp/">AIFP Volumes Page</a>
             </div>
           </div>
 
@@ -454,7 +444,7 @@
         <div class="announce">
           <span class="badge">Featured</span>
           <div>
-            Start fast with the executable collections:
+            Executable collections:
             <a href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank" rel="noopener">Foundations of Modern Algorithmic Trading</a>
             ·
             <a href="https://alexdibol.github.io/ai-law/" target="_blank" rel="noopener">Legal Applications to Generative AI</a>
@@ -506,43 +496,30 @@
       </div>
     </section>
 
-    <!-- AVENUE 1: COURSES -->
+    <!-- AVENUE 1: COURSES (HOME PAGE VERSION = SHORT, NO REPEATED VOLUME GRID) -->
     <section class="section" id="avenue-1">
       <h2>Avenue 1 — Original Book-Supported Courses (with Colab Notebooks)</h2>
 
-      <div class="cards-grid" style="margin-bottom:24px;">
-        <div class="card" style="grid-column:1/-1;text-align:center;">
-          <h3>Three Executable Learning Programs</h3>
-          <p>
-            These are “read → run → verify” collections. Each program emphasizes transparency:
-            explicit assumptions, structured outputs, and reproducible notebook execution.
-          </p>
-          <div class="tag-row" style="justify-content:center;">
-            <span class="tag alt">Colab notebooks</span>
-            <span class="tag">Releases</span>
-            <span class="tag gold">Governance-first</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cards-grid" style="margin-bottom:34px;">
+      <div class="cards-grid">
+        <!-- AIFP: short card + link to separate page -->
         <div class="card">
-          <h3>AI for Financial Practitioners — 5 Volumes</h3>
+          <h3>AI for Financial Practitioners — Volumes I–V</h3>
           <p>
-            The flagship curriculum connecting finance, intelligence, and governance — designed as an executable course:
-            releases + artifacts + notebooks. Includes quantum-inspired and structural reasoning themes.
+            The flagship curriculum connecting AI-driven finance with quantum-inspired thinking —
+            built as an executable course (books + releases + Colab notebooks) with governance-first discipline.
           </p>
           <div class="tag-row">
             <span class="tag alt">Volumes I–V</span>
-            <span class="tag">Course repo</span>
-            <span class="tag gold">Auditable workflows</span>
+            <span class="tag">Executable</span>
+            <span class="tag gold">Governance-first</span>
           </div>
           <div class="card-actions">
-            <a class="btn primary" href="#aifp-volumes">Browse Volumes</a>
+            <a class="btn primary" href="/aifp/">Open Volumes Page</a>
             <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener">Open Repo</a>
           </div>
         </div>
 
+        <!-- Algo Trading: keep as course-supported collection -->
         <div class="card">
           <h3>Foundations of Modern Algorithmic Trading — 3 Volumes</h3>
           <p>
@@ -560,10 +537,11 @@
           </div>
         </div>
 
+        <!-- AI Law: keep as course-supported collection -->
         <div class="card">
           <h3>Legal Applications to Generative AI — 1 Volume</h3>
           <p>
-            A course-style, governance-first guide focused on practical use. Treats AI as a tool — not authority — and enforces
+            A governance-first guide focused on practical use. Treats AI as a tool — not authority — and enforces
             “facts ≠ assumptions,” verification discipline, and auditable uncertainty.
           </p>
           <div class="tag-row">
@@ -577,80 +555,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Keep your existing 5-volume detail (but anchored + slightly simplified) -->
-      <div class="cards-grid" id="aifp-volumes" style="margin-bottom:40px;">
-        <div class="card" style="grid-column:1/-1;text-align:center;">
-          <h3>
-            <a href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener"
-               style="color:var(--accent);font-size:24px;font-weight:950;">
-              AI for Financial Practitioners (Volumes I–V) — Course Repository
-            </a>
-          </h3>
-          <p>
-            A five-volume educational journey connecting finance, intelligence, governance, and reasoning systems —
-            built as an executable curriculum: releases + artifacts + Colab notebooks.
-          </p>
-          <div class="card-actions" style="justify-content:center;">
-            <a class="btn primary" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener">Open Repository</a>
-            <a class="btn" href="#avenue-2">Long-Format Books</a>
-            <a class="btn" href="#avenue-3">Academic Papers</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="volumes-grid">
-        <div class="card">
-          <h3>Volume I — Foundations of Financial Machine Learning</h3>
-          <p>From neurons to deep networks: constructing the financial brain through learning architectures and adaptive forecasting systems.</p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" rel="noopener">Download Volume I</a>
-          </div>
-          <div class="tag-row"><span class="tag">Tag: course-volume1-v01</span></div>
-        </div>
-
-        <div class="card">
-          <h3>Volume II — Agentic Systems in Finance</h3>
-          <p>Multi-agent reinforcement learning, cooperation, and negotiation architectures that bring market behavior to life.</p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank" rel="noopener">Download Volume II</a>
-          </div>
-          <div class="tag-row"><span class="tag">Tag: course-volume2-v01</span></div>
-        </div>
-
-        <div class="card">
-          <h3>Volume III — Structural Intelligence & Quantum Reasoning</h3>
-          <p>Hamiltonian portfolios, reasoning molecules, and the geometry of financial intelligence emerging from quantum logic.</p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank" rel="noopener">Download Volume III</a>
-          </div>
-          <div class="tag-row"><span class="tag">Tag: course-volume3-v01</span></div>
-        </div>
-
-        <div class="card">
-          <h3>Volume IV — Minimalist Training of Reasoning Models</h3>
-          <p>
-            A blueprint for building small, auditable, governance-native systems:
-            gradient fields, structural convergence, folding, and counterfactual supervision — plus executable notebooks.
-          </p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume4-v01/VOLUME_4.AI.REVISED.pdf" target="_blank" rel="noopener">Download Volume IV (PDF)</a>
-          </div>
-          <div class="tag-row"><span class="tag">Tag: course-volume4-v01</span></div>
-        </div>
-
-        <div class="card">
-          <h3>Volume V — GRPO-First Reasoning Systems for Finance</h3>
-          <p>
-            Governance-native learning in practice: rubric-based preference optimization with KL-regularized updates, escalation policies,
-            and auditable trails across an executable suite from rubric design to deployment manifests.
-          </p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume5-v01/VOLUME_5_REVISED_VERSION.pdf" target="_blank" rel="noopener">Download Volume V (PDF)</a>
-          </div>
-          <div class="tag-row"><span class="tag">Tag: course-volume5-v01</span></div>
-        </div>
-      </div>
     </section>
 
     <!-- AVENUE 2: LONG-FORMAT BOOKS & RESEARCH -->
@@ -660,18 +564,13 @@
       <div class="card" style="text-align:center;margin-bottom:40px;">
         <h3>Monographs & Research Notes</h3>
         <p>
-          This is the long-form layer: books and deep research write-ups that develop ideas beyond a single paper.
+          The long-form layer: books and deep research write-ups that develop ideas beyond a single paper.
           The focus remains the same: AI-driven finance, quantum-inspired thinking, and governance-first engineering.
         </p>
         <div class="card-actions" style="justify-content:center;">
           <a class="btn primary" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener">Browse Books (Repo)</a>
           <a class="btn" href="#avenue-3">Go to Papers</a>
           <a class="btn" href="#avenue-1">Back to Courses</a>
-        </div>
-        <div class="tag-row" style="justify-content:center;">
-          <span class="tag alt">Long-form</span>
-          <span class="tag">Reusable ideas</span>
-          <span class="tag gold">Public + reproducible</span>
         </div>
       </div>
 
@@ -730,11 +629,6 @@
           <a class="btn primary" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener">Browse Papers (Repo)</a>
           <a class="btn" href="#avenue-2">Back to Long-Format</a>
           <a class="btn" href="#avenue-1">Back to Courses</a>
-        </div>
-        <div class="tag-row" style="justify-content:center;">
-          <span class="tag">Citable</span>
-          <span class="tag alt">Reusable</span>
-          <span class="tag gold">Transparent</span>
         </div>
       </div>
 
