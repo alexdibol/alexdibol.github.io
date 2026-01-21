@@ -288,6 +288,31 @@
       background:linear-gradient(135deg, rgba(122,162,255,0.16), rgba(110,231,200,0.10));
     }
 
+    /* DISCLAIMER */
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      max-width:110ch;
+    }
+    .disclaimerbox{
+      margin-top:18px;
+      padding:20px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(20,24,54,0.66);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      max-width:110ch;
+    }
+    .disclaimerbox h3{
+      margin:0 0 10px;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .disclaimerbox p{margin:10px 0;color:var(--muted);font-size:13px;line-height:1.65;}
+    .disclaimerbox strong{color:var(--text);}
+    .disclaimerbox ul{margin:10px 0 0 18px; padding:0; color:var(--muted); font-size:13px; line-height:1.65;}
+    .disclaimerbox li{margin:8px 0;}
+
     /* FOOTER */
     footer.footer{
       margin-top:80px;
@@ -318,6 +343,7 @@
         <a href="#pillars-3">Pillar 3: Papers</a>
         <a href="#focus">Conceptual Focus</a>
         <a href="#contact">Contact</a>
+        <a href="#disclaimer">Disclaimers</a>
       </nav>
     </header>
 
@@ -385,7 +411,7 @@
       </p>
 
       <div class="grid">
-        <!-- Existing content (kept) -->
+        <!-- Only volumes / landing pages (no repo links) -->
         <a class="card linkcard" href="/aifp/" aria-label="AI for Financial Practitioners — Volumes I–V">
           <h3>AI for Financial Practitioners — Volumes I–V</h3>
           <p>
@@ -393,14 +419,6 @@
             built as an executable course (books + releases + Colab notebooks) with governance-first discipline.
           </p>
           <div class="hint">Open volumes page →</div>
-        </a>
-
-        <a class="card linkcard" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener" aria-label="Open courses_education repository">
-          <h3>AI for Financial Practitioners — Repository</h3>
-          <p>
-            Repository for the AI for Financial Practitioners volumes and related course assets.
-          </p>
-          <div class="hint">Open repo →</div>
         </a>
 
         <a class="card linkcard" href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank" rel="noopener" aria-label="Foundations of Modern Algorithmic Trading — Landing Page">
@@ -412,32 +430,6 @@
           <div class="hint">Open landing page →</div>
         </a>
 
-        <a class="card linkcard" href="https://github.com/alexdibol/ai-algo-trading-notebooks" target="_blank" rel="noopener" aria-label="Foundations of Modern Algorithmic Trading — Repository">
-          <h3>Algorithmic Trading Notebooks — Repository</h3>
-          <p>
-            Full repository for the notebook stack and accompanying course materials.
-          </p>
-          <div class="hint">Open repo →</div>
-        </a>
-
-        <a class="card linkcard" href="https://alexdibol.github.io/ai-law/" target="_blank" rel="noopener" aria-label="Legal Applications to Generative AI — Landing Page">
-          <h3>Legal Applications to Generative AI — 1 Volume</h3>
-          <p>
-            A governance-first guide focused on practical use. Treats AI as a tool — not authority — and enforces
-            “facts ≠ assumptions,” verification discipline, and auditable uncertainty.
-          </p>
-          <div class="hint">Open landing page →</div>
-        </a>
-
-        <a class="card linkcard" href="https://github.com/alexdibol/ai-law" target="_blank" rel="noopener" aria-label="Legal Applications to Generative AI — Repository">
-          <h3>AI-Law — Repository</h3>
-          <p>
-            Repository for the Legal Applications to Generative AI course volume and assets.
-          </p>
-          <div class="hint">Open repo →</div>
-        </a>
-
-        <!-- Required additions (landing pages) -->
         <a class="card linkcard" href="https://alexdibol.github.io/ai-consulting/" target="_blank" rel="noopener" aria-label="AI Consulting and Corporate Strategy — Landing Page">
           <h3>AI Consulting and Corporate Strategy</h3>
           <p>
@@ -588,6 +580,95 @@
       </div>
     </section>
 
+    <!-- THOROUGH DISCLAIMER + COPYRIGHT -->
+    <section class="section" id="disclaimer">
+      <h2>License, Copyright, and Disclaimers</h2>
+
+      <div class="disclaimerbox">
+        <h3>Educational / Non-Reliance Notice (Read Before Use)</h3>
+
+        <p>
+          <strong>Educational purpose only:</strong> All content across this site and the linked repositories (including books, notebooks, code,
+          examples, templates, and explanatory text) is provided <strong>for educational and research purposes only</strong>. Nothing here constitutes
+          investment advice, trading advice, financial advice, legal advice, tax advice, accounting/audit advice, compliance advice, or any other
+          professional service. You should not rely on any material here to make decisions that require professional judgment.
+          If you need advice, consult appropriately qualified professionals and follow applicable laws, regulations, and firm policies.
+        </p>
+
+        <p>
+          <strong>No warranties; use at your own risk:</strong> The materials are provided on an <strong>“AS IS”</strong> and <strong>“AS AVAILABLE”</strong> basis,
+          without warranties of any kind (express or implied), including but not limited to warranties of accuracy, completeness, merchantability,
+          fitness for a particular purpose, non-infringement, or availability. Methods, examples, and code may contain errors, may become outdated,
+          and may not be suitable for your specific facts, jurisdiction, risk tolerance, constraints, or use case.
+        </p>
+
+        <p>
+          <strong>Limitation of liability:</strong> To the maximum extent permitted by law, <strong>Alejandro Reynoso</strong> disclaims all liability
+          for any loss or damage of any kind (direct, indirect, incidental, consequential, special, exemplary, punitive, or otherwise) arising out of or
+          related to the use of, inability to use, or reliance on these materials, including but not limited to trading losses, lost profits, business interruption,
+          reputational harm, compliance failures, model or data errors, security incidents, or third-party claims.
+        </p>
+
+        <p>
+          <strong>Model / data / results are not verified:</strong> Unless explicitly stated otherwise in a particular artifact, treat all outputs, claims,
+          calculations, citations, and conclusions as <strong>not verified</strong>. Users are responsible for independent verification, testing,
+          and review before any real-world application. Past performance examples (if any) are illustrative and do not predict future results.
+        </p>
+
+        <p>
+          <strong>Security, confidentiality, and minimum-necessary data:</strong> Do not paste confidential, proprietary, regulated, or personally identifying
+          information into external tools, prompts, or notebooks. Use anonymization/redaction and <strong>minimum-necessary</strong> inputs by default.
+          You are responsible for complying with privacy, confidentiality, data handling, recordkeeping, and information security obligations.
+        </p>
+
+        <p>
+          <strong>Third-party tools and dependencies:</strong> Some notebooks or code may rely on third-party libraries, services, APIs, datasets,
+          or model providers with their own licenses and terms. You are responsible for reviewing and complying with those terms and ensuring
+          you have the right to use any referenced resources.
+        </p>
+
+        <p>
+          <strong>Generative AI assistance disclosure:</strong> Some portions of the content and/or code in these repositories may have been created with the assistance
+          of generative AI tools. However, <strong>all overall structure, direction, organization, editorial supervision, governance framing, and final responsibility</strong>
+          for the materials are <strong>human-led</strong> and remain with <strong>Alejandro Reynoso</strong>. Users should treat AI-assisted text or code
+          as potentially fallible and must apply independent review and testing.
+        </p>
+
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,0.10);margin:14px 0;"/>
+
+        <h3>Copyright and License</h3>
+
+        <p>
+          <strong>Copyright:</strong> © <span id="year2"></span> Alejandro Reynoso. All rights reserved.
+          Unless otherwise stated within a specific file or subproject, this notice applies to the content presented on this site and to the original
+          materials authored in the linked repositories.
+        </p>
+
+        <p>
+          <strong>MIT License:</strong> The repositories are released under the <strong>MIT License</strong> (see the LICENSE file in each repository for the controlling terms).
+          The MIT License permits reuse, modification, and distribution subject to its conditions, including preservation of the copyright notice and license text.
+          Where a repository (or a subdirectory) specifies a different license or attribution requirement, that specific license governs for that scope.
+        </p>
+
+        <p>
+          <strong>Attribution and third-party materials:</strong> Some repositories may include third-party content (datasets, figures, excerpts, libraries, or references)
+          that are not owned by Alejandro Reynoso. Such materials remain the property of their respective owners and may be subject to additional terms.
+          If you reuse content, you are responsible for ensuring you have the necessary rights and that you provide any required attribution.
+        </p>
+
+        <p>
+          <strong>Interpretation:</strong> In the event of any conflict between this page and the LICENSE file within a given repository,
+          the repository’s LICENSE file controls for that repository.
+        </p>
+
+        <ul>
+          <li><strong>Summary:</strong> Educational materials. No advice. No warranties. Use at your own risk. Verify independently.</li>
+          <li><strong>License:</strong> MIT License (see repository LICENSE files).</li>
+          <li><strong>Responsibility:</strong> Human-led structure, supervision, and accountability by Alejandro Reynoso (even when AI assistance is used).</li>
+        </ul>
+      </div>
+    </section>
+
     <footer class="footer">
       © <span id="y"></span> Alejandro Reynoso · AI Driven Finance and Quantum Inspired Finance
       <br/>Hosted on GitHub Pages · Built with governance-first discipline
@@ -597,6 +678,7 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("year2").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
