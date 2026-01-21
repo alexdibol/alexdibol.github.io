@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>AI Driven Finance and Quantum Inspired Finance — Alejandro Reynoso</title>
   <meta name="description" content="AI-Driven Finance converging with Quantum-Inspired methods. Three pillars: executable course-books + Colab notebooks, long-form research books, and academic papers. Governance-first, auditable, reproducible." />
@@ -18,325 +18,298 @@
   <link rel="icon" href="/favicon.ico" />
 
   <style>
-    :root {
-      --bg: #030008;
-      --text: #ffffff;
-      --muted: #b8c5d6;
-      --brand: #7c5cff;
-      --accent: #00d4ff;
-
-      --card: rgba(18, 21, 31, 0.78);
-      --border: #2a2d3f;
-
-      --glow: rgba(124, 92, 255, 0.40);
-      --accent-glow: rgba(0, 212, 255, 0.25);
-
-      --warn: #ffd36a;
-      --warn-glow: rgba(255, 211, 106, 0.18);
+    :root{
+      --bg:#07080d;
+      --panel:#0f1220;
+      --panel-2:#141836;
+      --text:#eef0ff;
+      --muted:#b8bddb;
+      --border:rgba(255,255,255,0.09);
+      --accent:#7aa2ff;
+      --accent2:#6ee7c8;
+      --warn:#ffd27a;
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
       background:
-        radial-gradient(1200px 700px at 30% -10%, rgba(124,92,255,0.14), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(0,212,255,0.10), transparent 55%),
+        radial-gradient(900px 600px at 15% 10%, rgba(122,162,255,0.16), transparent 55%),
+        radial-gradient(800px 600px at 85% 20%, rgba(110,231,200,0.10), transparent 55%),
+        radial-gradient(900px 650px at 60% 95%, rgba(255,210,122,0.06), transparent 55%),
         var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{color:var(--accent2);text-decoration:underline;}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 0;
-      margin-bottom: 28px;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .container{max-width:1140px;margin:0 auto;padding:28px 20px 84px;}
 
-    .logo {
-      font-weight: 900;
-      font-size: 28px;
-      letter-spacing: 0.2px;
-      text-shadow: 0 0 15px var(--glow);
-      white-space: nowrap;
+    /* HEADER / NAV */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:16px 0 18px;
+      border-bottom:1px solid var(--border);
+      flex-wrap:wrap;
     }
-
-    .nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .nav a {
-      color: var(--muted);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-      border: 1px solid transparent;
+    .logo{
+      font-weight:900;
+      letter-spacing:0.02em;
+      font-size:18px;
+      text-transform:uppercase;
+      color:var(--text);
+      white-space:nowrap;
     }
-    .nav a:hover {
-      color: #fff;
-      border-color: rgba(124,92,255,0.25);
-      box-shadow: 0 0 10px rgba(124,92,255,0.25);
+    nav.nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-
-    .section { padding: 60px 0; }
-    .section h2 {
-      text-align: center;
-      font-size: 36px;
-      font-weight: 900;
-      margin-bottom: 40px;
-      text-shadow: 0 0 20px var(--glow);
-      letter-spacing: 0.2px;
+    .nav a{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:0.02em;
+      text-transform:uppercase;
+      background:rgba(0,0,0,0.12);
     }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+    .nav a:hover{
+      border-color:rgba(122,162,255,0.28);
+      background:rgba(20,24,54,0.40);
+      text-decoration:none;
     }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-      backdrop-filter: blur(10px);
-      transition: all 0.35s ease;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
+    .nav a:focus{
+      outline:2px solid rgba(110,231,200,0.46);
+      outline-offset:3px;
+      text-decoration:none;
     }
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(124,92,255,0.70);
-      box-shadow: 0 15px 40px rgba(124,92,255,0.18);
-    }
-
-    .card h3 { font-size: 22px; margin-bottom: 12px; line-height: 1.25; }
-    .card p { color: var(--muted); font-size: 16px; line-height: 1.7; }
-
-    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-weight: 900;
-      letter-spacing: 0.35px;
-      background: rgba(124,92,255,0.16);
-      border: 1px solid rgba(124,92,255,0.28);
-      color: #ebe8ff;
-    }
-    .tag.alt {
-      background: rgba(0,212,255,0.12);
-      border: 1px solid rgba(0,212,255,0.25);
-      color: #d9fbff;
-    }
-    .tag.gold {
-      background: rgba(255,211,106,0.12);
-      border: 1px solid rgba(255,211,106,0.25);
-      color: #fff3d1;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(10, 8, 18, 0.35);
-      color: #fff;
-    }
-    .btn:hover {
-      border-color: rgba(0,212,255,0.35);
-      box-shadow: 0 10px 25px rgba(0,212,255,0.10);
-      transform: translateY(-2px);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(0,212,255,0.85));
-      border: 0;
-    }
-    .btn.primary:hover { box-shadow: 0 15px 35px rgba(124,92,255,0.25); }
 
     /* HERO */
-    .hero {
-      padding: 72px 0 10px;
-      text-align: center;
+    .hero{
+      margin-top:22px;
+      padding:38px 34px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(20,24,54,0.92), rgba(15,18,32,0.88));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
-    .title {
-      font-size: clamp(42px, 6.6vw, 76px);
-      font-weight: 950;
-      letter-spacing: 0.3px;
-      text-shadow: 0 0 30px var(--glow);
-      margin-bottom: 14px;
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(520px 360px at 16% 0%, rgba(122,162,255,0.16), transparent 60%),
+        radial-gradient(460px 330px at 92% 18%, rgba(110,231,200,0.09), transparent 60%),
+        radial-gradient(520px 360px at 55% 110%, rgba(255,210,122,0.07), transparent 60%);
+      pointer-events:none;
+      opacity:0.92;
     }
-    .subtitle {
-      font-size: clamp(17px, 2.2vw, 20px);
-      color: var(--muted);
-      max-width: 980px;
-      margin: 0 auto 22px;
-      line-height: 1.65;
+    .hero > *{position:relative;}
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hero h1{
+      font-size:38px;
+      margin:12px 0 10px;
+      line-height:1.15;
+      max-width:70ch;
+      text-transform:uppercase;
+      letter-spacing:0.02em;
+    }
+    .subtitle{
+      margin:0;
+      max-width:110ch;
+      color:var(--muted);
+      font-size:16px;
     }
 
-    .hero-cta {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.18);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.02em;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:rgba(122,162,255,0.9);
+      box-shadow:0 0 0 3px rgba(122,162,255,0.18);
+    }
+    .dot.g{background:rgba(110,231,200,0.95); box-shadow:0 0 0 3px rgba(110,231,200,0.18);}
+    .dot.y{background:rgba(255,210,122,0.95); box-shadow:0 0 0 3px rgba(255,210,122,0.18);}
+
+    /* SECTIONS */
+    .section{margin-top:56px;}
+    .section h2{
+      font-size:28px;
+      margin:0 0 14px;
+      letter-spacing:-0.02em;
+    }
+    .section p{color:var(--muted);max-width:110ch;margin:10px 0;}
+
+    /* GRID / CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+      gap:18px;
+      margin-top:22px;
+    }
+    .card{
+      padding:20px 20px;
+      border-radius:18px;
+      background:rgba(20,24,54,0.72);
+      border:1px solid var(--border);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      color:inherit;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
     }
 
-    .hero-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 22px;
-      border-radius: 999px;
-      font-weight: 900;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(18,21,31,0.55);
-      backdrop-filter: blur(10px);
+    .linkcard{
+      display:block;
+      cursor:pointer;
+      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+      text-decoration:none;
     }
-    .hero-btn:hover {
-      transform: translateY(-3px);
-      border-color: rgba(0,212,255,0.35);
-      box-shadow: 0 15px 35px rgba(0,212,255,0.10);
-    }
-    .hero-btn.primary {
-      border: 0;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-    }
-    .hero-btn.primary:hover { box-shadow: 0 15px 35px rgba(124,92,255,0.25); }
-
-    .hero-quick {
-      margin: 28px auto 0;
-      max-width: 1100px;
-    }
-    .hero-quick-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    @media (max-width: 980px) {
-      .hero-quick-grid { grid-template-columns: 1fr; }
-    }
-    .quick-card {
-      background: rgba(18, 21, 31, 0.62);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 18px;
-      padding: 18px 18px;
-      text-align: left;
-      backdrop-filter: blur(10px);
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .quick-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(124,92,255,0.55);
-      box-shadow: 0 14px 36px rgba(124,92,255,0.14);
-    }
-    .quick-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .quick-title {
-      font-weight: 950;
-      letter-spacing: 0.2px;
-      font-size: 15px;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 0.95;
-    }
-    .pill {
-      font-size: 11px;
-      font-weight: 950;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      color: #fff;
-      background: rgba(0,0,0,0.18);
-      white-space: nowrap;
-    }
-    .pill.gold { border-color: rgba(255,211,106,0.28); background: rgba(255,211,106,0.10); color: #fff3d1; }
-    .pill.alt  { border-color: rgba(0,212,255,0.26); background: rgba(0,212,255,0.10); color: #d9fbff; }
-
-    .quick-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    .quick-actions {
-      margin-top: 12px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .quick-actions a {
-      font-weight: 900;
-      font-size: 13px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(10, 8, 18, 0.25);
-    }
-    .quick-actions a:hover {
+    .linkcard:hover{
       transform: translateY(-2px);
-      border-color: rgba(0,212,255,0.30);
-      box-shadow: 0 12px 26px rgba(0,212,255,0.08);
+      border-color: rgba(122,162,255,0.35);
+      background: rgba(20,24,54,0.86);
+      text-decoration:none;
     }
-    .quick-actions a.primary {
-      border: 0;
-      background: linear-gradient(135deg, rgba(124,92,255,0.92), rgba(0,212,255,0.78));
+    .linkcard:focus{
+      outline:2px solid rgba(110,231,200,0.46);
+      outline-offset:3px;
+      text-decoration:none;
+    }
+    .hint{
+      margin-top:12px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.92;
+      font-weight:800;
+      letter-spacing:0.02em;
+      text-transform:uppercase;
     }
 
-    footer {
-      margin: 80px 0 40px;
-      padding: 32px 0;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      color: var(--muted);
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    .callout{
+      margin-top:18px;
+      padding:18px 18px;
+      border-radius:18px;
+      border:1px solid rgba(122,162,255,0.18);
+      background:linear-gradient(135deg, rgba(122,162,255,0.06), rgba(110,231,200,0.04));
+      color:var(--muted);
+      max-width:110ch;
     }
-    footer a:hover { color: var(--brand); }
+    .callout strong{color:var(--text);}
 
-    @media (max-width: 768px) {
-      .wrap { padding: 0 20px; }
-      header { flex-direction: column; text-align: center; }
-      .hero { padding: 58px 0 10px; }
+    /* LIST */
+    .list{
+      margin-top:18px;
+      padding-left:22px;
+      color:var(--muted);
+      max-width:110ch;
+    }
+    .list li{margin-bottom:12px;}
+    .list strong{color:var(--text);}
+
+    /* CONTACT */
+    .contactbox{
+      margin-top:18px;
+      padding:22px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(20,24,54,0.72);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      max-width:900px;
+    }
+    .contact-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(0,0,0,0.18);
+      color:var(--text);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      text-decoration:none;
+    }
+    .btn:hover{
+      border-color:rgba(110,231,200,0.26);
+      background:rgba(20,24,54,0.62);
+      text-decoration:none;
+    }
+    .btn.primary{
+      border:1px solid rgba(122,162,255,0.35);
+      background:linear-gradient(135deg, rgba(122,162,255,0.16), rgba(110,231,200,0.10));
+    }
+
+    /* FOOTER */
+    footer.footer{
+      margin-top:80px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media (max-width: 860px){
+      header{justify-content:center;text-align:center;}
+      nav.nav{justify-content:center;}
+      .hero{padding:32px 22px;}
+      .hero h1{font-size:30px;}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <main class="container">
+
     <header>
       <div class="logo">Alejandro Reynoso</div>
       <nav class="nav" aria-label="Primary">
@@ -350,7 +323,9 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
-      <h1 class="title">AI Driven Finance and Quantum Inspired Finance</h1>
+      <div class="kicker">Three pillars · Governance-first · Auditable · Reproducible</div>
+      <h1>AI Driven Finance and Quantum Inspired Finance</h1>
+
       <p class="subtitle">
         This site is organized as <strong>three pillars</strong> — all built with the same intent:
         to turn ideas into <strong>auditable, reproducible</strong> systems and practitioner-ready learning paths.
@@ -358,101 +333,45 @@
         (geometry, optimization, and structured reasoning) — without sacrificing governance, traceability, and accountability.
       </p>
 
-      <div class="hero-cta">
-        <a class="hero-btn primary" href="#pillars-1">Pillar 1: Courses</a>
-        <a class="hero-btn" href="#pillars-2">Pillar 2: Long-Format</a>
-        <a class="hero-btn" href="#pillars-3">Pillar 3: Papers</a>
+      <div class="pillrow" aria-label="Focus priorities">
+        <span class="pill"><span class="dot"></span> Auditability + Traceability</span>
+        <span class="pill"><span class="dot g"></span> Reproducibility + Runnable Work</span>
+        <span class="pill"><span class="dot y"></span> Governance + Accountability</span>
       </div>
 
-      <div class="hero-quick">
-        <div class="hero-quick-grid">
-          <div class="quick-card">
-            <div class="quick-top">
-              <div class="quick-title">Pillar 1 — Original book-supported courses</div>
-              <div class="pill alt">Executable</div>
-            </div>
-            <p>
-              Structured curricula (books + releases) paired with runnable notebooks.
-              Designed to go from reading → running → artifacts.
-            </p>
-            <div class="quick-actions">
-              <a class="primary" href="#pillars-1">Open Courses</a>
-              <a href="/aifp/">AIFP Volumes Page</a>
-            </div>
-          </div>
-
-          <div class="quick-card">
-            <div class="quick-top">
-              <div class="quick-title">Pillar 2 — Long-format books & research</div>
-              <div class="pill">Books</div>
-            </div>
-            <p>
-              Deep monographs and long-form research notes on engineered intelligence,
-              financial systems, governance, and quantum-inspired modeling.
-            </p>
-            <div class="quick-actions">
-              <a class="primary" href="#pillars-2">Browse Long-Format</a>
-              <a href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener">Books Repo</a>
-            </div>
-          </div>
-
-          <div class="quick-card">
-            <div class="quick-top">
-              <div class="quick-title">Pillar 3 — Academic papers</div>
-              <div class="pill gold">Research</div>
-            </div>
-            <p>
-              Working papers and applied studies — written to be reusable, inspectable,
-              and easy to cite and build upon.
-            </p>
-            <div class="quick-actions">
-              <a class="primary" href="#pillars-3">Open Papers</a>
-              <a href="https://github.com/alexdibol/papers" target="_blank" rel="noopener">Papers Repo</a>
-            </div>
-          </div>
-        </div>
+      <div class="callout" style="margin-top:18px;">
+        <strong>Navigation:</strong> Pillar 1 contains executable course-books and notebook stacks; Pillar 2 contains long-format books and research notes;
+        Pillar 3 contains academic papers intended to be modular and citable.
       </div>
     </section>
 
-    <!-- CONCEPTUAL FOCUS (renamed from Research Pillars) -->
+    <!-- CONCEPTUAL FOCUS -->
     <section class="section" id="focus">
       <h2>Conceptual Focus</h2>
-      <div class="cards-grid">
+
+      <div class="grid">
         <div class="card">
           <h3>Quantum-Inspired Finance</h3>
           <p>
             Classical methods inspired by quantum computing, geometry, and structured optimization —
             applied to portfolios, regimes, risk, and decision systems with verifiable artifacts.
           </p>
-          <div class="tag-row">
-            <span class="tag">Geometry</span>
-            <span class="tag alt">Hamiltonians</span>
-            <span class="tag gold">Auditability</span>
-          </div>
         </div>
+
         <div class="card">
           <h3>AI-Driven Finance (Built to Run)</h3>
           <p>
             Engineering-first AI for finance: reproducible notebooks, explicit assumptions,
             structured outputs, and governance gates for institutional-quality work.
           </p>
-          <div class="tag-row">
-            <span class="tag">Governance-first</span>
-            <span class="tag alt">Traceability</span>
-            <span class="tag gold">Reproducibility</span>
-          </div>
         </div>
+
         <div class="card">
           <h3>Structural Reasoning Systems</h3>
           <p>
             Reasoning treated as a designed system: artifacts, roles, verification discipline, and
             explicit uncertainty — scaling capability without scaling risk.
           </p>
-          <div class="tag-row">
-            <span class="tag">Reasoning</span>
-            <span class="tag alt">Controls</span>
-            <span class="tag gold">Accountability</span>
-          </div>
         </div>
       </div>
     </section>
@@ -461,57 +380,100 @@
     <section class="section" id="pillars-1">
       <h2>Pillar 1 — Original Book-Supported Courses (with Colab Notebooks)</h2>
 
-      <div class="cards-grid">
-        <div class="card">
+      <p>
+        Structured curricula (books + releases) paired with runnable notebooks — designed to go from reading → running → artifacts.
+      </p>
+
+      <div class="grid">
+        <!-- Existing content (kept) -->
+        <a class="card linkcard" href="/aifp/" aria-label="AI for Financial Practitioners — Volumes I–V">
           <h3>AI for Financial Practitioners — Volumes I–V</h3>
           <p>
             The flagship curriculum connecting AI-driven finance with quantum-inspired thinking —
             built as an executable course (books + releases + Colab notebooks) with governance-first discipline.
           </p>
-          <div class="tag-row">
-            <span class="tag alt">Volumes I–V</span>
-            <span class="tag">Executable</span>
-            <span class="tag gold">Governance-first</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn primary" href="/aifp/">Open Volumes Page</a>
-            <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener">Open Repo</a>
-          </div>
-        </div>
+          <div class="hint">Open volumes page →</div>
+        </a>
 
-        <div class="card">
+        <a class="card linkcard" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noopener" aria-label="Open courses_education repository">
+          <h3>AI for Financial Practitioners — Repository</h3>
+          <p>
+            Repository for the AI for Financial Practitioners volumes and related course assets.
+          </p>
+          <div class="hint">Open repo →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank" rel="noopener" aria-label="Foundations of Modern Algorithmic Trading — Landing Page">
           <h3>Foundations of Modern Algorithmic Trading — 3 Volumes</h3>
           <p>
             A governance-first collection with a dedicated user manual and an executable notebook stack.
             Covers the end-to-end engineering discipline: honest backtesting, ML, portfolios, execution realism, and artifacts.
           </p>
-          <div class="tag-row">
-            <span class="tag">Volumes I–III</span>
-            <span class="tag alt">Notebook stack</span>
-            <span class="tag gold">End-to-end system</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn primary" href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank" rel="noopener">Open Landing Page</a>
-            <a class="btn" href="https://github.com/alexdibol/ai-algo-trading-notebooks" target="_blank" rel="noopener">Open Repo</a>
-          </div>
-        </div>
+          <div class="hint">Open landing page →</div>
+        </a>
 
-        <div class="card">
+        <a class="card linkcard" href="https://github.com/alexdibol/ai-algo-trading-notebooks" target="_blank" rel="noopener" aria-label="Foundations of Modern Algorithmic Trading — Repository">
+          <h3>Algorithmic Trading Notebooks — Repository</h3>
+          <p>
+            Full repository for the notebook stack and accompanying course materials.
+          </p>
+          <div class="hint">Open repo →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-law/" target="_blank" rel="noopener" aria-label="Legal Applications to Generative AI — Landing Page">
           <h3>Legal Applications to Generative AI — 1 Volume</h3>
           <p>
             A governance-first guide focused on practical use. Treats AI as a tool — not authority — and enforces
             “facts ≠ assumptions,” verification discipline, and auditable uncertainty.
           </p>
-          <div class="tag-row">
-            <span class="tag">Course volume</span>
-            <span class="tag alt">Maturity ladder</span>
-            <span class="tag gold">No invented authority</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn primary" href="https://alexdibol.github.io/ai-law/" target="_blank" rel="noopener">Open Landing Page</a>
-            <a class="btn" href="https://github.com/alexdibol/ai-law" target="_blank" rel="noopener">Open Repo</a>
-          </div>
-        </div>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://github.com/alexdibol/ai-law" target="_blank" rel="noopener" aria-label="Legal Applications to Generative AI — Repository">
+          <h3>AI-Law — Repository</h3>
+          <p>
+            Repository for the Legal Applications to Generative AI course volume and assets.
+          </p>
+          <div class="hint">Open repo →</div>
+        </a>
+
+        <!-- Required additions (landing pages) -->
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-consulting/" target="_blank" rel="noopener" aria-label="AI Consulting and Corporate Strategy — Landing Page">
+          <h3>AI Consulting and Corporate Strategy</h3>
+          <p>
+            Governance-first courseware for consulting and corporate strategy workflows — built for defensible practice, reusable assets, and auditable artifacts.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-financial_advisors/" target="_blank" rel="noopener" aria-label="AI for Financial Advisors — Landing Page">
+          <h3>AI for Financial Advisors</h3>
+          <p>
+            Governance-first courseware for U.S. wealth management and financial advice — designed for supervised, reviewable outputs and evidence discipline.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-accounting/" target="_blank" rel="noopener" aria-label="AI for Audit and Accounting — Landing Page">
+          <h3>AI for Audit and Accounting</h3>
+          <p>
+            Governance-first courseware for U.S. audit and accounting practice — capability ↑ ⇒ risk ↑ ⇒ controls ↑, with auditable artifacts and lab workflows.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-law/" target="_blank" rel="noopener" aria-label="Legal Applications for Generative AI — Landing Page">
+          <h3>Legal Applications for Generative AI</h3>
+          <p>
+            Governance-first practical guide for legal workflows — explicit uncertainty, verification discipline, and zero tolerance for invented authority.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+      </div>
+
+      <div class="callout">
+        <strong>Operating idea:</strong> Courses are designed to be executable: reading is paired with running, and running is paired with artifacts
+        that can be inspected, reconstructed, and reviewed.
       </div>
     </section>
 
@@ -519,33 +481,26 @@
     <section class="section" id="pillars-2">
       <h2>Pillar 2 — Long-Format Books and Research</h2>
 
-      <div class="card" style="text-align:center;margin-bottom:40px;">
-        <h3>Monographs & Research Notes</h3>
+      <div class="card" style="text-align:left;">
+        <h3>Monographs &amp; Research Notes</h3>
         <p>
           The long-form layer: books and deep research write-ups that develop ideas beyond a single paper.
           The focus remains the same: AI-driven finance, quantum-inspired thinking, and governance-first engineering.
         </p>
-        <div class="card-actions" style="justify-content:center;">
-          <a class="btn primary" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener">Browse Books (Repo)</a>
-          <a class="btn" href="#pillars-3">Go to Papers</a>
-          <a class="btn" href="#pillars-1">Back to Courses</a>
+        <div class="callout" style="margin-top:14px;">
+          <strong>How to use this pillar:</strong> Start with a monograph, then move into runnable course notebooks when you want execution artifacts.
+          Use papers (Pillar 3) when you need citable, modular results.
         </div>
       </div>
 
-      <div class="cards-grid">
-        <div class="card">
-          <h3>
-            <a href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener" style="color:var(--accent);font-weight:950;">
-              Books Repository
-            </a>
-          </h3>
+      <div class="grid">
+        <a class="card linkcard" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener" aria-label="Books Repository">
+          <h3>Books Repository</h3>
           <p>
             Long-format books and monographs across AI, finance, governance, and quantum-inspired approaches — designed as durable references.
           </p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener">Open</a>
-          </div>
-        </div>
+          <div class="hint">Open repo →</div>
+        </a>
 
         <div class="card">
           <h3>How to Use This Pillar</h3>
@@ -553,27 +508,15 @@
             Start with a monograph, then move into runnable course notebooks when you want execution artifacts.
             Use papers (Pillar 3) when you need citable, modular results.
           </p>
-          <div class="tag-row">
-            <span class="tag">Read</span>
-            <span class="tag alt">Run</span>
-            <span class="tag gold">Verify</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="#pillars-1">Pillar 1: Courses</a>
-            <a class="btn" href="#pillars-3">Pillar 3: Papers</a>
-          </div>
         </div>
 
-        <div class="card">
+        <a class="card linkcard" href="https://github.com/alexdibol" target="_blank" rel="noopener" aria-label="GitHub Profile">
           <h3>Open Collaboration</h3>
           <p>
             All work is built in public with open-source tooling. If you want to collaborate, start from the GitHub profile and repositories.
           </p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol" target="_blank" rel="noopener">GitHub Profile</a>
-            <a class="btn" href="#contact">Contact</a>
-          </div>
-        </div>
+          <div class="hint">Open profile →</div>
+        </a>
       </div>
     </section>
 
@@ -581,31 +524,22 @@
     <section class="section" id="pillars-3">
       <h2>Pillar 3 — Academic Papers</h2>
 
-      <div class="card" style="text-align:center;margin-bottom:40px;">
-        <h3>Working Papers & Applied Studies</h3>
+      <div class="card" style="text-align:left;">
+        <h3>Working Papers &amp; Applied Studies</h3>
         <p>
           Academic papers are the modular layer: focused results, working drafts, and applied studies.
           Built to be inspectable and easy to cite — and to connect cleanly back to the long-form books and the executable courses.
         </p>
-        <div class="card-actions" style="justify-content:center;">
-          <a class="btn primary" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener">Browse Papers (Repo)</a>
-          <a class="btn" href="#pillars-2">Back to Long-Format</a>
-          <a class="btn" href="#pillars-1">Back to Courses</a>
-        </div>
       </div>
 
-      <div class="cards-grid">
-        <div class="card">
-          <h3>
-            <a href="https://github.com/alexdibol/papers" target="_blank" rel="noopener" style="color:var(--accent);font-weight:950;">
-              Papers Repository
-            </a>
-          </h3>
-          <p>Working papers and applied research on engineered intelligence, structural reasoning, and financial modeling.</p>
-          <div class="card-actions">
-            <a class="btn primary" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener">Open</a>
-          </div>
-        </div>
+      <div class="grid">
+        <a class="card linkcard" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener" aria-label="Papers Repository">
+          <h3>Papers Repository</h3>
+          <p>
+            Working papers and applied research on engineered intelligence, structural reasoning, and financial modeling.
+          </p>
+          <div class="hint">Open repo →</div>
+        </a>
 
         <div class="card">
           <h3>How the Three Pillars Connect</h3>
@@ -613,15 +547,6 @@
             Papers (Pillar 3) provide modular results, Books (Pillar 2) develop the deep narrative and theory,
             and Courses (Pillar 1) provide executable implementations and artifacts.
           </p>
-          <div class="tag-row">
-            <span class="tag">Papers → Results</span>
-            <span class="tag alt">Books → Depth</span>
-            <span class="tag gold">Courses → Execution</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="#pillars-2">Pillar 2</a>
-            <a class="btn" href="#pillars-1">Pillar 1</a>
-          </div>
         </div>
 
         <div class="card">
@@ -630,11 +555,6 @@
             When a paper introduces a method, the goal is to make it runnable (or align it) with notebook workflows:
             deterministic runs, logged assumptions, and explicit artifacts.
           </p>
-          <div class="tag-row">
-            <span class="tag alt">Determinism</span>
-            <span class="tag">Assumptions</span>
-            <span class="tag gold">Artifacts</span>
-          </div>
         </div>
       </div>
     </section>
@@ -642,42 +562,42 @@
     <!-- CONTACT -->
     <section class="section" id="contact">
       <h2>Contact</h2>
-      <div class="card" style="max-width:800px;margin:0 auto;text-align:center;">
-        <p>
+
+      <div class="contactbox">
+        <p style="margin:0;color:var(--muted);max-width:110ch;">
           Interested in collaborating on AI-driven finance, quantum-inspired methods, governance-first applied AI, or research + teaching initiatives?
           I welcome partnerships across academia, industry, and innovation ecosystems.
         </p>
 
-        <div class="card-actions" style="justify-content:center;margin-top:18px;">
+        <div class="contact-actions" aria-label="Contact actions">
           <a class="btn primary" href="mailto:areynoso@yahoo.com">Email</a>
           <a class="btn" href="https://github.com/alexdibol" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="#pillars-1">Courses</a>
+          <a class="btn" href="#pillars-2">Long-Format</a>
+          <a class="btn" href="#pillars-3">Papers</a>
         </div>
 
-        <p style="margin-top:22px;">
-          <strong>Email:</strong>
-          <a href="mailto:areynoso@yahoo.com" style="color:var(--accent);font-weight:950;">areynoso@yahoo.com</a>
+        <p style="margin:16px 0 0;color:var(--muted);">
+          <strong style="color:var(--text);">Email:</strong>
+          <a href="mailto:areynoso@yahoo.com">areynoso@yahoo.com</a>
         </p>
-        <p style="margin-top:10px;">
-          <strong>GitHub:</strong>
-          <a href="https://github.com/alexdibol" target="_blank" rel="noopener" style="color:var(--accent);font-weight:950;">github.com/alexdibol</a>
+        <p style="margin:8px 0 0;color:var(--muted);">
+          <strong style="color:var(--text);">GitHub:</strong>
+          <a href="https://github.com/alexdibol" target="_blank" rel="noopener">github.com/alexdibol</a>
         </p>
       </div>
     </section>
 
-    <footer>
-      <div>© <span id="y"></span> Alejandro Reynoso</div>
-      <div>
-        <a href="#pillars-1">Pillar 1</a> ·
-        <a href="#pillars-2">Pillar 2</a> ·
-        <a href="#pillars-3">Pillar 3</a> ·
-        <a href="mailto:areynoso@yahoo.com">areynoso@yahoo.com</a>
-      </div>
+    <footer class="footer">
+      © <span id="y"></span> Alejandro Reynoso · AI Driven Finance and Quantum Inspired Finance
+      <br/>Hosted on GitHub Pages · Built with governance-first discipline
     </footer>
-  </div>
+
+  </main>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
