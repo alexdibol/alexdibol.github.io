@@ -31,6 +31,12 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
+    /* ✅ Typography aligned to our recent landing pages:
+       - clean system sans stack
+       - tighter letter spacing
+       - consistent weights
+    */
     body{
       margin:0;
       color:var(--text);
@@ -39,12 +45,15 @@
         radial-gradient(860px 520px at 80% 18%, var(--glow2) 0%, rgba(0,0,0,0) 62%),
         radial-gradient(1100px 720px at 50% 110%, rgba(112,241,200,.09) 0%, rgba(0,0,0,0) 58%),
         linear-gradient(180deg, rgba(12,14,26,1) 0%, rgba(7,8,13,1) 55%, rgba(6,7,12,1) 100%);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing: .1px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      letter-spacing: -0.01em;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     a{color:inherit; text-decoration:none}
-    a:hover{opacity:.95}
+    a:hover{opacity:.96}
     .wrap{max-width:1180px; margin:0 auto; padding:28px 18px 62px}
 
     /* Top nav */
@@ -58,26 +67,31 @@
       position:sticky; top:14px; z-index:50;
       backdrop-filter: blur(10px);
     }
-    .brand{
-      display:flex; align-items:center; gap:12px; min-width:240px;
-    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:240px}
     .dot{
       width:11px; height:11px; border-radius:50%;
       background: radial-gradient(circle at 30% 30%, #fff 0%, var(--accent) 35%, rgba(0,0,0,0) 70%);
       box-shadow: 0 0 0 6px rgba(155,178,255,.12), 0 0 38px rgba(155,178,255,.22);
     }
-    .brand-title{font-weight:800; font-size:14px; line-height:1.15}
+    .brand-title{font-weight:800; font-size:14px; line-height:1.15; letter-spacing:-0.01em}
     .brand-sub{font-size:12px; color:var(--muted); margin-top:2px}
+
     .navlinks{
-      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
       font-size:12px; color:var(--muted);
     }
     .navlinks a{
       padding:7px 10px; border-radius:999px;
       border:1px solid rgba(255,255,255,.08);
       background: rgba(255,255,255,.03);
+      transition: border-color .12s ease, background .12s ease, color .12s ease, transform .08s ease;
     }
-    .navlinks a:hover{border-color:rgba(155,178,255,.25); color:var(--text)}
+    .navlinks a:hover{
+      border-color:rgba(155,178,255,.25);
+      background: rgba(155,178,255,.07);
+      color:var(--text);
+      transform: translateY(-1px);
+    }
 
     /* Hero */
     .hero{
@@ -96,9 +110,8 @@
       gap:18px;
       padding:26px 22px 22px;
     }
-    @media (max-width: 920px){
-      .hero-inner{grid-template-columns:1fr}
-    }
+    @media (max-width: 920px){ .hero-inner{grid-template-columns:1fr} }
+
     .kicker{
       display:inline-flex; gap:8px; align-items:center;
       padding:7px 10px; border-radius:999px;
@@ -116,25 +129,31 @@
       font-size:12px; color:var(--muted);
       white-space:nowrap;
     }
+
     .hero h1{
       margin:14px 0 10px;
-      font-size:28px; line-height:1.15;
-      letter-spacing:.2px;
+      font-size:30px;
+      line-height:1.12;
+      letter-spacing:-0.02em;
+      font-weight:900;
     }
     .hero h2{
       margin:0 0 12px;
-      font-size:14px; font-weight:600;
+      font-size:14px; font-weight:650;
       color:var(--muted);
-      line-height:1.5;
+      line-height:1.55;
+      letter-spacing:-0.01em;
     }
     .hero p{
       margin:0 0 14px;
-      font-size:13px; line-height:1.75; color:var(--muted);
-      max-width: 64ch;
+      font-size:13.5px;
+      line-height:1.75;
+      color:var(--muted);
+      max-width: 70ch;
+      letter-spacing:-0.005em;
     }
-    .cta-row{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;
-    }
+
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
@@ -143,6 +162,7 @@
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
       font-size:12px;
+      font-weight:650;
       color:var(--text);
       transition: transform .08s ease, border-color .12s ease, background .12s ease;
     }
@@ -173,7 +193,7 @@
       height:100%;
     }
     .sidecard .label{font-size:12px; color:var(--muted); margin-bottom:8px}
-    .sidecard .name{font-size:14px; font-weight:800; margin-bottom:8px}
+    .sidecard .name{font-size:14px; font-weight:900; margin-bottom:8px; letter-spacing:-0.01em}
     .sidecard .role{font-size:12px; color:var(--muted); line-height:1.6; margin-bottom:12px}
     .sidecard .stack{display:flex; gap:8px; flex-wrap:wrap}
     .sidecard .stack .pill{border-color:rgba(255,255,255,.09)}
@@ -185,15 +205,13 @@
       line-height:1.7;
     }
 
-    /* Sections */
+    /* Cards grid */
     .grid{
       margin-top:18px;
       display:grid; grid-template-columns: 1fr 1fr;
       gap:14px;
     }
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr}
-    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr} }
 
     .card{
       border:1px solid var(--border);
@@ -208,7 +226,10 @@
       margin-bottom:10px;
     }
     .title{
-      font-size:13px; font-weight:900; line-height:1.2;
+      font-size:13px;
+      font-weight:900;
+      line-height:1.25;
+      letter-spacing:-0.01em;
     }
     .tag{
       font-size:11px; color:var(--muted);
@@ -217,16 +238,18 @@
       border:1px solid rgba(255,255,255,.09);
       background: rgba(255,255,255,.03);
       white-space:nowrap;
+      font-weight:650;
     }
     .desc{
-      font-size:12px; color:var(--muted);
+      font-size:12.5px; color:var(--muted);
       line-height:1.75;
       margin:0 0 12px;
+      letter-spacing:-0.005em;
     }
     .actions{display:flex; gap:10px; flex-wrap:wrap}
     .actions .btn{padding:9px 11px; border-radius:12px}
 
-    /* Full-width sections */
+    /* Sections */
     .section{
       margin-top:14px;
       border:1px solid var(--border);
@@ -237,32 +260,38 @@
     }
     .section h3{
       margin:0 0 10px;
-      font-size:13px; font-weight:900;
-      letter-spacing:.2px;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:-0.01em;
     }
     .section p{
       margin:0 0 10px;
-      font-size:12px; color:var(--muted);
+      font-size:12.5px;
+      color:var(--muted);
       line-height:1.8;
+      letter-spacing:-0.005em;
     }
+
     .bullets{
       margin:10px 0 0; padding:0;
       list-style:none;
       display:grid; grid-template-columns: 1fr 1fr;
       gap:10px 12px;
     }
-    @media (max-width: 920px){
-      .bullets{grid-template-columns:1fr}
-    }
+    @media (max-width: 920px){ .bullets{grid-template-columns:1fr} }
+
     .bullets li{
       border:1px solid rgba(255,255,255,.09);
       background: rgba(255,255,255,.03);
       border-radius: 16px;
       padding:12px 12px;
-      font-size:12px; color:var(--muted);
+      font-size:12.5px;
+      color:var(--muted);
       line-height:1.7;
+      letter-spacing:-0.005em;
     }
-    .bullets strong{color:var(--text)}
+    .bullets strong{color:var(--text); font-weight:850}
+
     .note{
       margin-top:12px;
       padding:12px 12px;
@@ -272,8 +301,9 @@
         radial-gradient(520px 180px at 18% 20%, rgba(255,207,112,.10) 0%, rgba(0,0,0,0) 55%),
         rgba(255,255,255,.03);
       color:var(--muted);
-      font-size:12px;
+      font-size:12.5px;
       line-height:1.75;
+      letter-spacing:-0.005em;
     }
 
     /* Footer */
@@ -284,8 +314,9 @@
       background: rgba(255,255,255,.02);
       padding:16px 16px;
       color:var(--muted);
-      font-size:12px;
+      font-size:12.5px;
       line-height:1.75;
+      letter-spacing:-0.005em;
     }
     .footer .row{
       display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
@@ -379,8 +410,8 @@
 
           <div class="mini">
             This site is a landing page for the release PDFs and the notebook-linked curriculum.
-            The project is designed for graduate cohorts and regulated practitioners who need
-            clarity under constraint — not hype, not shortcuts, not magical thinking.
+            Built for graduate cohorts and regulated practitioners who need clarity under constraint —
+            not hype, not shortcuts, not magical thinking.
           </div>
         </div>
       </div>
@@ -396,7 +427,6 @@
     </div>
 
     <div class="grid">
-      <!-- V1 -->
       <div class="card">
         <div class="top">
           <div class="title">Volume I — Foundations of Financial Machine Learning</div>
@@ -405,20 +435,14 @@
         <p class="desc">
           The opening descent into the machinery of intelligence: from neurons and dense layers to CNNs,
           sequence models (LSTMs/GRUs), transformers, and diffusion-era generative methods — framed as
-          a financial brain assembled step by step. Each notebook is small enough to understand,
-          strong enough to surprise.
+          a financial brain assembled step by step.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" rel="noreferrer">
-            Download PDF (Release)
-          </a>
-          <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">
-            View Repo Index
-          </a>
+          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" rel="noreferrer">Download PDF (Release)</a>
+          <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">View Repo Index</a>
         </div>
       </div>
 
-      <!-- V2 -->
       <div class="card">
         <div class="top">
           <div class="title">Volume II — Agentic Systems in Finance</div>
@@ -426,83 +450,61 @@
         </div>
         <p class="desc">
           Intelligence becomes social. Autonomous agents negotiate, cooperate, and compete across
-          digital market ecologies. Multi-agent RL, A2A orchestration, tool selection, and protocol-driven
-          reasoning become tangible through interconnected notebooks that feel like an economy learning to think.
+          digital market ecologies. Multi-agent RL, A2A orchestration, and tool selection become tangible
+          through interconnected notebooks.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank" rel="noreferrer">
-            Download PDF (Release)
-          </a>
-          <a class="btn" href="#pedagogy">
-            Why notebook-first?
-          </a>
+          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume2-v01" target="_blank" rel="noreferrer">Download PDF (Release)</a>
+          <a class="btn" href="#pedagogy">Why notebook-first?</a>
         </div>
       </div>
 
-      <!-- V3 -->
       <div class="card">
         <div class="top">
           <div class="title">Volume III — Structural Intelligence and Quantum Reasoning</div>
           <div class="tag">course-volume3-v01</div>
         </div>
         <p class="desc">
-          The frontier where economics meets physics and biology. Markets become living geometries;
-          portfolios become wavefunctions; liquidity becomes energy. Quantum encoders, Hamiltonian portfolios,
-          evolutionary reasoning molecules, and immunological defenses — all rendered as experiments you can run.
+          Markets become living geometries; portfolios become wavefunctions; liquidity becomes energy.
+          Quantum encoders, Hamiltonian portfolios, evolutionary reasoning molecules, and immunological defenses —
+          rendered as experiments you can run.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank" rel="noreferrer">
-            Download PDF (Release)
-          </a>
-          <a class="btn" href="#audience">
-            Who is this for?
-          </a>
+          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/tag/course-volume3-v01" target="_blank" rel="noreferrer">Download PDF (Release)</a>
+          <a class="btn" href="#audience">Who is this for?</a>
         </div>
       </div>
 
-      <!-- V4 -->
       <div class="card">
         <div class="top">
           <div class="title">Volume IV — Minimalist Training of Financial Models</div>
           <div class="tag">course-volume4-v01</div>
         </div>
         <p class="desc">
-          A discipline: build small, auditable, governance-native learning systems you can understand end-to-end.
-          Part I delivers the mathematical vocabulary of training under scarcity; Part II delivers ten dependency-light
-          Colab notebooks where every update is visible, inspectable, and reproducible.
+          Build small, auditable, governance-native learning systems you can understand end-to-end.
+          Part I: mathematical foundations of training under scarcity. Part II: ten Colab notebooks where every update is visible.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume4-v01/VOLUME_4.AI.REVISED.pdf" target="_blank" rel="noreferrer">
-            Download PDF
-          </a>
-          <a class="btn" href="#use">
-            How to run the labs
-          </a>
+          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume4-v01/VOLUME_4.AI.REVISED.pdf" target="_blank" rel="noreferrer">Download PDF</a>
+          <a class="btn" href="#use">How to run the labs</a>
         </div>
       </div>
 
-      <!-- V5 -->
       <div class="card">
         <div class="top">
           <div class="title">Volume V — GRPO-First Reasoning Systems for Finance</div>
           <div class="tag">course-volume5-v01</div>
         </div>
         <p class="desc">
-          Governance-native learning in practice: rubric-based preference optimization for institutional finance.
-          You build a compact reasoning core trained via explicit rubrics, an orchestration layer for evaluation and safety,
-          and a complete governance trail of manifests, logs, and release artifacts.
+          Rubric-based preference optimization for institutional finance: structured rubrics, KL-regularized updates,
+          auditable evaluation, and release artifacts. Ten notebooks mirror the production workflow end-to-end.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume5-v01/VOLUME_5_REVISED_VERSION.pdf" target="_blank" rel="noreferrer">
-            Download PDF
-          </a>
-          <a class="btn" href="#disclaimer">
-            Safety & controls
-          </a>
+          <a class="btn primary" href="https://github.com/alexdibol/courses_education/releases/download/course-volume5-v01/VOLUME_5_REVISED_VERSION.pdf" target="_blank" rel="noreferrer">Download PDF</a>
+          <a class="btn" href="#disclaimer">Safety & controls</a>
         </div>
       </div>
 
-      <!-- Continuum card -->
       <div class="card">
         <div class="top">
           <div class="title">The Living Continuum (1 → 5)</div>
@@ -511,50 +513,39 @@
         <p class="desc">
           Volume I: the toolbox · Volume II: the architecture · Volume III: the laboratory ·
           Volume IV: the method · Volume V: the practice.
-          The objective is not memorization — it is the ability to design reasoning systems,
-          observe emergence, and govern what you build.
+          The objective is not memorization — it is designing reasoning systems, observing emergence, and governing what we build.
         </p>
         <div class="actions">
-          <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">
-            Open main repository
-          </a>
-          <a class="btn" href="#citation">
-            Citation format
-          </a>
+          <a class="btn" href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">Open main repository</a>
+          <a class="btn" href="#citation">Citation format</a>
         </div>
       </div>
     </div>
 
-    <!-- PEDAGOGY -->
     <div class="section" id="pedagogy">
       <h3>A New Kind of Pedagogy</h3>
       <p>
         Across the series, more than seventy Colab notebooks form the backbone of a new learning paradigm.
         They do not merely support the text — they are the text in motion.
       </p>
-
       <ul class="bullets">
         <li><strong>Reading becomes experimentation.</strong> Adjust parameters, rewire architectures, test hypotheses — then observe what changes and what refuses to change.</li>
         <li><strong>Mechanisms over narratives.</strong> The notebooks force clarity: what channel produces the behavior, what costs destroy it, what constraints define feasibility.</li>
         <li><strong>Reproducibility as pedagogy.</strong> A credible learning outcome must be rerunnable and inspectable, not merely persuasive or elegant.</li>
         <li><strong>Governance as a first-class topic.</strong> In finance, the correct question is not “does it work?” but “can it be reviewed, audited, and constrained?”</li>
       </ul>
-
       <div class="note">
-        In the digital edition, notebook links are designed to be immediate: the goal is to move from concept → run → observation,
-        so the reader is trained to reason with evidence rather than with confident narration.
+        The goal is concept → run → observation. The reader is trained to reason with evidence rather than with confident narration.
       </div>
     </div>
 
-    <!-- AUDIENCE -->
     <div class="section" id="audience">
       <h3>Scope, Depth, and Audience</h3>
       <p>
         This series spans modern AI in finance — from neural learning to agentic negotiation,
         from structural/quantum cognition to minimalist training and auditable preference optimization.
-        It is written for graduate students, researchers, and professionals operating in real, regulated environments.
+        Written for graduate cohorts, researchers, and regulated practitioners.
       </p>
-
       <ul class="bullets">
         <li><strong>Graduate cohorts.</strong> MBA / Master of Finance readers who want real systems — not slideware — and who benefit from a lab-driven mental model.</li>
         <li><strong>Researchers.</strong> Those building new learning mechanisms who value interpretability, diagnostics, and causal probing.</li>
@@ -563,23 +554,20 @@
       </ul>
     </div>
 
-    <!-- HOW TO USE -->
     <div class="section" id="use">
       <h3>How to Use This Repository</h3>
       <p>
-        The series is designed for iteration: read a chapter, run the corresponding notebook(s), then mutate parameters and instrumentation
+        Read a chapter, run the corresponding notebook(s), then mutate parameters and instrumentation
         to learn how behavior changes under constraint.
       </p>
-
       <ul class="bullets">
-        <li><strong>1) Read the PDF.</strong> Select the target volume and read with an “experimenter’s posture” — identify mechanisms you want to stress.</li>
-        <li><strong>2) Open the notebooks.</strong> Run in the browser via Colab links and treat outputs as empirical claims that must be inspected.</li>
-        <li><strong>3) Tweak instrumentation.</strong> Add or expand diagnostics (loss logging, curvature, drift, saliency) to make failure modes visible.</li>
-        <li><strong>4) Document outcomes.</strong> Use governance prompts to record rationale, assumptions, and what you would need to verify externally.</li>
+        <li><strong>1) Read the PDF.</strong> Identify mechanisms you want to stress.</li>
+        <li><strong>2) Open the notebooks.</strong> Treat outputs as empirical claims that must be inspected.</li>
+        <li><strong>3) Tweak instrumentation.</strong> Expand diagnostics (loss logging, curvature, drift, saliency) to make failure modes visible.</li>
+        <li><strong>4) Document outcomes.</strong> Record rationale, assumptions, and what needs external verification.</li>
       </ul>
     </div>
 
-    <!-- CITATION -->
     <div class="section" id="citation">
       <h3>Citation</h3>
       <p>
@@ -587,7 +575,6 @@
         DEFI Capital Research · Cambridge Judge Business School. Available at:
         <a href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">github.com/alexdibol/courses_education</a>
       </p>
-
       <p class="small">
         Related releases:
         <a href="https://github.com/alexdibol/courses_education/releases/tag/course-volume1-v01" target="_blank" rel="noreferrer">Volume I</a>
@@ -602,40 +589,30 @@
       </p>
     </div>
 
-    <!-- DISCLAIMER -->
     <div class="section" id="disclaimer">
-      <h3 id="disclaimer">Governance & Use Disclaimer</h3>
+      <h3>Governance & Use Disclaimer</h3>
       <p>
         This curriculum is educational and research-oriented. It is not investment advice, not a solicitation,
         and not a substitute for professional judgment, compliance review, or institutional risk controls.
-        Any notebook outputs, charts, or metrics are demonstrations and must be treated as <span class="small">illustrative</span>.
+        Any outputs or metrics are illustrative and must be independently verified.
       </p>
-
       <ul class="bullets">
         <li><strong>No production claims.</strong> Notebooks are laboratories; results may be simplified and are not validated for live trading or deployment.</li>
         <li><strong>Human accountability.</strong> Users remain fully responsible for decisions, interpretations, and any downstream implementation.</li>
         <li><strong>Regulatory context.</strong> Finance is jurisdiction-dependent; consult qualified professionals for legal, tax, or regulatory interpretation.</li>
-        <li><strong>Data & confidentiality.</strong> Do not paste confidential client data into third-party tools or notebooks without proper authorization and controls.</li>
+        <li><strong>Data & confidentiality.</strong> Do not paste confidential client data into third-party tools or notebooks without authorization and controls.</li>
       </ul>
-
       <div class="note">
         The intended posture is disciplined experimentation: separate facts from assumptions, record what you changed,
         and treat “seems to work” as a hypothesis until independently verified.
       </div>
     </div>
 
-    <!-- FOOTER -->
     <div class="footer">
-      <div>
-        <strong>AI for Financial Practitioners</strong> — a notebook-driven series on reasoning, markets, and governance-native intelligence.
-      </div>
+      <div><strong>AI for Financial Practitioners</strong> — a notebook-driven series on reasoning, markets, and governance-native intelligence.</div>
       <div class="row">
-        <div>
-          <span class="small">©</span> <span class="small">Alejandro Reynoso · DEFI Capital Research</span>
-        </div>
-        <div class="small">
-          Repo: <a href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">github.com/alexdibol/courses_education</a>
-        </div>
+        <div><span class="small">©</span> <span class="small">Alejandro Reynoso · DEFI Capital Research</span></div>
+        <div class="small">Repo: <a href="https://github.com/alexdibol/courses_education" target="_blank" rel="noreferrer">github.com/alexdibol/courses_education</a></div>
       </div>
     </div>
 
