@@ -1,429 +1,770 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<title>Pillar I — Systems Discipline | Algo Systems</title>
-<meta name="description" content="Pillar I of Algo Systems: Systems Discipline across two domains — AI Systems and Algorithmic Systems Engineering — each organized ladder-first." />
+  <title>AI Driven Finance and Quantum Inspired Finance — Alejandro Reynoso</title>
+  <meta name="description" content="AI-Driven Finance converging with Quantum-Inspired methods. Three pillars: executable course-books + Colab notebooks, long-form research books, and academic papers. Governance-first, auditable, reproducible." />
 
-<style>
-:root{
-  --bg:#05060b;
-  --panel:#0f1220;
-  --panel2:#141836;
-  --text:#eef0ff;
-  --muted:#aeb4d8;
-  --border:rgba(255,255,255,0.07);
-  --accent:#7c9cff;
-  --accent2:#4de3c1;
-  --radius:26px;
-  --shadow:0 24px 80px rgba(0,0,0,0.55);
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
-  background: radial-gradient(circle at 20% 0%, #101427 0%, var(--bg) 60%);
-  color:var(--text);
-  line-height:1.95;
-}
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
-header{padding:120px 0 80px}
-.kicker{
-  font-size:0.78rem;
-  letter-spacing:2.2px;
-  text-transform:uppercase;
-  color:var(--accent2);
-  margin-bottom:20px;
-}
-h1{
-  font-size:3.2rem;
-  line-height:1.1;
-  margin:0 0 26px;
-  letter-spacing:-1.2px;
-}
-@media(max-width:760px){h1{font-size:2.25rem}}
-.hero-sub{
-  font-size:1.22rem;
-  color:var(--muted);
-  max-width:100ch;
-  margin:0 0 18px;
-}
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="AI Driven Finance and Quantum Inspired Finance — Alejandro Reynoso" />
+  <meta property="og:description" content="Three pillars: (1) Courses (books + Colab), (2) Long-format books & research, (3) Academic papers. Governance-first, auditable systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alexdibol.github.io" />
+  <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-.nav{
-  margin-top:26px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.nav a{
-  padding:10px 14px;
-  border-radius:16px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.03);
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:800;
-}
-.nav a:hover{
-  border-color:var(--accent);
-  color:var(--accent);
-}
+  <link rel="icon" href="/favicon.ico" />
 
-.panel{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:62px;
-  margin:60px 0;
-  box-shadow:var(--shadow);
-}
-@media(max-width:760px){.panel{padding:34px}}
+  <style>
+    :root{
+      --bg:#07080d;
+      --panel:#0f1220;
+      --panel-2:#141836;
+      --text:#eef0ff;
+      --muted:#b8bddb;
+      --border:rgba(255,255,255,0.09);
+      --accent:#7aa2ff;
+      --accent2:#6ee7c8;
+      --warn:#ffd27a;
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(122,162,255,0.16), transparent 55%),
+        radial-gradient(800px 600px at 85% 20%, rgba(110,231,200,0.10), transparent 55%),
+        radial-gradient(900px 650px at 60% 95%, rgba(255,210,122,0.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
 
-.section-title{
-  font-size:2rem;
-  margin:0 0 22px;
-  letter-spacing:-0.5px;
-}
-.small{font-size:0.98rem;color:var(--muted)}
-.divider{height:1px;background:var(--border);margin:28px 0}
-.highlight{font-weight:900;color:var(--accent2)}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{color:var(--accent2);text-decoration:underline;}
 
-.domain{
-  margin-top:34px;
-  padding:26px;
-  border-radius:24px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.03);
-}
-.domain-head{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:14px;
-  margin-bottom:18px;
-}
-.domain-title{
-  font-size:1.35rem;
-  font-weight:900;
-  letter-spacing:-0.3px;
-  margin:0;
-}
-.domain-tag{
-  font-size:0.78rem;
-  letter-spacing:2.0px;
-  text-transform:uppercase;
-  color:var(--accent2);
-  border:1px solid var(--border);
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(0,0,0,0.18);
-}
+    .container{max-width:1140px;margin:0 auto;padding:28px 20px 84px;}
 
-.ladder{
-  border:1px solid var(--border);
-  background:rgba(0,0,0,0.18);
-  border-radius:22px;
-  padding:22px;
-  margin-top:8px;
-}
-.ladder-title{
-  font-size:1.15rem;
-  font-weight:900;
-  margin:0 0 10px;
-  color:var(--text);
-}
-.ladder-desc{
-  margin:0 0 12px;
-  color:var(--muted);
-}
-.ladder ul{
-  margin:0 0 0 18px;
-  padding:0;
-  color:var(--muted);
-}
-.ladder li{margin:9px 0}
+    /* HEADER / NAV */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:16px 0 18px;
+      border-bottom:1px solid var(--border);
+      flex-wrap:wrap;
+    }
+    .logo{
+      font-weight:900;
+      letter-spacing:0.02em;
+      font-size:18px;
+      text-transform:uppercase;
+      color:var(--text);
+      white-space:nowrap;
+    }
+    nav.nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:0.02em;
+      text-transform:uppercase;
+      background:rgba(0,0,0,0.12);
+    }
+    .nav a:hover{
+      border-color:rgba(122,162,255,0.28);
+      background:rgba(20,24,54,0.40);
+      text-decoration:none;
+    }
+    .nav a:focus{
+      outline:2px solid rgba(110,231,200,0.46);
+      outline-offset:3px;
+      text-decoration:none;
+    }
 
-.grid{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:18px;
-}
-.card{
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:18px;
-  background:rgba(255,255,255,0.02);
-}
-.card h3{
-  margin:0 0 10px;
-  font-size:1.05rem;
-}
-.card p{
-  margin:0 0 14px;
-  color:var(--muted);
-}
-.card .meta{
-  font-size:0.88rem;
-  color:var(--muted);
-}
+    /* HERO */
+    .hero{
+      margin-top:22px;
+      padding:38px 34px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(20,24,54,0.92), rgba(15,18,32,0.88));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(520px 360px at 16% 0%, rgba(122,162,255,0.16), transparent 60%),
+        radial-gradient(460px 330px at 92% 18%, rgba(110,231,200,0.09), transparent 60%),
+        radial-gradient(520px 360px at 55% 110%, rgba(255,210,122,0.07), transparent 60%);
+      pointer-events:none;
+      opacity:0.92;
+    }
+    .hero > *{position:relative;}
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hero h1{
+      font-size:38px;
+      margin:12px 0 10px;
+      line-height:1.15;
+      max-width:70ch;
+      text-transform:uppercase;
+      letter-spacing:0.02em;
+    }
+    .subtitle{
+      margin:0;
+      max-width:110ch;
+      color:var(--muted);
+      font-size:16px;
+    }
 
-.button{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:16px;
-  border:1px solid var(--accent);
-  color:var(--accent);
-  font-weight:900;
-  text-decoration:none;
-  transition:0.25s ease;
-}
-.button:hover{background:var(--accent);color:#000}
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.18);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.02em;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:rgba(122,162,255,0.9);
+      box-shadow:0 0 0 3px rgba(122,162,255,0.18);
+    }
+    .dot.g{background:rgba(110,231,200,0.95); box-shadow:0 0 0 3px rgba(110,231,200,0.18);}
+    .dot.y{background:rgba(255,210,122,0.95); box-shadow:0 0 0 3px rgba(255,210,122,0.18);}
 
-.button-ghost{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:16px;
-  border:1px solid var(--border);
-  color:var(--muted);
-  font-weight:900;
-  text-decoration:none;
-}
-.button-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    /* SECTIONS */
+    .section{margin-top:56px;}
+    .section h2{
+      font-size:28px;
+      margin:0 0 14px;
+      letter-spacing:-0.02em;
+    }
+    .section p{color:var(--muted);max-width:110ch;margin:10px 0;}
 
-footer{
-  padding:95px 0 110px;
-  text-align:center;
-  color:var(--muted);
-  font-size:1rem;
-}
-footer a{color:var(--accent);text-decoration:none;font-weight:900}
-footer a:hover{text-decoration:underline}
-</style>
+    /* GRID / CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+      gap:18px;
+      margin-top:22px;
+    }
+    .card{
+      padding:20px 20px;
+      border-radius:18px;
+      background:rgba(20,24,54,0.72);
+      border:1px solid var(--border);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      color:inherit;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .linkcard{
+      display:block;
+      cursor:pointer;
+      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+      text-decoration:none;
+    }
+    .linkcard:hover{
+      transform: translateY(-2px);
+      border-color: rgba(122,162,255,0.35);
+      background: rgba(20,24,54,0.86);
+      text-decoration:none;
+    }
+    .linkcard:focus{
+      outline:2px solid rgba(110,231,200,0.46);
+      outline-offset:3px;
+      text-decoration:none;
+    }
+    .hint{
+      margin-top:12px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.92;
+      font-weight:800;
+      letter-spacing:0.02em;
+      text-transform:uppercase;
+    }
+
+    .callout{
+      margin-top:18px;
+      padding:18px 18px;
+      border-radius:18px;
+      border:1px solid rgba(122,162,255,0.18);
+      background:linear-gradient(135deg, rgba(122,162,255,0.06), rgba(110,231,200,0.04));
+      color:var(--muted);
+      max-width:110ch;
+    }
+    .callout strong{color:var(--text);}
+
+    /* LIST */
+    .list{
+      margin-top:18px;
+      padding-left:22px;
+      color:var(--muted);
+      max-width:110ch;
+    }
+    .list li{margin-bottom:12px;}
+    .list strong{color:var(--text);}
+
+    /* CONTACT */
+    .contactbox{
+      margin-top:18px;
+      padding:22px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(20,24,54,0.72);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      max-width:900px;
+    }
+    .contact-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(0,0,0,0.18);
+      color:var(--text);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      text-decoration:none;
+    }
+    .btn:hover{
+      border-color:rgba(110,231,200,0.26);
+      background:rgba(20,24,54,0.62);
+      text-decoration:none;
+    }
+    .btn.primary{
+      border:1px solid rgba(122,162,255,0.35);
+      background:linear-gradient(135deg, rgba(122,162,255,0.16), rgba(110,231,200,0.10));
+    }
+
+    /* DISCLAIMER */
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      max-width:110ch;
+    }
+    .disclaimerbox{
+      margin-top:18px;
+      padding:20px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(20,24,54,0.66);
+      box-shadow:0 10px 30px rgba(0,0,0,0.30);
+      max-width:110ch;
+    }
+    .disclaimerbox h3{
+      margin:0 0 10px;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .disclaimerbox p{margin:10px 0;color:var(--muted);font-size:13px;line-height:1.65;}
+    .disclaimerbox strong{color:var(--text);}
+    .disclaimerbox ul{margin:10px 0 0 18px; padding:0; color:var(--muted); font-size:13px; line-height:1.65;}
+    .disclaimerbox li{margin:8px 0;}
+
+    /* FOOTER */
+    footer.footer{
+      margin-top:80px;
+      padding-top:24px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media (max-width: 860px){
+      header{justify-content:center;text-align:center;}
+      nav.nav{justify-content:center;}
+      .hero{padding:32px 22px;}
+      .hero h1{font-size:30px;}
+    }
+  </style>
 </head>
 
 <body>
+  <main class="container">
 
-<header>
-  <div class="wrap">
-    <div class="kicker">Algo Systems · Pillar I — Systems Discipline</div>
+    <header>
+      <div class="logo">Alejandro Reynoso</div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#pillars-1">Pillar 1: Courses</a>
+        <a href="#pillars-2">Pillar 2: Long-Format</a>
+        <a href="#pillars-3">Pillar 3: Papers</a>
+        <a href="#focus">Conceptual Focus</a>
+        <a href="#contact">Contact</a>
+        <a href="#disclaimer">Disclaimers</a>
+      </nav>
+    </header>
 
-    <h1>Build the infrastructure that makes systematic work reviewable.</h1>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="kicker">Three pillars · Governance-first · Auditable · Reproducible</div>
+      <h1>AI Driven Finance and Quantum Inspired Finance</h1>
 
-    <p class="hero-sub">
-      Pillar I is the foundation layer of Algo Systems. Its purpose is to establish methodological discipline before strategy exploration.
-      It trains the engineering and governance posture that makes experiments reproducible, conclusions auditable, and claims defensible.
-      Without this layer, backtests become stories; with it, research becomes reviewable evidence.
-    </p>
+      <p class="subtitle">
+        This site is organized as <strong>three pillars</strong> — all built with the same intent:
+        to turn ideas into <strong>auditable, reproducible</strong> systems and practitioner-ready learning paths.
+        The unifying theme is the convergence of <strong>AI-driven finance</strong> with <strong>quantum-inspired</strong> methods
+        (geometry, optimization, and structured reasoning) — without sacrificing governance, traceability, and accountability.
+      </p>
 
-    <p class="hero-sub">
-      Pillar I is intentionally organized into two domains. Each domain is presented <b>ladder-first</b>:
-      the first block is the core formation ladder (the primary entry point), followed by secondary modules that extend or specialize the ladder.
-    </p>
+      <div class="pillrow" aria-label="Focus priorities">
+        <span class="pill"><span class="dot"></span> Auditability + Traceability</span>
+        <span class="pill"><span class="dot g"></span> Reproducibility + Runnable Work</span>
+        <span class="pill"><span class="dot y"></span> Governance + Accountability</span>
+      </div>
 
-    <div class="nav">
-      <a href="#ai">Domain I — AI Systems</a>
-      <a href="#algo">Domain II — Algorithmic Systems Engineering</a>
-      <a href="https://alexdibol.github.io" target="_blank" rel="noopener">Algo Systems (Umbrella)</a>
-    </div>
-  </div>
-</header>
+      <div class="callout" style="margin-top:18px;">
+        <strong>Navigation:</strong> Pillar 1 contains executable course-books and notebook stacks; Pillar 2 contains long-format books and research notes;
+        Pillar 3 contains academic papers intended to be modular and citable.
+      </div>
+    </section>
 
-<section>
-  <div class="wrap">
+    <!-- CONCEPTUAL FOCUS -->
+    <section class="section" id="focus">
+      <h2>Conceptual Focus</h2>
 
-    <div class="panel">
-      <div class="section-title">Two Domains, One Standard</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Quantum-Inspired Finance</h3>
+          <p>
+            Classical methods inspired by quantum computing, geometry, and structured optimization —
+            applied to portfolios, regimes, risk, and decision systems with verifiable artifacts.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AI-Driven Finance (Built to Run)</h3>
+          <p>
+            Engineering-first AI for finance: reproducible notebooks, explicit assumptions,
+            structured outputs, and governance gates for institutional-quality work.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Structural Reasoning Systems</h3>
+          <p>
+            Reasoning treated as a designed system: artifacts, roles, verification discipline, and
+            explicit uncertainty — scaling capability without scaling risk.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILLAR 1 -->
+    <section class="section" id="pillars-1">
+      <h2>Pillar 1 — Original Book-Supported Courses (with Colab Notebooks)</h2>
 
       <p>
-        The two domains reinforce each other while remaining conceptually distinct.
-        AI Systems focuses on governed use of AI in financial workflows—evaluation posture, verification constraints, and controlled integration.
-        Algorithmic Systems Engineering focuses on deterministic experimentation—backtesting infrastructure, execution realism, and artifact logging.
+        This follows the <strong>governance-first</strong> approach to AI implementation in practice.
+        It is a solid foundation for <strong>investment bankers</strong> looking at governed implementation of AI.
       </p>
 
-      <p class="highlight">
-        Both domains share the same institutional standard: explicit assumptions, reproducible runs, and stage gates before interpretation.
-      </p>
-
-      <div class="divider"></div>
-
-      <p class="small">
-        Note: the blocks below use placeholders for internal module links. The pillar landing page remains the canonical entry point:
-        <a class="button-ghost" href="https://alexdibol.github.io/ai-algo-trading-notebooks" target="_blank" rel="noopener">Pillar I Home</a>
-      </p>
-    </div>
-
-    <!-- DOMAIN I -->
-    <div class="panel" id="ai">
-      <div class="section-title">Domain I — AI Systems</div>
-
-      <p class="small">
-        This domain treats AI as a governed capability inside a broader system, not as an oracle.
-        The focus is disciplined integration: evaluation, oversight, verification posture, and limits.
-        The objective is to use AI to increase productivity and clarity without sacrificing auditability or epistemic control.
-      </p>
-
-      <!-- Ladder FIRST -->
-      <div class="domain">
-        <div class="domain-head">
-          <h2 class="domain-title">AI Systems Ladder</h2>
-          <div class="domain-tag">Core formation track</div>
-        </div>
-
-        <div class="ladder">
-          <div class="ladder-title">Primary Entry: The AI Systems Ladder</div>
-          <p class="ladder-desc">
-            A structured progression for incorporating AI into systematic trading workflows under governance.
-            The ladder is designed to prevent two common failures: (i) treating AI output as truth, and (ii) allowing AI convenience to erode reproducibility.
+      <div class="grid">
+        <!-- Only volumes / landing pages (no repo links) -->
+        <a class="card linkcard" href="/aifp/" aria-label="AI for Financial Practitioners — Volumes I–V">
+          <h3>AI for Financial Practitioners — Volumes I–V</h3>
+          <p>
+            The flagship curriculum connecting AI-driven finance with quantum-inspired thinking —
+            built as an executable course (books + releases + Colab notebooks) with governance-first discipline.
           </p>
+          <div class="hint">Open volumes page →</div>
+        </a>
 
-          <ul>
-            <li><b>Evaluation posture:</b> what AI can and cannot claim; how to separate drafting from verification</li>
-            <li><b>Governance constraints:</b> disclosure risk, redaction discipline, review requirements, and accountability</li>
-            <li><b>Integration patterns:</b> AI as tool for structure and productivity, never as decision authority</li>
-            <li><b>Auditability:</b> prompt logging practices, versioning, and evidence trails supporting review</li>
-          </ul>
-
-          <div style="margin-top:16px;">
-            <a href="#" class="button">Enter the AI Systems Ladder (Placeholder)</a>
-            <a href="#" class="button-ghost">AI Modules Index (Placeholder)</a>
-          </div>
-        </div>
-
-        <!-- Secondary blocks -->
-        <div class="grid">
-          <div class="card">
-            <h3>AI Workflow Patterns</h3>
-            <p>
-              Practical patterns for governed drafting, critique loops, structured outputs, and reproducible research notes.
-            </p>
-            <div class="meta">Secondary module · Placeholder link</div>
-          </div>
-
-          <div class="card">
-            <h3>Reasoning Discipline & Verification</h3>
-            <p>
-              How to prevent narrative drift: separating facts, assumptions, open items, and verification gates.
-            </p>
-            <div class="meta">Secondary module · Placeholder link</div>
-          </div>
-
-          <div class="card">
-            <h3>Disclosure Risk Controls</h3>
-            <p>
-              Minimum-necessary input, redaction posture, and review requirements for sensitive financial contexts.
-            </p>
-            <div class="meta">Secondary module · Placeholder link</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DOMAIN II -->
-    <div class="panel" id="algo">
-      <div class="section-title">Domain II — Algorithmic Systems Engineering</div>
-
-      <p class="small">
-        This domain builds deterministic infrastructure: backtesting engines, execution realism, configuration control,
-        and artifact logging. The objective is to make experimentation reviewable and conclusions defensible.
-        This is the layer that prevents systematic research from degenerating into unrepeatable stories.
-      </p>
-
-      <!-- Ladder FIRST -->
-      <div class="domain">
-        <div class="domain-head">
-          <h2 class="domain-title">Algorithmic Systems Ladder</h2>
-          <div class="domain-tag">Core formation track</div>
-        </div>
-
-        <div class="ladder">
-          <div class="ladder-title">Primary Entry: The Algorithmic Systems Ladder</div>
-          <p class="ladder-desc">
-            A structured progression for building the engineering substrate of systematic trading: deterministic backtests,
-            execution and cost surfaces, reproducible configurations, and governance artifacts. The ladder is designed to ensure
-            that every result can be re-run, audited, and challenged without ambiguity.
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank" rel="noopener" aria-label="Foundations of Modern Algorithmic Trading — Landing Page">
+          <h3>Foundations of Modern Algorithmic Trading — Volumes I-III</h3>
+          <p>
+            A governance-first collection with a dedicated user manual and an executable notebook stack.
+            Covers the end-to-end engineering discipline: honest backtesting, ML, portfolios, execution realism, and artifacts.
           </p>
+          <div class="hint">Open landing page →</div>
+        </a>
 
-          <ul>
-            <li><b>Deterministic backtesting:</b> seeds, configuration control, and repeatable pipelines</li>
-            <li><b>Execution realism:</b> costs, slippage, participation constraints, and convex impact sensitivity</li>
-            <li><b>Portfolio architecture:</b> position sizing, constraints, and risk budgeting as explicit policy rules</li>
-            <li><b>Governance artifacts:</b> run manifests, risk logs, evidence trails, and stage gates</li>
-          </ul>
+        <a class="card linkcard" href="https://alexdibol.github.io/markets_for_traders/" target="_blank" rel="noopener" aria-label="Market Mechanisms for Traders — Landing Page">
+          <h3>Market Mechanisms for Traders. Volumes I-II</h3>
+          <p>
+            A mechanism-first primer on how markets actually clear: microstructure, liquidity, execution friction, and regime behavior —
+            built as runnable, governed learning assets for trading practitioners.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
 
-          <div style="margin-top:16px;">
-            <a href="#" class="button">Enter the Algorithmic Systems Ladder (Placeholder)</a>
-            <a href="#" class="button-ghost">Engineering Modules Index (Placeholder)</a>
-          </div>
-        </div>
+        <a class="card linkcard" href="https://alexdibol.github.io/algo_strategies/" target="_blank" rel="noopener" aria-label="Governed Trading Strategies — Landing Page">
+          <h3>Governed Trading Strategies</h3>
+          <p>
+            A synthetic-first strategy laboratory: canonical archetypes implemented under governance, with auditable artifacts, execution realism,
+            stress testing, and explicit “Not verified” posture.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
 
-        <!-- Secondary blocks -->
-        <div class="grid">
-          <div class="card">
-            <h3>Backtesting Architecture</h3>
-            <p>
-              Engine design, configuration fingerprinting, and reproducible experiment structure.
-            </p>
-            <div class="meta">Secondary module · Placeholder link</div>
-          </div>
+        <a class="card linkcard" href="https://alexdibol.github.io/algo_systems/" target="_blank" rel="noopener" aria-label="Algo Systems — Landing Page">
+          <h3>Algo Systems - Institutional Formation in Systematic Trading (Full Ladder)</h3>
+          <p>
+            Systematic trading as a designed control system: state → signals → policy → execution → feedback —
+            emphasizing constraint surfaces, reproducibility, and human accountability.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
 
-          <div class="card">
-            <h3>Execution & Cost Modeling</h3>
-            <p>
-              Modeling spread, impact convexity, slippage, and capacity cliffs under stress.
-            </p>
-            <div class="meta">Secondary module · Placeholder link</div>
-          </div>
+        
 
-          <div class="card">
-            <h3>Governance Infrastructure</h3>
-            <p>
-              Stage gates, structured outputs, and disciplined separation of assumptions vs observations.
-            </p>
-            <div class="meta">Secondary module · Placeholder link</div>
-          </div>
-        </div>
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-governance_first/" target="_blank" rel="noopener" aria-label="Governance-First AI — Complete Training Suite (Full Ladder)">
+          <h3>Governance-First AI — Complete Training Suite (Full Ladder)</h3>
+          <p>
+            The canonical entry point to the full Governance-First training ladder:
+            Machine Learning foundations → governed generative AI operations → fine-tuning governance → frontier governance.
+            Built for auditability, reproducibility, and high-accountability professional practice.
+          </p>
+          <div class="hint">Open the full ladder →</div>
+        </a>
 
+
+        
+        <a class="card linkcard" href="https://alexdibol.github.io/ml-governance_first" target="_blank" rel="noopener" aria-label="Governed Machine Learning (Governance-First) — Landing Page">
+          <h3>Auditable Machine Learning </h3>
+          <p>
+            The foundational volume: governance discipline before GenAI—scope, verification posture, audit artifacts, review gates, and human accountability
+            for ML workflows.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-investment_banking/" target="_blank" rel="noopener" aria-label="AI in Investment Banking — Landing Page">
+          <h3>AI in Investment Banking </h3>
+          <p>
+            A governance-first, book-supported course with an executable Colab notebook stack —
+            designed for defensible, reviewable AI use in banking workflows and institutional implementation.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-consulting/" target="_blank" rel="noopener" aria-label="AI Consulting and Corporate Strategy — Landing Page">
+          <h3>AI Consulting and Corporate Strategy </h3>
+          <p>
+            Governance-first courseware for consulting and corporate strategy workflows — built for defensible practice, reusable assets, and auditable artifacts.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-financial_advisors/" target="_blank" rel="noopener" aria-label="AI for Financial Advisors — Landing Page">
+          <h3>AI for Financial Advisors </h3>
+          <p>
+            Governance-first courseware for U.S. wealth management and financial advice — designed for supervised, reviewable outputs and evidence discipline.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-accounting/" target="_blank" rel="noopener" aria-label="AI for Audit and Accounting — Landing Page">
+          <h3>AI for Audit and Accounting </h3>
+          <p>
+            Governance-first courseware for U.S. audit and accounting practice — capability ↑ ⇒ risk ↑ ⇒ controls ↑, with auditable artifacts and lab workflows.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-law/" target="_blank" rel="noopener" aria-label="Legal Applications for Generative AI — Landing Page">
+          <h3>AI for the Legal Practice </h3>
+          <p>
+            Governance-first practical guide for legal workflows — explicit uncertainty, verification discipline, and zero tolerance for invented authority.
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+       
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-fine_tuning/" target="_blank" rel="noopener" aria-label="Fine-Tuning for Financial Practitioners (Governance-First) — Landing Page">
+          <h3>Language and Reasoning Model Fine-Tuning for Financial Practitioners </h3>
+          <p>
+            A governance-first course-book: disciplined fine-tuning for regulated workflows.
+            Treats fine-tuning as institutional governance — task scope, forbidden behaviors, behavioral evaluation, approval gates,
+            audit artifacts, monitoring, rollback, and human accountability (with runnable Colab notebooks).
+          </p>
+          <div class="hint">Open landing page →</div>
+        </a>
+
+
+        <a class="card linkcard" href="https://alexdibol.github.io/ai-governance_2026/" target="_blank" rel="noopener" aria-label="AI 2026 — Frontier Awareness Without the Hype (Governance-First)">
+          <h3>AI 2026 — Frontier Awareness Without the Hype. Volumes I-II </h3>
+          <p>
+            Two-volume governance-first exploration of frontier AI implementation.
+            Covers emerging architectures, agentic systems, reasoning models, multimodal risk,
+            and institutional control patterns — grounded in real deployment constraints
+            and paired with executable Colab notebooks.
+          </p>
+          <div class="hint">Open frontier volumes →</div>
+        </a>
+
+        
       </div>
-    </div>
 
-    <div class="panel">
-      <div class="section-title">Pillar I: What You Gain</div>
+      <div class="callout">
+        <strong>Operating idea:</strong> Courses are designed to be executable: reading is paired with running, and running is paired with artifacts
+        that can be inspected, reconstructed, and reviewed.
+      </div>
+    </section>
 
-      <p>
-        Pillar I produces the discipline that makes everything else meaningful.
-        It trains the reflex to treat systems as auditable objects, not personal scripts.
-        It teaches that reproducibility is not a preference; it is a professional requirement.
-      </p>
+    <!-- PILLAR 2 -->
+    <section class="section" id="pillars-2">
+      <h2>Pillar 2 — Long-Format Books and Research</h2>
 
-      <ul style="color:var(--muted); margin:16px 0 0 20px;">
-        <li>From ad-hoc code to governed experimentation</li>
-        <li>From narrative results to reproducible evidence</li>
-        <li>From tool usage to institutional accountability</li>
-      </ul>
+      <div class="card" style="text-align:left;">
+        <h3>Monographs &amp; Research Notes</h3>
+        <p>
+          The long-form layer: books and deep research write-ups that develop ideas beyond a single paper.
+          The focus remains the same: AI-driven finance, quantum-inspired thinking, and governance-first engineering.
+        </p>
+        <div class="callout" style="margin-top:14px;">
+          <strong>How to use this pillar:</strong> Start with a monograph, then move into runnable course notebooks when you want execution artifacts.
+          Use papers (Pillar 3) when you need citable, modular results.
+        </div>
+      </div>
 
-      <div class="divider"></div>
+      <div class="grid">
+        <a class="card linkcard" href="https://github.com/alexdibol/books/tree/main" target="_blank" rel="noopener" aria-label="Books Repository">
+          <h3>Books Repository</h3>
+          <p>
+            Long-format books and monographs across AI, finance, governance, and quantum-inspired approaches — designed as durable references.
+          </p>
+          <div class="hint">Open repo →</div>
+        </a>
 
-      <p class="small">
-        Ready to explore the full pillar landing page?
-      </p>
+        <div class="card">
+          <h3>How to Use This Pillar</h3>
+          <p>
+            Start with a monograph, then move into runnable course notebooks when you want execution artifacts.
+            Use papers (Pillar 3) when you need citable, modular results.
+          </p>
+        </div>
 
-      <a href="https://alexdibol.github.io/ai-algo-trading-notebooks" class="button" target="_blank" rel="noopener">
-        Go to Pillar I Home
-      </a>
-    </div>
+        <a class="card linkcard" href="https://github.com/alexdibol" target="_blank" rel="noopener" aria-label="GitHub Profile">
+          <h3>Open Collaboration</h3>
+          <p>
+            All work is built in public with open-source tooling. If you want to collaborate, start from the GitHub profile and repositories.
+          </p>
+          <div class="hint">Open profile →</div>
+        </a>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <!-- PILLAR 3 -->
+    <section class="section" id="pillars-3">
+      <h2>Pillar 3 — Academic Papers</h2>
 
-<footer>
-  Algo Systems — Pillar I: Systems Discipline<br><br>
-  <a href="https://alexdibol.github.io" target="_blank" rel="noopener">Algo Systems (Umbrella)</a>
-</footer>
+      <div class="card" style="text-align:left;">
+        <h3>Working Papers &amp; Applied Studies</h3>
+        <p>
+          Academic papers are the modular layer: focused results, working drafts, and applied studies.
+          Built to be inspectable and easy to cite — and to connect cleanly back to the long-form books and the executable courses.
+        </p>
+      </div>
 
+      <div class="grid">
+        <a class="card linkcard" href="https://github.com/alexdibol/papers" target="_blank" rel="noopener" aria-label="Papers Repository">
+          <h3>Papers Repository</h3>
+          <p>
+            Working papers and applied research on engineered intelligence, structural reasoning, and financial modeling.
+          </p>
+          <div class="hint">Open repo →</div>
+        </a>
+
+        <div class="card">
+          <h3>How the Three Pillars Connect</h3>
+          <p>
+            Papers (Pillar 3) provide modular results, Books (Pillar 2) develop the deep narrative and theory,
+            and Courses (Pillar 1) provide executable implementations and artifacts.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Reproducibility Focus</h3>
+          <p>
+            When a paper introduces a method, the goal is to make it runnable (or align it) with notebook workflows:
+            deterministic runs, logged assumptions, and explicit artifacts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+
+      <div class="contactbox">
+        <p style="margin:0;color:var(--muted);max-width:110ch;">
+          Interested in collaborating on AI-driven finance, quantum-inspired methods, governance-first applied AI, or research + teaching initiatives?
+          I welcome partnerships across academia, industry, and innovation ecosystems.
+        </p>
+
+        <div class="contact-actions" aria-label="Contact actions">
+          <a class="btn primary" href="mailto:areynoso@yahoo.com">Email</a>
+          <a class="btn" href="https://github.com/alexdibol" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="#pillars-1">Courses</a>
+          <a class="btn" href="#pillars-2">Long-Format</a>
+          <a class="btn" href="#pillars-3">Papers</a>
+        </div>
+
+        <p style="margin:16px 0 0;color:var(--muted);">
+          <strong style="color:var(--text);">Email:</strong>
+          <a href="mailto:areynoso@yahoo.com">areynoso@yahoo.com</a>
+        </p>
+        <p style="margin:8px 0 0;color:var(--muted);">
+          <strong style="color:var(--text);">GitHub:</strong>
+          <a href="https://github.com/alexdibol" target="_blank" rel="noopener">github.com/alexdibol</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- THOROUGH DISCLAIMER + COPYRIGHT -->
+    <section class="section" id="disclaimer">
+      <h2>License, Copyright, and Disclaimers</h2>
+
+      <div class="disclaimerbox">
+        <h3>Educational / Non-Reliance Notice (Read Before Use)</h3>
+
+        <p>
+          <strong>Educational purpose only:</strong> All content across this site and the linked repositories (including books, notebooks, code,
+          examples, templates, and explanatory text) is provided <strong>for educational and research purposes only</strong>. Nothing here constitutes
+          investment advice, trading advice, financial advice, legal advice, tax advice, accounting/audit advice, compliance advice, or any other
+          professional service. You should not rely on any material here to make decisions that require professional judgment.
+          If you need advice, consult appropriately qualified professionals and follow applicable laws, regulations, and firm policies.
+        </p>
+
+        <p>
+          <strong>No warranties; use at your own risk:</strong> The materials are provided on an <strong>“AS IS”</strong> and <strong>“AS AVAILABLE”</strong> basis,
+          without warranties of any kind (express or implied), including but not limited to warranties of accuracy, completeness, merchantability,
+          fitness for a particular purpose, non-infringement, or availability. Methods, examples, and code may contain errors, may become outdated,
+          and may not be suitable for your specific facts, jurisdiction, risk tolerance, constraints, or use case.
+        </p>
+
+        <p>
+          <strong>Limitation of liability:</strong> To the maximum extent permitted by law, <strong>Alejandro Reynoso</strong> disclaims all liability
+          for any loss or damage of any kind (direct, indirect, incidental, consequential, special, exemplary, punitive, or otherwise) arising out of or
+          related to the use of, inability to use, or reliance on these materials, including but not limited to trading losses, lost profits, business interruption,
+          reputational harm, compliance failures, model or data errors, security incidents, or third-party claims.
+        </p>
+
+        <p>
+          <strong>Model / data / results are not verified:</strong> Unless explicitly stated otherwise in a particular artifact, treat all outputs, claims,
+          calculations, citations, and conclusions as <strong>not verified</strong>. Users are responsible for independent verification, testing,
+          and review before any real-world application. Past performance examples (if any) are illustrative and do not predict future results.
+        </p>
+
+        <p>
+          <strong>Security, confidentiality, and minimum-necessary data:</strong> Do not paste confidential, proprietary, regulated, or personally identifying
+          information into external tools, prompts, or notebooks. Use anonymization/redaction and <strong>minimum-necessary</strong> inputs by default.
+          You are responsible for complying with privacy, confidentiality, data handling, recordkeeping, and information security obligations.
+        </p>
+
+        <p>
+          <strong>Third-party tools and dependencies:</strong> Some notebooks or code may rely on third-party libraries, services, APIs, datasets,
+          or model providers with their own licenses and terms. You are responsible for reviewing and complying with those terms and ensuring
+          you have the right to use any referenced resources.
+        </p>
+
+        <p>
+          <strong>Generative AI assistance disclosure:</strong> Some portions of the content and/or code in these repositories may have been created with the assistance
+          of generative AI tools. However, <strong>all overall structure, direction, organization, editorial supervision, governance framing, and final responsibility</strong>
+          for the materials are <strong>human-led</strong> and remain with <strong>Alejandro Reynoso</strong>. Users should treat AI-assisted text or code
+          as potentially fallible and must apply independent review and testing.
+        </p>
+
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,0.10);margin:14px 0;"/>
+
+        <h3>Copyright and License</h3>
+
+        <p>
+          <strong>Copyright:</strong> © <span id="year2"></span> Alejandro Reynoso. All rights reserved.
+          Unless otherwise stated within a specific file or subproject, this notice applies to the content presented on this site and to the original
+          materials authored in the linked repositories.
+        </p>
+
+        <p>
+          <strong>MIT License:</strong> The repositories are released under the <strong>MIT License</strong> (see the LICENSE file in each repository for the controlling terms).
+          The MIT License permits reuse, modification, and distribution subject to its conditions, including preservation of the copyright notice and license text.
+          Where a repository (or a subdirectory) specifies a different license or attribution requirement, that specific license governs for that scope.
+        </p>
+
+        <p>
+          <strong>Attribution and third-party materials:</strong> Some repositories may include third-party content (datasets, figures, excerpts, libraries, or references)
+          that are not owned by Alejandro Reynoso. Such materials remain the property of their respective owners and may be subject to additional terms.
+          If you reuse content, you are responsible for ensuring you have the necessary rights and that you provide any required attribution.
+        </p>
+
+        <p>
+          <strong>Interpretation:</strong> In the event of any conflict between this page and the LICENSE file within a given repository,
+          the repository’s LICENSE file controls for that repository.
+        </p>
+
+        <ul>
+          <li><strong>Summary:</strong> Educational materials. No advice. No warranties. Use at your own risk. Verify independently.</li>
+          <li><strong>License:</strong> MIT License (see repository LICENSE files).</li>
+          <li><strong>Responsibility:</strong> Human-led structure, supervision, and accountability by Alejandro Reynoso (even when AI assistance is used).</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © <span id="y"></span> Alejandro Reynoso · AI Driven Finance and Quantum Inspired Finance
+      <br/>Hosted on GitHub Pages · Built with governance-first discipline
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("year2").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
