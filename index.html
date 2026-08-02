@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>AI Driven Finance and Quantum Inspired Finance — Alejandro Reynoso</title>
-  <meta name="description" content="AI-Driven Finance converging with Quantum-Inspired methods. Three pillars: executable course-books + Colab notebooks, long-form research books, and academic papers. Governance-first, auditable, reproducible." />
+  <meta name="description" content="AI-Driven Finance converging with Quantum-Inspired methods. Three pillars: executable course-books + Colab notebooks, long-form research books, and academic papers and pedagogical monographs. Governance-first, auditable, reproducible." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="AI Driven Finance and Quantum Inspired Finance — Alejandro Reynoso" />
-  <meta property="og:description" content="Three pillars: (1) Courses (books + Colab), (2) Long-format books & research, (3) Academic papers. Governance-first, auditable systems." />
+  <meta property="og:description" content="Three pillars: (1) Courses (books + Colab), (2) Long-format books & research, (3) Academic papers and pedagogical monographs. Governance-first, auditable systems." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alexdibol.github.io" />
   <meta property="og:image" content="https://alexdibol.github.io/og-image.jpg" />
@@ -18,361 +18,73 @@
   <link rel="icon" href="/favicon.ico" />
 
   <style>
-    :root{
-      --bg:#07080d;
-      --panel:#0f1220;
-      --panel-2:#141836;
-      --text:#eef0ff;
-      --muted:#b8bddb;
-      --border:rgba(255,255,255,0.09);
-      --accent:#7aa2ff;
-      --accent2:#6ee7c8;
-      --warn:#ffd27a;
-      --shadow:0 18px 60px rgba(0,0,0,0.45);
+    :root {
+      --navy:#071d35; --blue:#123f68; --ink:#152231; --muted:#607080;
+      --paper:#f7f5ef; --white:#fff; --gold:#c9a34c; --gold-soft:#e7d49a;
+      --line:#d9d5ca; --soft:#edf2f5; --shadow:0 16px 42px rgba(7,29,53,.12);
     }
-    *{box-sizing:border-box;}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(122,162,255,0.16), transparent 55%),
-        radial-gradient(800px 600px at 85% 20%, rgba(110,231,200,0.10), transparent 55%),
-        radial-gradient(900px 650px at 60% 95%, rgba(255,210,122,0.06), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Inter,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+    a{color:inherit}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto;padding:0 0 84px}
 
-    a{color:var(--accent);text-decoration:none;}
-    a:hover{color:var(--accent2);text-decoration:underline;}
+    header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:66px;margin:0 calc((100vw - 100%)/-2);padding:0 max(20px,calc((100vw - 1180px)/2));background:rgba(7,29,53,.97);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.14);flex-wrap:wrap}
+    .logo{font:700 14px/1.2 Georgia,serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap}
+    nav.nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{display:inline-flex;align-items:center;padding:8px 0;color:#dbe5ed;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0;background:none;border:0;border-radius:0;text-transform:none}
+    .nav a:hover{color:#fff;text-decoration:none}
+    .nav a:focus{outline:2px solid var(--gold-soft);outline-offset:4px}
 
-    .container{max-width:1140px;margin:0 auto;padding:28px 20px 84px;}
+    .hero{position:relative;overflow:hidden;margin:0 calc((100vw - 100%)/-2);padding:102px max(20px,calc((100vw - 1180px)/2)) 92px;border:0;border-radius:0;background:linear-gradient(130deg,rgba(7,29,53,.99),rgba(18,63,104,.94));color:#fff;box-shadow:none}
+    .hero:before{content:"";position:absolute;width:540px;height:540px;inset:auto -170px auto auto;top:-250px;border:1px solid rgba(201,163,76,.30);border-radius:50%;box-shadow:0 0 0 70px rgba(201,163,76,.06),0 0 0 140px rgba(201,163,76,.035);background:none;opacity:1}
+    .hero>*{position:relative;z-index:1}
+    .kicker{color:#e1c476;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:800}
+    .hero h1{max-width:980px;margin:14px 0 22px;font:500 clamp(44px,7vw,78px)/1.01 Georgia,"Times New Roman",serif;letter-spacing:-.03em;text-transform:none;color:#fff}
+    .subtitle{max-width:840px;margin:0;color:#dbe5ed;font:21px/1.55 Georgia,serif}
+    .pillrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(231,212,154,.48);border-radius:0;background:rgba(255,255,255,.05);color:#fff;font-size:12px;font-weight:800;letter-spacing:.03em}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:none}
+    .dot.g,.dot.y{background:var(--gold-soft);box-shadow:none}
 
-    /* HEADER / NAV */
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:16px 0 18px;
-      border-bottom:1px solid var(--border);
-      flex-wrap:wrap;
-    }
-    .logo{
-      font-weight:900;
-      letter-spacing:0.02em;
-      font-size:18px;
-      text-transform:uppercase;
-      color:var(--text);
-      white-space:nowrap;
-    }
-    nav.nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .nav a{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
-      color:var(--muted);
-      font-weight:800;
-      font-size:12px;
-      letter-spacing:0.02em;
-      text-transform:uppercase;
-      background:rgba(0,0,0,0.12);
-    }
-    .nav a:hover{
-      border-color:rgba(122,162,255,0.28);
-      background:rgba(20,24,54,0.40);
-      text-decoration:none;
-    }
-    .nav a:focus{
-      outline:2px solid rgba(110,231,200,0.46);
-      outline-offset:3px;
-      text-decoration:none;
-    }
+    .section{margin:0;padding:78px 0;border-bottom:1px solid rgba(217,213,202,.7)}
+    .section:nth-of-type(even){background:#fff;margin-left:calc((100vw - 100%)/-2);margin-right:calc((100vw - 100%)/-2);padding-left:max(20px,calc((100vw - 1180px)/2));padding-right:max(20px,calc((100vw - 1180px)/2))}
+    .section h2{margin:8px 0 18px;color:var(--navy);font:500 clamp(32px,4vw,48px)/1.12 Georgia,"Times New Roman",serif;letter-spacing:0}
+    .section>p{max-width:860px;margin:10px 0;color:var(--muted);font-size:18px}
 
-    /* HERO */
-    .hero{
-      margin-top:22px;
-      padding:38px 34px;
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(20,24,54,0.92), rgba(15,18,32,0.88));
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(520px 360px at 16% 0%, rgba(122,162,255,0.16), transparent 60%),
-        radial-gradient(460px 330px at 92% 18%, rgba(110,231,200,0.09), transparent 60%),
-        radial-gradient(520px 360px at 55% 110%, rgba(255,210,122,0.07), transparent 60%);
-      pointer-events:none;
-      opacity:0.92;
-    }
-    .hero > *{position:relative;}
-    .kicker{
-      text-transform:uppercase;
-      letter-spacing:0.18em;
-      font-size:12px;
-      color:var(--muted);
-    }
-    .hero h1{
-      font-size:38px;
-      margin:12px 0 10px;
-      line-height:1.15;
-      max-width:70ch;
-      text-transform:uppercase;
-      letter-spacing:0.02em;
-    }
-    .subtitle{
-      margin:0;
-      max-width:110ch;
-      color:var(--muted);
-      font-size:16px;
-    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .card{display:flex;flex-direction:column;min-height:250px;padding:25px;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:0;background:#fff;box-shadow:none;color:inherit;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+    .card h3{margin:8px 0 10px;color:var(--navy);font:500 23px/1.22 Georgia,"Times New Roman",serif}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .linkcard{display:flex;cursor:pointer;text-decoration:none}
+    .linkcard:hover{transform:translateY(-2px);border-color:#b99b55;background:#fff;box-shadow:0 10px 26px rgba(7,29,53,.08);text-decoration:none}
+    .linkcard:focus{outline:2px solid var(--gold);outline-offset:3px;text-decoration:none}
+    .hint{margin-top:auto;padding-top:18px;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
 
-    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(0,0,0,0.18);
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:0.02em;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:999px;
-      background:rgba(122,162,255,0.9);
-      box-shadow:0 0 0 3px rgba(122,162,255,0.18);
-    }
-    .dot.g{background:rgba(110,231,200,0.95); box-shadow:0 0 0 3px rgba(110,231,200,0.18);}
-    .dot.y{background:rgba(255,210,122,0.95); box-shadow:0 0 0 3px rgba(255,210,122,0.18);}
+    .callout{max-width:100%;margin-top:24px;padding:22px 24px;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0;background:var(--soft);color:var(--muted)}
+    .callout strong{color:var(--navy)}
 
-    /* SECTIONS */
-    .section{margin-top:56px;}
-    .section h2{
-      font-size:28px;
-      margin:0 0 14px;
-      letter-spacing:-0.02em;
-    }
-    .section p{color:var(--muted);max-width:110ch;margin:10px 0;}
+    .domainbox{margin-top:34px;padding:30px 27px;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:0;background:#fff;box-shadow:var(--shadow)}
+    .domainhead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+    .domainhead h3{margin:0;color:var(--navy);font:500 27px/1.2 Georgia,"Times New Roman",serif;letter-spacing:0;text-transform:none}
+    .domaintag{padding:6px 10px;border:1px solid var(--gold);border-radius:0;background:transparent;color:#8a6b27;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+    .domainbox>p{max-width:960px;margin:12px 0 0;color:var(--muted);font-size:15px;line-height:1.65}
 
-    /* GRID / CARDS */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-      gap:18px;
-      margin-top:22px;
-    }
-    .card{
-      padding:20px 20px;
-      border-radius:18px;
-      background:rgba(20,24,54,0.72);
-      border:1px solid var(--border);
-      box-shadow:0 10px 30px rgba(0,0,0,0.30);
-      color:inherit;
-    }
-    .card h3{
-      margin:0 0 10px;
-      font-size:18px;
-      line-height:1.25;
-    }
-    .card p{
-      margin:0;
-      font-size:14px;
-      color:var(--muted);
-    }
+    .list{max-width:960px;margin-top:18px;padding-left:22px;color:var(--muted)}
+    .list li{margin-bottom:12px}.list strong{color:var(--navy)}
+    .contactbox,.disclaimerbox{max-width:960px;margin-top:24px;padding:30px;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:0;background:#fff;box-shadow:var(--shadow)}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--gold);border-radius:0;background:transparent;color:var(--navy);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+    .btn:hover{background:var(--gold);color:var(--navy);text-decoration:none}
+    .btn.primary{border-color:var(--gold);background:var(--gold);color:var(--navy)}
+    .small,.disclaimerbox p,.disclaimerbox ul{color:var(--muted);font-size:13px}.disclaimerbox h3{color:var(--navy);font:500 22px/1.25 Georgia,serif}.disclaimerbox strong{color:var(--navy)}
 
-    .linkcard{
-      display:block;
-      cursor:pointer;
-      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
-      text-decoration:none;
-    }
-    .linkcard:hover{
-      transform: translateY(-2px);
-      border-color: rgba(122,162,255,0.35);
-      background: rgba(20,24,54,0.86);
-      text-decoration:none;
-    }
-    .linkcard:focus{
-      outline:2px solid rgba(110,231,200,0.46);
-      outline-offset:3px;
-      text-decoration:none;
-    }
-    .hint{
-      margin-top:12px;
-      font-size:12px;
-      color:var(--muted);
-      opacity:0.92;
-      font-weight:800;
-      letter-spacing:0.02em;
-      text-transform:uppercase;
-    }
+    footer.footer{margin:0 calc((100vw - 100%)/-2);padding:46px max(20px,calc((100vw - 1180px)/2));border-top:0;background:#041426;color:#cad5de;font-size:13px;text-align:center}
+    footer.footer a{color:#fff}
 
-    .callout{
-      margin-top:18px;
-      padding:18px 18px;
-      border-radius:18px;
-      border:1px solid rgba(122,162,255,0.18);
-      background:linear-gradient(135deg, rgba(122,162,255,0.06), rgba(110,231,200,0.04));
-      color:var(--muted);
-      max-width:110ch;
-    }
-    .callout strong{color:var(--text);}
-
-    /* DOMAIN GROUPING (NEW) */
-    .domainbox{
-      margin-top:18px;
-      padding:18px 18px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(20,24,54,0.58);
-      box-shadow:0 10px 30px rgba(0,0,0,0.26);
-    }
-    .domainhead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:6px;
-    }
-    .domainhead h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-      color:var(--text);
-    }
-    .domaintag{
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--accent2);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(0,0,0,0.14);
-      white-space:nowrap;
-    }
-    .domainbox p{
-      margin:8px 0 0;
-      color:var(--muted);
-      max-width:110ch;
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    /* LIST */
-    .list{
-      margin-top:18px;
-      padding-left:22px;
-      color:var(--muted);
-      max-width:110ch;
-    }
-    .list li{margin-bottom:12px;}
-    .list strong{color:var(--text);}
-
-    /* CONTACT */
-    .contactbox{
-      margin-top:18px;
-      padding:22px;
-      border-radius:18px;
-      border:1px solid var(--border);
-      background:rgba(20,24,54,0.72);
-      box-shadow:0 10px 30px rgba(0,0,0,0.30);
-      max-width:900px;
-    }
-    .contact-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:14px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(0,0,0,0.18);
-      color:var(--text);
-      font-weight:900;
-      font-size:12px;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-      text-decoration:none;
-    }
-    .btn:hover{
-      border-color:rgba(110,231,200,0.26);
-      background:rgba(20,24,54,0.62);
-      text-decoration:none;
-    }
-    .btn.primary{
-      border:1px solid rgba(122,162,255,0.35);
-      background:linear-gradient(135deg, rgba(122,162,255,0.16), rgba(110,231,200,0.10));
-    }
-
-    /* DISCLAIMER */
-    .small{
-      font-size:13px;
-      color:var(--muted);
-      max-width:110ch;
-    }
-    .disclaimerbox{
-      margin-top:18px;
-      padding:20px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(20,24,54,0.66);
-      box-shadow:0 10px 30px rgba(0,0,0,0.30);
-      max-width:110ch;
-    }
-    .disclaimerbox h3{
-      margin:0 0 10px;
-      font-size:18px;
-      line-height:1.25;
-    }
-    .disclaimerbox p{margin:10px 0;color:var(--muted);font-size:13px;line-height:1.65;}
-    .disclaimerbox strong{color:var(--text);}
-    .disclaimerbox ul{margin:10px 0 0 18px; padding:0; color:var(--muted); font-size:13px; line-height:1.65;}
-    .disclaimerbox li{margin:8px 0;}
-
-    /* FOOTER */
-    footer.footer{
-      margin-top:80px;
-      padding-top:24px;
-      border-top:1px solid var(--border);
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    @media (max-width: 860px){
-      header{justify-content:center;text-align:center;}
-      nav.nav{justify-content:center;}
-      .hero{padding:32px 22px;}
-      .hero h1{font-size:30px;}
-    }
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:800px){header{position:relative;justify-content:center;text-align:center;padding-top:14px;padding-bottom:14px}.nav{justify-content:center!important}.hero{padding-top:72px;padding-bottom:72px}.grid{grid-template-columns:1fr}.section{padding:60px 0}.section:nth-of-type(even){padding-top:60px;padding-bottom:60px}}
+    @media(max-width:560px){.container{width:min(100% - 26px,1180px)}nav.nav{gap:10px}.nav a{font-size:12px}.hero h1{font-size:42px}.subtitle{font-size:18px}.domainbox,.contactbox,.disclaimerbox{padding:22px}.card{min-height:0}}
   </style>
 </head>
 
@@ -384,7 +96,7 @@
       <nav class="nav" aria-label="Primary">
         <a href="#pillars-1">Pillar 1: Courses</a>
         <a href="#pillars-2">Pillar 2: Long-Format</a>
-        <a href="#pillars-3">Pillar 3: Papers</a>
+        <a href="#pillars-3">Pillar 3: Papers &amp; Monographs</a>
         <a href="#focus">Conceptual Focus</a>
         <a href="#contact">Contact</a>
         <a href="#disclaimer">Disclaimers</a>
@@ -411,7 +123,7 @@
 
       <div class="callout" style="margin-top:18px;">
         <strong>Navigation:</strong> Pillar 1 contains executable course-books and notebook stacks; Pillar 2 contains long-format books and research notes;
-        Pillar 3 contains academic papers intended to be modular and citable.
+        Pillar 3 contains academic papers and pedagogical monographs designed to be modular, citable, and useful for structured learning.
       </div>
     </section>
 
@@ -470,6 +182,13 @@
         <div class="grid">
           <!-- AI domain cards -->
 
+          <a class="card linkcard" href="https://github.com/alexdibol/ai_essentials" target="_blank" rel="noopener" aria-label="The Absolutely Essential Introduction to AI and Machine Learning for Financial Practitioners">
+            <h3>The Absolutely Essential Introduction to AI and Machine Learning for Financial Practitioners</h3>
+            <p>
+              A compact, book-supported learning ecosystem for financial professionals who want to understand modern AI without becoming computer scientists. Built around 20 essential chapters, 20 Colab notebooks, 20 audio presentations, and 20 specialized decks, it explains neural networks, deep learning, transformers, embeddings, reasoning models, agents, and generative AI with practical clarity and governance-first discipline.
+            </p>
+            <div class="hint">Open repository →</div>
+          </a>
 
           <a class="card linkcard" href="https://alexdibol.github.io/ai-self_teaching" target="_blank" rel="noopener" aria-label="AI Self-Teaching for Finance — Flagship of Pillar 1">
             <h3>AI Self-Teaching for Finance — Flagship of Pillar 1</h3>
@@ -667,14 +386,6 @@
             <div class="hint">Open landing page →</div>
           </a>
 
-          <a class="card linkcard" href="https://github.com/alexdibol/ai_essentials" target="_blank" rel="noopener" aria-label="The Absolutely Essential Introduction to AI and Machine Learning for Financial Practitioners">
-            <h3>The Absolutely Essential Introduction to AI and Machine Learning for Financial Practitioners</h3>
-            <p>
-              A compact, book-supported learning ecosystem for financial professionals who want to understand modern AI without becoming computer scientists. Built around 20 essential chapters, 20 Colab notebooks, 20 audio presentations, and 20 specialized decks, it explains neural networks, deep learning, transformers, embeddings, reasoning models, agents, and generative AI with practical clarity and governance-first discipline.
-            </p>
-            <div class="hint">Open repository →</div>
-          </a>
-
           
           <a class="card linkcard" href="https://alexdibol.github.io/ai4s_financial_domain" target="_blank" rel="noopener" aria-label="AI4S in Financial Domains — Agent-Governed Discovery Architectures">
             <h3>AI4S in Financial Domains — Agent-Governed Discovery Architectures</h3>
@@ -806,6 +517,42 @@
         </div>
       </div>
 
+      <div class="grid" aria-label="Integrated autonomous intelligence collections">
+        <article class="card">
+            <h3>Autonomous Systems</h3>
+            <p><strong>A pedagogical journey from understanding to governed creation.</strong></p>
+            <p>
+              An Integrated Autonomous Intelligence teaching and research collection developed in the context of Alejandro Reynoso’s work at Cambridge Judge Business School, University of Cambridge.
+            </p>
+            <p>
+              The decisive frontier in artificial intelligence is no longer the isolated quality of a model’s answer. It is the design of systems that can pursue objectives across time: systems that remember, retrieve, reason, use tools, coordinate workflows, update persistent state, and participate in consequential institutional work.
+            </p>
+            <div class="contact-actions">
+              <a class="btn primary" href="https://alexdibol.github.io/ai_autonomous_systems/" target="_blank" rel="noopener">Open landing page</a>
+              <a class="btn" href="https://github.com/alexdibol/ai_autonomous_systems/" target="_blank" rel="noopener">View repository</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>AI-Enhanced Institutional Knowledge</h3>
+            <p><strong>From protected knowledge vaults to governed cognitive evolution.</strong></p>
+            <p>
+              This repository presents an end-to-end framework for building AI-enhanced institutional knowledge: a governed system through which an organization can connect its protected knowledge resources to large language models, generate new candidate knowledge, validate and authorize what enters institutional memory, and study how that memory evolves over time.
+            </p>
+            <p>
+              The central proposition is that the strategic unit of organizational AI is not the model alone. It is the complete institutional system that combines human judgment, structured and unstructured organizational knowledge, generative and reasoning models, and governed, AI-enhanced institutional memory.
+            </p>
+            <p>
+              The architecture is designed to help corporations integrate AI into their processes while preserving control over proprietary information. A governed context-construction layer retrieves the minimum eligible evidence for a declared purpose and access profile. Model outputs return as candidate knowledge and must pass deterministic controls, provenance checks, policy rules, and, where required, human approval before they can become canonical institutional knowledge.
+            </p>
+            <div class="contact-actions">
+              <a class="btn primary" href="https://alexdibol.github.io/ai_enhanced_intstitutional_ai/" target="_blank" rel="noopener">Open landing page</a>
+              <a class="btn" href="https://github.com/alexdibol/ai_enhanced_intstitutional_ai" target="_blank" rel="noopener">View repository</a>
+            </div>
+        </article>
+
+      </div>
+
       <div class="callout">
         <strong>Operating idea:</strong> Courses are designed to be executable: reading is paired with running, and running is paired with artifacts
         that can be inspected, reconstructed, and reviewed.
@@ -824,7 +571,7 @@
         </p>
         <div class="callout" style="margin-top:14px;">
           <strong>How to use this pillar:</strong> Start with a monograph, then move into runnable course notebooks when you want execution artifacts.
-          Use papers (Pillar 3) when you need citable, modular results.
+          Use papers and pedagogical monographs (Pillar 3) when you need citable results or a structured conceptual journey.
         </div>
       </div>
 
@@ -841,7 +588,7 @@
           <h3>How to Use This Pillar</h3>
           <p>
             Start with a monograph, then move into runnable course notebooks when you want execution artifacts.
-            Use papers (Pillar 3) when you need citable, modular results.
+            Use papers and pedagogical monographs (Pillar 3) when you need citable results or a structured conceptual journey.
           </p>
         </div>
 
@@ -857,13 +604,12 @@
 
     <!-- PILLAR 3 -->
     <section class="section" id="pillars-3">
-      <h2>Pillar 3 — Academic Papers</h2>
+      <h2>Pillar 3 — Academic Papers and Pedagogical Monographs</h2>
 
       <div class="card" style="text-align:left;">
-        <h3>Working Papers &amp; Applied Studies</h3>
+        <h3>Working Papers, Applied Studies &amp; Pedagogical Monographs</h3>
         <p>
-          Academic papers are the modular layer: focused results, working drafts, and applied studies.
-          Built to be inspectable and easy to cite — and to connect cleanly back to the long-form books and the executable courses.
+          Academic papers provide focused results, working drafts, and applied studies. Pedagogical monographs develop the conceptual architecture in a more structured and accessible form, connecting theory, governance, and application. Both are designed to be inspectable, citable, and closely connected to the long-form books and executable courses.
         </p>
       </div>
 
@@ -876,11 +622,18 @@
           <div class="hint">Open repo →</div>
         </a>
 
+        <a class="card linkcard" href="https://github.com/alexdibol/ai_monographs" target="_blank" rel="noopener" aria-label="Pedagogical Monographs Repository">
+          <h3>Pedagogical Monographs Repository</h3>
+          <p>
+            A curated collection of pedagogical monographs focused primarily on autonomous systems and institutional knowledge. The collection develops the architectures, concepts, governance principles, and applications required to understand how intelligent systems can evolve into accountable institutional capabilities.
+          </p>
+          <div class="hint">Explore the monographs →</div>
+        </a>
+
         <div class="card">
           <h3>How the Three Pillars Connect</h3>
           <p>
-            Papers (Pillar 3) provide modular results, Books (Pillar 2) develop the deep narrative and theory,
-            and Courses (Pillar 1) provide executable implementations and artifacts.
+            Academic papers provide modular results, pedagogical monographs build structured conceptual journeys, Books (Pillar 2) develop the deep narrative and theory, and Courses (Pillar 1) provide executable implementations and artifacts.
           </p>
         </div>
 
@@ -909,7 +662,7 @@
           <a class="btn" href="https://github.com/alexdibol" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="#pillars-1">Courses</a>
           <a class="btn" href="#pillars-2">Long-Format</a>
-          <a class="btn" href="#pillars-3">Papers</a>
+          <a class="btn" href="#pillars-3">Papers &amp; Monographs</a>
         </div>
 
         <p style="margin:16px 0 0;color:var(--muted);">
