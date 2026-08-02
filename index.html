@@ -58,8 +58,14 @@
     .card p{margin:0;color:var(--muted);font-size:14px}
     .linkcard{display:flex;cursor:pointer;text-decoration:none}
     .linkcard:hover{transform:translateY(-2px);border-color:#b99b55;background:#fff;box-shadow:0 10px 26px rgba(7,29,53,.08);text-decoration:none}
+    .linkcard:hover .hint{background:#fff;border-color:#8a6b27;color:var(--navy);box-shadow:0 4px 12px rgba(7,29,53,.10)}
     .linkcard:focus{outline:2px solid var(--gold);outline-offset:3px;text-decoration:none}
-    .hint{margin-top:auto;padding-top:18px;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+    .hint{
+      display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;
+      min-width:178px;margin-top:auto;padding:14px 20px;border:1px solid var(--gold);
+      background:#fff;color:var(--navy);font-size:12px;font-weight:800;
+      letter-spacing:.05em;text-transform:uppercase;line-height:1.2;text-align:center
+    }
 
     .callout{max-width:100%;margin-top:24px;padding:22px 24px;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0;background:var(--soft);color:var(--muted)}
     .callout strong{color:var(--navy)}
@@ -74,9 +80,11 @@
     .list li{margin-bottom:12px}.list strong{color:var(--navy)}
     .contactbox,.disclaimerbox{max-width:960px;margin-top:24px;padding:30px;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:0;background:#fff;box-shadow:var(--shadow)}
     .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .card .contact-actions{flex-direction:column;align-items:flex-start;margin-top:auto;padding-top:18px}
+    .card .contact-actions .btn{min-width:178px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--gold);border-radius:0;background:transparent;color:var(--navy);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
-    .btn:hover{background:var(--gold);color:var(--navy);text-decoration:none}
-    .btn.primary{border-color:var(--gold);background:var(--gold);color:var(--navy)}
+    .btn:hover{background:#fff;border-color:#8a6b27;color:var(--navy);box-shadow:0 4px 12px rgba(7,29,53,.10);text-decoration:none}
+    .btn.primary{border-color:var(--gold);background:#fff;color:var(--navy)}
     .small,.disclaimerbox p,.disclaimerbox ul{color:var(--muted);font-size:13px}.disclaimerbox h3{color:var(--navy);font:500 22px/1.25 Georgia,serif}.disclaimerbox strong{color:var(--navy)}
 
     footer.footer{margin:0 calc((100vw - 100%)/-2);padding:46px max(20px,calc((100vw - 1180px)/2));border-top:0;background:#041426;color:#cad5de;font-size:13px;text-align:center}
@@ -405,6 +413,39 @@
 
 
           
+
+          <!-- Integrated Autonomous Intelligence additions -->
+        <article class="card">
+            <h3>Autonomous Systems</h3>
+            <p><strong>A pedagogical journey from understanding to governed creation.</strong></p>
+            <p>
+              An Integrated Autonomous Intelligence teaching and research collection developed in the context of Alejandro Reynoso’s work at Cambridge Judge Business School, University of Cambridge.
+            </p>
+            <p>
+              The decisive frontier in artificial intelligence is no longer the isolated quality of a model’s answer. It is the design of systems that can pursue objectives across time: systems that remember, retrieve, reason, use tools, coordinate workflows, update persistent state, and participate in consequential institutional work.
+            </p>
+            <div class="contact-actions">
+              <a class="btn primary" href="https://alexdibol.github.io/ai_autonomous_systems/" target="_blank" rel="noopener">Open landing page</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>AI-Enhanced Institutional Knowledge</h3>
+            <p><strong>From protected knowledge vaults to governed cognitive evolution.</strong></p>
+            <p>
+              This repository presents an end-to-end framework for building AI-enhanced institutional knowledge: a governed system through which an organization can connect its protected knowledge resources to large language models, generate new candidate knowledge, validate and authorize what enters institutional memory, and study how that memory evolves over time.
+            </p>
+            <p>
+              The central proposition is that the strategic unit of organizational AI is not the model alone. It is the complete institutional system that combines human judgment, structured and unstructured organizational knowledge, generative and reasoning models, and governed, AI-enhanced institutional memory.
+            </p>
+            <p>
+              The architecture is designed to help corporations integrate AI into their processes while preserving control over proprietary information. A governed context-construction layer retrieves the minimum eligible evidence for a declared purpose and access profile. Model outputs return as candidate knowledge and must pass deterministic controls, provenance checks, policy rules, and, where required, human approval before they can become canonical institutional knowledge.
+            </p>
+            <div class="contact-actions">
+              <a class="btn primary" href="https://alexdibol.github.io/ai_enhanced_intstitutional_ai/" target="_blank" rel="noopener">Open landing page</a>
+            </div>
+          </article>
+
         </div>
 
         <div class="callout">
@@ -517,44 +558,9 @@
         </div>
       </div>
 
-      <div class="grid" aria-label="Integrated autonomous intelligence collections">
-        <article class="card">
-            <h3>Autonomous Systems</h3>
-            <p><strong>A pedagogical journey from understanding to governed creation.</strong></p>
-            <p>
-              An Integrated Autonomous Intelligence teaching and research collection developed in the context of Alejandro Reynoso’s work at Cambridge Judge Business School, University of Cambridge.
-            </p>
-            <p>
-              The decisive frontier in artificial intelligence is no longer the isolated quality of a model’s answer. It is the design of systems that can pursue objectives across time: systems that remember, retrieve, reason, use tools, coordinate workflows, update persistent state, and participate in consequential institutional work.
-            </p>
-            <div class="contact-actions">
-              <a class="btn primary" href="https://alexdibol.github.io/ai_autonomous_systems/" target="_blank" rel="noopener">Open landing page</a>
-              <a class="btn" href="https://github.com/alexdibol/ai_autonomous_systems/" target="_blank" rel="noopener">View repository</a>
-            </div>
-        </article>
-
-        <article class="card">
-            <h3>AI-Enhanced Institutional Knowledge</h3>
-            <p><strong>From protected knowledge vaults to governed cognitive evolution.</strong></p>
-            <p>
-              This repository presents an end-to-end framework for building AI-enhanced institutional knowledge: a governed system through which an organization can connect its protected knowledge resources to large language models, generate new candidate knowledge, validate and authorize what enters institutional memory, and study how that memory evolves over time.
-            </p>
-            <p>
-              The central proposition is that the strategic unit of organizational AI is not the model alone. It is the complete institutional system that combines human judgment, structured and unstructured organizational knowledge, generative and reasoning models, and governed, AI-enhanced institutional memory.
-            </p>
-            <p>
-              The architecture is designed to help corporations integrate AI into their processes while preserving control over proprietary information. A governed context-construction layer retrieves the minimum eligible evidence for a declared purpose and access profile. Model outputs return as candidate knowledge and must pass deterministic controls, provenance checks, policy rules, and, where required, human approval before they can become canonical institutional knowledge.
-            </p>
-            <div class="contact-actions">
-              <a class="btn primary" href="https://alexdibol.github.io/ai_enhanced_intstitutional_ai/" target="_blank" rel="noopener">Open landing page</a>
-              <a class="btn" href="https://github.com/alexdibol/ai_enhanced_intstitutional_ai" target="_blank" rel="noopener">View repository</a>
-            </div>
-        </article>
-
-      </div>
 
       <div class="callout">
-        <strong>Operating idea:</strong> Courses are designed to be executable: reading is paired with running, and running is paired with artifacts
+        <strong>Pillar 1 operating idea:</strong> Courses and teaching collections are designed to be executable: reading is paired with running, and running is paired with artifacts
         that can be inspected, reconstructed, and reviewed.
       </div>
     </section>
