@@ -25,19 +25,23 @@ jobs:
           path = Path('index.html')
           html = path.read_text(encoding='utf-8')
 
-          if 'https://alexdibol.github.io/ai_game_theory/' in html:
+          target_url = 'https://alexdibol.github.io/ai_game_theory/'
+          if target_url in html:
               print('Game Theory card already present; no insertion needed.')
           else:
-              marker = '''          <article class="card">
-            <h3>Cybersecurity in the Age of Autonomous AI</h3>'''
-              start = html.find(marker)
-              if start == -1:
+              title = '<h3>Cybersecurity in the Age of Autonomous AI</h3>'
+              title_pos = html.find(title)
+              if title_pos == -1:
                   raise SystemExit('Cybersecurity card not found; refusing to modify index.html.')
 
-              end = html.find('          </article>', start)
+              start = html.rfind('<article class="card">', 0, title_pos)
+              if start == -1:
+                  raise SystemExit('Could not locate start of Cybersecurity card.')
+
+              end = html.find('</article>', title_pos)
               if end == -1:
                   raise SystemExit('Could not locate end of Cybersecurity card.')
-              end += len('          </article>')
+              end += len('</article>')
 
               card = '''
 
