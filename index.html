@@ -93,6 +93,24 @@
     @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:800px){header{position:relative;justify-content:center;text-align:center;padding-top:14px;padding-bottom:14px}.nav{justify-content:center!important}.hero{padding-top:72px;padding-bottom:72px}.grid{grid-template-columns:1fr}.section{padding:60px 0}.section:nth-of-type(even){padding-top:60px;padding-bottom:60px}}
     @media(max-width:560px){.container{width:min(100% - 26px,1180px)}nav.nav{gap:10px}.nav a{font-size:12px}.hero h1{font-size:42px}.subtitle{font-size:18px}.domainbox,.contactbox,.disclaimerbox{padding:22px}.card{min-height:0}}
+
+    /* Living-curriculum navigation: layered over, never replacing, original cards */
+    .pathway-shell{margin:25px 0 32px;padding:24px;border:1px solid var(--line);border-top:3px solid var(--gold);background:var(--soft)}
+    .pathway-shell h4{font:500 23px/1.2 Georgia,serif;color:var(--navy);margin:0 0 10px}
+    .pathway-shell p{font-size:14px;color:var(--muted);margin:8px 0 16px}
+    .audience-options{display:flex;gap:9px;flex-wrap:wrap}
+    .audience-options button{cursor:pointer;background:#fff;border:1px solid var(--line);color:var(--navy);padding:11px 14px;font:700 12px/1.3 Inter,"Segoe UI",Arial,sans-serif}
+    .audience-options button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+    .audience-options button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+    .pathway-outcome{margin:17px 0 10px!important;color:var(--navy)!important;font-weight:600}
+    .module-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .module-jump a{font-size:12px;text-decoration:none;border-bottom:1px solid var(--gold);padding:4px 3px;color:var(--blue)}
+    .module-group{margin:32px 0 0;scroll-margin-top:92px}
+    .module-group h4{font:500 25px/1.2 Georgia,serif;color:var(--navy);margin:0 0 7px}
+    .module-group>p{font-size:14px;color:var(--muted);margin:0 0 16px}
+    .module-group .grid{margin-top:10px}
+    .module-index{font:800 11px/1.2 Inter,"Segoe UI",Arial,sans-serif;color:#8a6b27;letter-spacing:.12em;text-transform:uppercase}
+    @media(max-width:560px){.pathway-shell{padding:18px}.audience-options button{flex:1 1 100%}}
   </style>
 </head>
 
@@ -199,6 +217,17 @@
           artifact logging, risk controls, and defensible implementation patterns across regulated workflows.
         </p>
 
+        <div class="pathway-shell" data-pathway="ai">
+<h4>Choose your learning perspective</h4>
+<p>All original resources remain available. Select an audience to see a recommended conceptual sequence; no cards or links are removed.</p>
+<div class="audience-options" role="group" aria-label="Learning audience">
+<button type="button" data-audience="students" aria-pressed="true">Graduate students</button>
+<button type="button" data-audience="practitioners" aria-pressed="false">Financial practitioners</button>
+<button type="button" data-audience="leadership" aria-pressed="false">Boards &amp; leadership</button>
+</div>
+<p class="pathway-outcome" aria-live="polite">Foundations, guided experiments and critical judgment.</p>
+<div class="module-jump" aria-label="Conceptual modules"></div>
+</div>
         <div class="grid">
           <!-- AI domain cards -->
 
@@ -534,6 +563,17 @@
           These course-books are runnable, mechanism-first, and explicit about costs, feasibility, regimes, and stress behavior.
         </p>
 
+        <div class="pathway-shell" data-pathway="trading">
+<h4>Choose your learning perspective</h4>
+<p>All original resources remain available. Select an audience to see a recommended conceptual sequence; no cards or links are removed.</p>
+<div class="audience-options" role="group" aria-label="Learning audience">
+<button type="button" data-audience="students" aria-pressed="true">Graduate students</button>
+<button type="button" data-audience="practitioners" aria-pressed="false">Financial practitioners</button>
+<button type="button" data-audience="leadership" aria-pressed="false">Boards &amp; leadership</button>
+</div>
+<p class="pathway-outcome" aria-live="polite">Foundations, guided experiments and critical judgment.</p>
+<div class="module-jump" aria-label="Conceptual modules"></div>
+</div>
         <div class="grid">
           <!-- Trading domain cards -->
 
@@ -821,3 +861,58 @@
         <h3>Copyright and License</h3>
 
         <p>
+Copyright © Alejandro Reynoso. Repository-specific licenses and notices govern the linked materials.</p>
+      </div>
+    </section>
+    <footer class="footer">AI &amp; Algorithmic Finance — A Living Curriculum · Alejandro Reynoso</footer>
+  </main>
+
+<script>
+(function(){
+"use strict";
+const config={"ai":{"names":["AI Foundations","Generative Intelligence","Agents & Autonomous Systems","Memory, Knowledge & Institutional Intelligence","Governance, Risk & Control","Financial Applications & Frontier Research"],"desc":["Statistics, machine learning, economic reasoning and the transition to modern AI.","Prompting, reasoning, fine-tuning, multimodal and generative methods.","Agents, coordinated intelligence, autonomous systems and institutional delegation.","Memory, evidence, retrieval and institutional knowledge architectures.","Auditability, cybersecurity, harnessing, verification and decision rights.","Financial workflows, professional applications and emerging research questions."],"map":[0,0,4,0,0,4,1,5,5,5,5,5,1,5,0,1,2,1,1,3,1,3,2,3,4,5,2,2,4,5],"orders":{"students":[0,1,3,2,4,5],"practitioners":[1,3,2,5,4,0],"leadership":[0,5,4,2,3,1]}},"trading":{"names":["Market Foundations & Microstructure","Strategies, Signals & Portfolios","Trading Systems Engineering","AI & Autonomous Trading","Frontier Computational Methods"],"desc":["Price formation, liquidity, execution and the mechanics of markets.","Systematic strategies, backtesting, portfolio construction and validation.","Reproducible laboratories, trading infrastructure and operational controls.","AI-assisted research and the transition toward governed autonomy.","Quantum-inspired and other experimental computational methods."],"map":[0,2,2,1,1,0,4,3],"orders":{"students":[0,1,2,3,4],"practitioners":[1,0,2,3,4],"leadership":[0,2,3,1,4]}}};
+const outcomes={
+ students:"Graduate students: foundations, guided experiments and critical judgment.",
+ practitioners:"Financial practitioners: workflow design, applied laboratories and risk-aware implementation.",
+ leadership:"Boards and leadership: strategy, institutional readiness, governance and accountable adoption."
+};
+for(const [domain,cfg] of Object.entries(config)){
+ const root=document.getElementById(domain==="ai"?"domain-ai":"domain-trading");
+ if(!root)continue;
+ const shell=root.querySelector('[data-pathway="'+domain+'"]');
+ const originalGrid=shell.nextElementSibling;
+ if(!originalGrid||!originalGrid.classList.contains("grid"))continue;
+ const cards=Array.from(originalGrid.children).filter(el=>el.classList.contains("card"));
+ // Integrity safeguard: if catalogue changes, leave its original layout untouched.
+ if(cards.length!==cfg.map.length){shell.querySelector(".pathway-outcome").textContent="Full catalogue shown below.";continue;}
+ const sections=cfg.names.map((name,i)=>{
+   const section=document.createElement("section");
+   section.className="module-group";
+   section.id=domain+"-module-"+i;
+   const idx=document.createElement("div");idx.className="module-index";idx.textContent="Concept "+String(i+1).padStart(2,"0");
+   const heading=document.createElement("h4");heading.textContent=name;
+   const desc=document.createElement("p");desc.textContent=cfg.desc[i];
+   const grid=document.createElement("div");grid.className="grid";
+   section.append(idx,heading,desc,grid);
+   return {section,grid};
+ });
+ cards.forEach((card,i)=>sections[cfg.map[i]].grid.appendChild(card));
+ const holder=document.createElement("div");holder.className="module-collection";
+ originalGrid.replaceWith(holder);
+ sections.forEach(item=>holder.appendChild(item.section));
+ function choose(audience){
+   const order=cfg.orders[audience];
+   order.forEach(i=>holder.appendChild(sections[i].section));
+   shell.querySelectorAll("[data-audience]").forEach(btn=>btn.setAttribute("aria-pressed",String(btn.dataset.audience===audience)));
+   shell.querySelector(".pathway-outcome").textContent=outcomes[audience];
+   const jump=shell.querySelector(".module-jump");jump.replaceChildren();
+   order.forEach(i=>{const a=document.createElement("a");a.href="#"+sections[i].section.id;a.textContent=cfg.names[i];jump.appendChild(a);});
+ }
+ shell.querySelectorAll("[data-audience]").forEach(btn=>btn.addEventListener("click",()=>choose(btn.dataset.audience)));
+ choose("students");
+}
+})();
+</script>
+
+</body>
+</html>
