@@ -111,6 +111,18 @@
     .module-group .grid{margin-top:10px}
     .module-index{font:800 11px/1.2 Inter,"Segoe UI",Arial,sans-serif;color:#8a6b27;letter-spacing:.12em;text-transform:uppercase}
     @media(max-width:560px){.pathway-shell{padding:18px}.audience-options button{flex:1 1 100%}}
+
+    .roadmap-toc{margin-top:19px;padding:19px 20px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold)}
+    .roadmap-toc h5{font:500 21px/1.25 Georgia,serif;color:var(--navy);margin:0 0 5px}
+    .roadmap-toc .roadmap-intro{margin:0 0 14px;font-size:13px;color:var(--muted)}
+    .roadmap-steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}
+    .roadmap-steps li{padding:10px 0;border-top:1px solid var(--line);min-width:0}
+    .roadmap-steps a{display:flex;gap:11px;align-items:flex-start;text-decoration:none;color:var(--navy)}
+    .roadmap-steps a:hover .roadmap-name{text-decoration:underline;text-decoration-color:var(--gold)}
+    .roadmap-number{font:700 12px/1.6 Inter,"Segoe UI",Arial,sans-serif;color:#8a6b27;flex:none}
+    .roadmap-name{font:500 16px/1.35 Georgia,serif}
+    .roadmap-steps small{display:block;font:12px/1.5 Inter,"Segoe UI",Arial,sans-serif;color:var(--muted);margin:5px 0 0 27px}
+    @media(max-width:700px){.roadmap-steps{grid-template-columns:1fr}}
   </style>
 </head>
 
@@ -226,7 +238,7 @@
 <button type="button" data-audience="leadership" aria-pressed="false">Boards &amp; leadership</button>
 </div>
 <p class="pathway-outcome" aria-live="polite">Foundations, guided experiments and critical judgment.</p>
-<div class="module-jump" aria-label="Conceptual modules"></div>
+<nav class="roadmap-toc" aria-label="Learning roadmap"><h5>Learning roadmap · Table of contents</h5><p class="roadmap-intro">Follow the sequence below. Select a chapter to jump to its original course and research cards.</p><ol class="roadmap-steps"></ol></nav>
 </div>
         <div class="grid">
           <!-- AI domain cards -->
@@ -572,7 +584,7 @@
 <button type="button" data-audience="leadership" aria-pressed="false">Boards &amp; leadership</button>
 </div>
 <p class="pathway-outcome" aria-live="polite">Foundations, guided experiments and critical judgment.</p>
-<div class="module-jump" aria-label="Conceptual modules"></div>
+<nav class="roadmap-toc" aria-label="Learning roadmap"><h5>Learning roadmap · Table of contents</h5><p class="roadmap-intro">Follow the sequence below. Select a chapter to jump to its original course and research cards.</p><ol class="roadmap-steps"></ol></nav>
 </div>
         <div class="grid">
           <!-- Trading domain cards -->
@@ -905,8 +917,17 @@ for(const [domain,cfg] of Object.entries(config)){
    order.forEach(i=>holder.appendChild(sections[i].section));
    shell.querySelectorAll("[data-audience]").forEach(btn=>btn.setAttribute("aria-pressed",String(btn.dataset.audience===audience)));
    shell.querySelector(".pathway-outcome").textContent=outcomes[audience];
-   const jump=shell.querySelector(".module-jump");jump.replaceChildren();
-   order.forEach(i=>{const a=document.createElement("a");a.href="#"+sections[i].section.id;a.textContent=cfg.names[i];jump.appendChild(a);});
+   const steps=shell.querySelector(".roadmap-steps");steps.replaceChildren();
+   order.forEach((i,position)=>{
+     const li=document.createElement("li"),a=document.createElement("a");
+     a.href="#"+sections[i].section.id;
+     const number=document.createElement("span");number.className="roadmap-number";number.textContent=String(position+1).padStart(2,"0");
+     const name=document.createElement("span");name.className="roadmap-name";name.textContent=cfg.names[i];
+     a.append(number,name);
+     const note=document.createElement("small"),n=sections[i].grid.children.length;
+     note.textContent=cfg.desc[i]+" · "+n+" resource"+(n===1?"":"s");
+     li.append(a,note);steps.appendChild(li);
+   });
  }
  shell.querySelectorAll("[data-audience]").forEach(btn=>btn.addEventListener("click",()=>choose(btn.dataset.audience)));
  choose("students");
