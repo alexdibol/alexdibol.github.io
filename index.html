@@ -124,6 +124,15 @@
     .roadmap-steps small{display:block;font:12px/1.5 Inter,"Segoe UI",Arial,sans-serif;color:var(--muted);margin:5px 0 0 27px}
     @media(max-width:700px){.roadmap-steps{grid-template-columns:1fr}}
 .architecture-section{padding:38px 24px 46px;background:#081b30}.architecture-diagram{max-width:1060px;margin:0 auto;padding:34px 30px 36px;border:1px solid rgba(231,212,154,.35);border-radius:15px;background:#0b2038;color:#f5f5f4;text-align:center}.architecture-diagram h2{font:500 clamp(22px,3vw,31px)/1.3 Georgia,serif;color:#fff;margin:0}.architecture-arrow{font-size:29px;line-height:1;color:#e1c77e;margin:17px auto}.architecture-domains{display:grid;grid-template-columns:1fr 1fr;gap:14px}.architecture-node{display:block;padding:22px 15px;border:1px solid rgba(231,212,154,.32);border-radius:9px;color:#f7f7f5;text-decoration:none;background:rgba(255,255,255,.035);transition:border-color .2s,background .2s}a.architecture-node:hover,a.architecture-node:focus-visible{background:rgba(201,163,76,.12);border-color:var(--gold);outline:none}.architecture-node strong{display:block;font:500 clamp(20px,2.5vw,26px)/1.3 Georgia,serif}.architecture-node span{display:block;margin-top:6px;color:#d3d9df;font-size:15px}.architecture-audience{padding:21px 12px}.architecture-finish{padding:20px 12px;border-top:1px solid rgba(231,212,154,.28);font:500 clamp(18px,2.5vw,24px)/1.45 Georgia,serif;color:#f3dfae}.architecture-note{margin:16px 0 0;font-size:13px;color:#c2cbd3}@media(max-width:650px){.architecture-section{padding:20px 12px 30px}.architecture-diagram{padding:26px 16px}.architecture-domains{grid-template-columns:1fr}.architecture-arrow{margin:13px auto}.architecture-node{padding:18px 10px}}
+
+    /* Give the principal navigation map breathing room and a clear return path. */
+    .architecture-section{padding-top:78px;padding-bottom:66px;scroll-margin-top:75px}
+    .architecture-eyebrow{color:#d5b96c;font:700 11px/1.4 Inter,"Segoe UI",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+    .architecture-subtitle{font:15px/1.6 Inter,"Segoe UI",Arial,sans-serif;color:#d6dce4;margin:10px 0 0}
+    .return-map{display:inline-flex;align-items:center;margin:0 0 20px;padding:10px 15px;border:1px solid var(--gold);background:#fff;color:var(--navy);text-decoration:none;font:700 12px/1.3 Inter,"Segoe UI",Arial,sans-serif}
+    .return-map:hover,.return-map:focus-visible{background:var(--navy);color:#fff;outline:2px solid var(--gold);outline-offset:2px}
+    .domainbox{scroll-margin-top:95px}
+    @media(max-width:650px){.architecture-section{padding-top:45px;padding-bottom:42px}.return-map{width:auto}}
   </style>
 </head>
 
@@ -164,9 +173,11 @@
     </section>
 
     <!-- CANONICAL LIVING CURRICULUM ARCHITECTURE -->
-    <section class="architecture-section" aria-label="Living curriculum architecture">
+    <section class="architecture-section" id="curriculum-map" aria-label="Curriculum navigation map">
       <div class="architecture-diagram">
-        <h2>AI &amp; Algorithmic Finance — A Living Curriculum</h2>
+        <div class="architecture-eyebrow">Explore the platform</div>
+        <h2>Curriculum Navigation Map</h2>
+        <p class="architecture-subtitle">AI &amp; Algorithmic Finance — A Living Curriculum</p>
         <div class="architecture-arrow" aria-hidden="true">↓</div>
         <div class="architecture-domains">
           <a class="architecture-node" href="#domain-ai"><strong>AI Systems</strong><span>6 conceptual modules</span></a>
@@ -253,7 +264,7 @@
           artifact logging, risk controls, and defensible implementation patterns across regulated workflows.
         </p>
 
-        <div class="pathway-shell" data-pathway="ai">
+        <div class="pathway-shell" data-pathway="ai"><a class="return-map" href="#curriculum-map">↑ Return to Curriculum Map</a>
 <h4>Choose your learning perspective</h4>
 <p>All original resources remain available. Select an audience to see a recommended conceptual sequence; no cards or links are removed.</p>
 <div class="audience-options" role="group" aria-label="Learning audience">
@@ -599,7 +610,7 @@
           These course-books are runnable, mechanism-first, and explicit about costs, feasibility, regimes, and stress behavior.
         </p>
 
-        <div class="pathway-shell" data-pathway="trading">
+        <div class="pathway-shell" data-pathway="trading"><a class="return-map" href="#curriculum-map">↑ Return to Curriculum Map</a>
 <h4>Choose your learning perspective</h4>
 <p>All original resources remain available. Select an audience to see a recommended conceptual sequence; no cards or links are removed.</p>
 <div class="audience-options" role="group" aria-label="Learning audience">
